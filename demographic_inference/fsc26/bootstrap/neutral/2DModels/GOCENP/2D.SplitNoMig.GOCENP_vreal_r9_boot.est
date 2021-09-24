@@ -1,0 +1,14 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 TDIV unif 10 200000 output
+1 NANC unif 100 50000 output
+1 NGOC unif 10 100000 output
+1 NENP unif 10 100000 output
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+0 RESIZE = NANC/NENP output

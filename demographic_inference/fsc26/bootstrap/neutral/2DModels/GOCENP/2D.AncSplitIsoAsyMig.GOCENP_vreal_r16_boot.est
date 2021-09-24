@@ -1,0 +1,23 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NANC unif 1000 40000 output
+1 NBOT unif 1500 60000 output
+1 NGOC unif 0 1000 output
+1 NENP unif 10 50000 output
+0 N1M21 logunif 1e-2 20 output
+0 N2M12 logunif 1e-2 20 output
+1 TDIV unif 10 4000 output
+1 TA unif 100 8000 output 
+1 TISO unif 1 1000 output
+[RULES]
+TA>TDIV
+TDIV>TISO
+[COMPLEX PARAMETERS]
+//0 TA = TDIV+AT output
+0 RES2 = NBOT/NENP output
+0 RES1 = NANC/NBOT output
+0 MIG21 = N1M21/NGOC output
+0 MIG12 = N2M12/NENP output

@@ -1,0 +1,20 @@
+//Number of population samples (demes)
+1
+//Population effective sizes (number of genes)
+696
+//Sample sizes
+44
+//Growth rates : negative growth implies population expansion
+0
+//Number of migration matrices : 0 implies no migration between demes
+0
+//historical event: time, source, sink, migrants, new size, new growth rate, migr. matrix
+2 historical events
+2 0 0 0 6.811494252873563e+01 0 0
+4354 0 0 0 6.992912588592642e-01 0 0
+//Number of independent loci [chromosome]
+3927079 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate and mut rate + optional parameters
+DNA 100 0 2.77e-08 OUTEXP

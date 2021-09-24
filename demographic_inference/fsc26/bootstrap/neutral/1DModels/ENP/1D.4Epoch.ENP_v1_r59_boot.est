@@ -1,0 +1,19 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NCUR unif 0 1000 output
+1 NBOT unif 100 20000 output
+1 TBOT unif 0 2000 output
+1 TENDBOT unif 100 8000 output
+1 NREC unif 100 30000 output
+1 NANC unif 1000 50000 output
+1 TANCBOT unif 1000 10000 output
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+0 RESBOT = NREC/NCUR 
+0 RESENDBOT = NBOT/NREC
+0 RESANCBOT = NANC/NBOT
