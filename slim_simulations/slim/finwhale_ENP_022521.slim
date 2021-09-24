@@ -1,0 +1,190 @@
+initialize() {
+	
+	initializeMutationRate(2.77e-8);
+	initializeRecombinationRate(1e-8);
+	defineConstant("h_strDel", 0);
+	defineConstant("h_modDel", 0.1);
+	defineConstant("h_wkDel", 0.4);
+	defineConstant("sampleSize", 40);
+	defineConstant("seqLength", 10000000);
+	
+	//draw deleterious mutations from Kim 2017 human DFE
+	//and allow for different dominance coefficients for mutations with different s
+	//by creating different mutation types (faster than fitness callbacks)	
+	
+	//strongly deleterious mutations (s<-0.01)
+	initializeMutationType("m1", h_strDel, "s", "do x=rgamma(1,-0.01314833,0.186); while (x >= -0.01); return x;");
+	//moderately deleterious mutations (-0.001 > s >= -0.01)
+	initializeMutationType("m2", h_modDel, "s", "do x=rgamma(1,-0.01314833,0.186); while (x < -0.01 | x >= -0.001); return x;");
+	//weakly deleterious mutations (s >= -0.001)
+	initializeMutationType("m3", h_wkDel, "s", "do x=rgamma(1,-0.01314833,0.186); while (x < -0.001); return x;");
+	//neutral mutations
+	initializeMutationType("m4", 0.5,"f",0.0);
+	
+	//g1 is exons and includes all mutation types
+	//m1-m3 are deleterious (nonsynonymous) mutations
+	//ratio of different deleterious mutation types taken from Kim 2017 DFE (sum to 100 below)
+	//assume ratio of deleterious to neutral muts of 2.31:1
+	//giving 100/2.31=43.3 for neutral mutations below
+	initializeGenomicElementType("g1", c(m1,m2,m3,m4), c(26.2, 24.7, 49.1, 43.3));
+	initializeGenomicElementType("g2", m4, 1);
+	initializeGenomicElementType("g3", m4, 1);
+	
+	// Generate random genes along the chromosome
+	base = 0;
+	nc_length_total = 0;
+	in_length_total = 0;
+	ex_length_total = 0;
+	while (base < seqLength) {
+		// make a non-coding region
+		nc_length = asInteger(runif(1, 100, 5000)); nc_length_total = nc_length_total + nc_length;
+		initializeGenomicElement(g2, base, base + nc_length - 1);
+		base = base + nc_length;
+		// make first exon
+		ex_length = asInteger(rlnorm(1, log(50), log(2))) + 1; ex_length_total = ex_length_total + ex_length;
+		initializeGenomicElement(g1, base, base + ex_length - 1);
+		base = base + ex_length;
+		// make additional intron-exon pairs
+		do {
+			in_length = asInteger(rlnorm(1, log(100), log(1.5))) + 10; in_length_total = in_length_total + in_length;
+			initializeGenomicElement(g3, base, base + in_length - 1);
+			base = base + in_length;
+			ex_length = asInteger(rlnorm(1, log(50), log(2))) + 1; ex_length_total = ex_length_total + ex_length;
+			initializeGenomicElement(g1, base, base + ex_length - 1);
+			base = base + ex_length;
+		} while (runif(1) < 0.8); // 20% probability of stopping
+	}
+	// final non-coding region
+	nc_length = asInteger(runif(1, 100, 5000));
+	initializeGenomicElement(g2, base, base + nc_length - 1);
+}
+
+
+// Begin the simulation with burn-in period for ancestral population
+// Get rid of fixed mutations since not interested in absolute fitness of burn-in population
+1 {
+	sim.addSubpop("p1", 16500);
+	cat("gen,popSizeP1,meanFitnessP1,meanHetP1,FROH_500kbP1,FROH_1MbP1,avgvStrDelP1,avgStrDelP1,avgModDelP1,avgWkDelP1" + "\n");
+	m1.convertToSubstitution = T;
+	m2.convertToSubstitution = T;
+	m3.convertToSubstitution = T;
+	m4.convertToSubstitution = T;
+
+}
+
+
+// Keep track of statistics every 1,000 generations during burn in
+1:165000 early() {
+	if (sim.generation % 1000 == 0){
+		stats = getStats(p1, sampleSize);
+		cat(sim.generation + "," + p1.individuals.size() + "," + stats + "\n");
+	}
+}
+
+
+//second epoch for 4490 gens
+165000 {
+	p1.setSubpopulationSize(23700);
+}
+
+//contract for 20 generations
+169490 {
+	p1.setSubpopulationSize(200);
+}
+
+169510{
+	sim.simulationFinished();
+}
+
+
+
+// track statistics every 100 generations after burn-in
+// also start keeping fixed mutations 
+165000:169510 early() {
+	m1.convertToSubstitution = F;
+	m2.convertToSubstitution = F;
+	m3.convertToSubstitution = F;
+	
+	if (sim.generation % 100 == 0 | sim.generation >= 169490){
+		statsP1 = getStats(p1, sampleSize);
+		cat(sim.generation + "," + p1.individuals.size() + "," + statsP1 + "," + "\n");
+	}
+}
+
+
+
+
+// define function to sample a population for
+// mean fitness, heterozygosity, mean Froh, 
+// and avg num of mutations of different classes per individual (very str del, str del, mod del, wk del)
+function (s) getStats(o pop, i sampSize)
+{
+	i = sample(pop.individuals, sampSize, F);
+	
+	m = sortBy(i.genomes.mutations, "position"); //get all mutations in sample
+	m_uniq = unique(m); // get rid of redundant muts
+	DAF = sapply(m_uniq, "sum(m == applyValue);"); // count number of each mut in pop
+	m_uniq_polym = m_uniq[DAF != i.genomes.size()]; //remove fixed mutations??
+	
+	//initialize vectors
+	ROH_length_sumPerInd_1Mb = c();
+	ROH_length_sumPerInd_500Kb = c();
+	Num_vStrDel_muts = c();
+	Num_strDel_muts = c();
+	Num_modDel_muts = c();
+	Num_wkDel_muts = c();
+	ind_het = c();
+	
+	for (individual in i) {
+		
+		indm = sortBy(individual.genomes.mutations, "position");
+		indm = indm[match(indm, m_uniq_polym) >= 0];   // Check that individual mutations are not fixed 
+		indm_uniq = unique(indm);
+		
+		genotype = sapply(indm_uniq, "sum(indm == applyValue);");
+		
+		// tally number of mutations for different classes of selection coefficient per individual
+		s = individual.genomes.mutations.selectionCoeff;
+		
+		Num_vStrDel_muts = c(Num_vStrDel_muts, sum(s<=-0.1));
+		Num_strDel_muts = c(Num_strDel_muts, sum(s<=-0.01));
+		Num_modDel_muts = c(Num_modDel_muts, sum(s<=-0.001 & s > -0.01));
+		Num_wkDel_muts = c(Num_wkDel_muts, sum(s<=-0.00001 & s > -0.001));
+		
+		if (isNULL(genotype)) {
+			ind_het = c(ind_het, 0); //putting this here to avoid error when trying to sum null vector
+			next;
+		}
+		
+		ind_het = c(ind_het, sum(genotype==1)/(seqLength));
+		
+		//code for getting ROHs
+		
+		ID_het = (genotype == 1); //outputs T/F for genotypes if they are het or homDer
+		ID_homDer = (genotype == 2);
+		pos_het = indm_uniq.position[ID_het]; //outputs positions of heterozgoys genotypes
+		
+		startpos = c(0, pos_het); //adds 0 to beggining of vector of hets
+		endpos = c(pos_het, sim.chromosome.lastPosition); //adds last position in genome to vector of hets
+		pos_het_diff = endpos - startpos;
+		
+		//sum for ROHs > 1Mb
+		ROH_startpos_1Mb = startpos[pos_het_diff > 1000000]; //filter out startpos that dont correspond to ROH > 1Mb
+		ROH_endpos_1Mb = endpos[pos_het_diff > 1000000];
+		ROH_length_1Mb = pos_het_diff[pos_het_diff > 1000000]; //vector of ROHs for each individual	
+		ROH_length_sum_1Mb = sum(ROH_length_1Mb);
+		ROH_length_sumPerInd_1Mb = c(ROH_length_sumPerInd_1Mb, ROH_length_sum_1Mb); // add sum of ROHs for each individual to vector of ROHs for all individuals
+		
+		//sum for ROHs > 500kb
+		ROH_startpos_500Kb = startpos[pos_het_diff > 500000]; //filter out startpos that dont correspond to ROH > 1Mb
+		ROH_endpos_500Kb = endpos[pos_het_diff > 500000];
+		ROH_length_500Kb = pos_het_diff[pos_het_diff > 500000]; //vector of ROHs for each individual	
+		ROH_length_sum_500Kb = sum(ROH_length_500Kb);
+		ROH_length_sumPerInd_500Kb = c(ROH_length_sumPerInd_500Kb, ROH_length_sum_500Kb); // add sum of ROHs for each individual to vector of ROHs for all individuals
+	
+	}
+	
+	return(mean(pop.cachedFitness(NULL)) + "," + mean(ind_het) + "," + mean(ROH_length_sumPerInd_500Kb)/seqLength + "," + mean(ROH_length_sumPerInd_1Mb)/seqLength + "," + mean(Num_vStrDel_muts) + "," + mean(Num_strDel_muts)+ "," + mean(Num_modDel_muts) + "," + mean(Num_wkDel_muts));
+}
+
+
