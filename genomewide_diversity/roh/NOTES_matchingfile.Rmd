@@ -1,0 +1,51 @@
+# Confirmed the robustness of this file
+
+```{r}
+bcfroh = categorize_roh(bcfroh, rohlens, rohcats)
+dt = readRDS('./data/roh/derived_data/ROH_bcfroh_summary_final_20210812.rds')
+dt2 = readRDS('./data/roh/derived_data/ROH_bcfroh_summary_final_20210906.rds')
+identical(dt, dt2)
+
+zooroh = categorize_roh(zooroh, rohlens, rohcats)
+dt = readRDS('./data/roh/derived_data/ROH_zooroh_summary_final_20210812.rds')
+identical(dt,zooroh)
+```
+
+The md5sum for the bcfroh did not match but the zooroh matched. The fie appeared to be identical. did not match so I ended up using the new final file to be consistent
+
+```
+9398588a91ad9c6f0561854bff3c2b52 ROH_bcfroh_summary_final_20210812.rds
+4a76f281f6602a1e162b5f3533c9a4d6 ROH_bcfroh_summary_final_20210906.rds
+4a76f281f6602a1e162b5f3533c9a4d6 ROH_bcfroh_summary_final_20210907.rds
+95ffd9f3aefb0ee9d8e45124424b0fb2 ROH_zooroh_summary_final_20210812.rds
+95ffd9f3aefb0ee9d8e45124424b0fb2 ROH_zooroh_summary_final_20210906.rds
+95ffd9f3aefb0ee9d8e45124424b0fb2 ROH_zooroh_summary_final_20210907.rds
+9476da1907044ecf5a5fbfeb82e92efa rohsummary_zoobcf_20210808.rds
+```
+
+# Confirming the roh summary file
+
+```{r}
+rohsumdt = readRDS('/Users/linmeixi/Lab/finwhale_manuscript/data/roh/derived_data/rohsummary_zoobcf_20210808.rds')
+identical(rohsumdt, rohsum2)
+# Done
+```
+
+The md5 matched perfectly too
+
+```{bash}
+linmeixi@linmeixis-MBP derived_data (master) $ md5 -r rohsummary*
+9476da1907044ecf5a5fbfeb82e92efa rohsummary_zoobcf_20210808.rds
+01ae1346be2ab8b1111aa630e4b4589b rohsummary_zoobcf_20210908.csv
+9476da1907044ecf5a5fbfeb82e92efa rohsummary_zoobcf_20210908.rds
+linmeixi@linmeixis-MBP derived_data (master) $ md5 -r /Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/derived_data/rohsummary_zoobcf_20210808.csv
+01ae1346be2ab8b1111aa630e4b4589b /Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/derived_data/rohsummary_zoobcf_20210808.csv
+```
+
+# confirming the Froh matching files
+
+```{bash}
+linmeixi@wifi-131-179-10-135 analyses $ md5 -r /Users/linmeixi/Lab/finwhale_manuscript/data/roh/derived_data/FROH_100k1M5M_all_20210912.csv /Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/derived_data/FROH_100k1M5M_all_20210813.csv 
+661a2bdc1817254bdc0c17700492cc81 /Users/linmeixi/Lab/finwhale_manuscript/data/roh/derived_data/FROH_100k1M5M_all_20210912.csv
+661a2bdc1817254bdc0c17700492cc81 /Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/derived_data/FROH_100k1M5M_all_20210813.csv
+```
