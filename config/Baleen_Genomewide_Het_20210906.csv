@@ -1,0 +1,7 @@
+Common.Name,Species,IUCN.Status,Observed.pi,Source,DOI
+Vaquita,Phocoena sinus,CR,9.04e-5,Robinson_2021,NA
+Minke whale,Balaenoptera acutorostrata,LC,0.00063325066868251,this study (data from Yim_2014),NA
+Human,Homo sapiens,NE,0.00104,Corbett-Detig_2015,10.1371/journal.pbio.1002112
+Blue whale,Balaenoptera musculus,EN,0.0021333032807058,this study (data from Arnarson_2018),NA
+N.Atl Right whale,Eubalaena glacialis,EN,0.00178426914566901,this study,NA
+Humpback whale,Megaptera novaeangliae,LC,0.00117653734206861,this study,NA
