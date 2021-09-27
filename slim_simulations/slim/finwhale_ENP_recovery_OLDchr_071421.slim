@@ -1,3 +1,8 @@
+// Author: Chris Kyriazis
+// Originally slim/chris/finwhale_ENP_recovery_071421.slim
+// Modified by Meixi Lin to 1. change to old chromosome structure 2. update the burn-in population size from 16500 to 16479 (same as the finwhale_ENP_OLDchr_071421.slim)
+// Sun Sep 12 11:50:50 2021
+
 initialize() {
 	
 	initializeMutationRate(2.77e-8);
@@ -63,7 +68,7 @@ initialize() {
 // Begin the simulation with burn-in period for ancestral population
 // Get rid of fixed mutations since not interested in absolute fitness of burn-in population
 1 {
-	sim.addSubpop("p1", 16500);
+	sim.addSubpop("p1", 16479);
 	cat("gen,popSizeP1,meanFitnessP1,meanHetP1,FROH_500kbP1,FROH_1MbP1,avgvStrDelP1,avgStrDelP1,avgModDelP1,avgWkDelP1" + "\n");
 	m1.convertToSubstitution = T;
 	m2.convertToSubstitution = T;
@@ -82,35 +87,40 @@ initialize() {
 }
 
 
-//second epoch for 4490 gens
+//second epoch for 4422 gens
 165000 {
-	p1.setSubpopulationSize(23700);
+	p1.setSubpopulationSize(23913);
 }
 
-//contract for 20 generations
-169490 {
-	p1.setSubpopulationSize(200);
+//contract for 2 generations
+169422 {
+	p1.setSubpopulationSize(305);
 }
 
-169510{
+// recover for 18 generations
+169424 {
+	p1.setSubpopulationSize(1000);
+}
+
+
+169442{
 	sim.simulationFinished();
 }
 
 
 
 // track statistics every 100 generations after burn-in
-// also start keeping fixed mutations 
-165000:169510 early() {
+// also start keeping fixed mutations
+165000:169442 early() {
 	m1.convertToSubstitution = F;
 	m2.convertToSubstitution = F;
 	m3.convertToSubstitution = F;
-	
-	if (sim.generation % 100 == 0 | sim.generation >= 169490){
+
+	if (sim.generation % 100 == 0 | sim.generation >= 169422){
 		statsP1 = getStats(p1, sampleSize);
 		cat(sim.generation + "," + p1.individuals.size() + "," + statsP1 + "," + "\n");
 	}
 }
-
 
 
 

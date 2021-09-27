@@ -40,7 +40,7 @@ ylabs = c('# str.del. alleles', '# mod.del. alleles', '# weak del. alleles')
 sessionInfo()
 
 # load data --------
-plot2popdt = readRDS(file = paste0(indir, 'slim_plotdt_2pop_ancestralChange_20210910.rds'))
+plot2popdt = readRDS(file = paste0(indir, 'slim_plotdt_2pop_ancestralChange_20210919.rds'))
 
 # main --------
 get_meanval(plot2popdt, measurevar = 'meanHet')
