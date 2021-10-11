@@ -1,0 +1,19 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NANC unif 100 100000 output
+1 NGOC unif 10 100000 output
+1 NENP unif 0 1000 output
+0 N1M21 logunif 1e-2 20 output
+0 N2M12 logunif 1e-2 20 output
+1 TDIV unif 10 200000 output
+1 NBEC unif 10 10000 output
+
+[RULES]
+[COMPLEX PARAMETERS]
+0 RESENP = NBEC/NENP output
+0 RESIZE = NANC/NBEC output
+0 MIG21 = N1M21/NGOC output
+0 MIG12 = N2M12/NENP output

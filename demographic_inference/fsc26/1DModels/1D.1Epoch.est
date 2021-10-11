@@ -1,0 +1,11 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NE unif 10 10000 output
+
+
+[RULES]
+
+[COMPLEX PARAMETERS]
