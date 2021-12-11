@@ -7,7 +7,7 @@ source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
 conda activate gentools
 
 REF="Minke"
-Database=Baac01.10776
+Database=Baac01.10776 # 10776 is the scaffold number
 Snpeffdir=/u/project/rwayne/software/finwhale/miniconda2/envs/gentools/share/snpeff-4.3.1t-2
 # Snpeffdir=/u/home/m/meixilin/snpEff/snpEff
 HOMEDIR=/u/project/rwayne/snigenda/finwhale
