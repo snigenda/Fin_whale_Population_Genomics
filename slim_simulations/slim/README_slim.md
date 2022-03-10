@@ -3,8 +3,8 @@
 ```bash
 /u/project/rwayne/meixilin/fin_whale/analyses/slim/finwhale_2pop_ancestralChange_040121
 /u/project/rwayne/meixilin/fin_whale/analyses/slim/finwhale_2pop_ancestralChange_noMig_040121
-/u/project/klohmuel/ckyriazi/finwhale_sims/output/old/finwhale_ENP_022521
-/u/project/klohmuel/ckyriazi/finwhale_sims/output/old/finwhale_ENP_recovery_022521
+/u/project/rwayne/meixilin/fin_whale/analyses/slim/finwhale_ENP_recovery_OLDchr_071421
+/u/project/rwayne/meixilin/fin_whale/analyses/slim/finwhale_ENP_OLDchr_071421
 ```
 
 # step1: summarize the output
