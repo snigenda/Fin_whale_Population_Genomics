@@ -5,6 +5,8 @@
 # Output: Figure S4. Genomewide distribution of heterozygosity in all individuals
 # Output: Figure S5. Histograms of genomewide distribution of heterozygosity in all individuals
 # Execution: Rscript --vanilla step3_FigS4S5_all50_window_het_20210824.R
+# Modification: Add source data for the histogram
+# Date: Mon Jan 16 12:24:46 2023
 
 # preparation --------
 rm(list = ls())
@@ -19,7 +21,7 @@ library(ggpubr)
 library(RColorBrewer)
 library(gridExtra)
 
-source("~/Lab/finwhale_manuscript/scripts/config/plotting_config.R")
+source("~/Lab/fin_whale/finwhale_manuscript/scripts/config/plotting_config.R")
 
 # def functions --------
 
@@ -36,7 +38,7 @@ stepsize = 1e+6
 misscutoff = 0.2 # minimum called/winsize (same as isle royale paper)
 
 # go to that dataset
-setwd('~/Lab/finwhale_manuscript/')
+setwd('~/Lab/fin_whale/finwhale_manuscript/')
 indir = './data/window_het/derived_data/'
 outdir = './data/window_het/derived_data/'
 plotdir = './plots/window_het'
@@ -51,7 +53,7 @@ axis_lim = c(0,8.2,0,500)
 
 # load the genomewide diversity data as well to annotate
 genomehet = read.csv(file = './data/genome_stats/derived_data/all50_genomewide_heterozygosity_20210824.csv', stringsAsFactors = FALSE, row.names = 1) %>%
-    dplyr::select(SampleId, GenomeHet) %>% 
+    dplyr::select(SampleId, GenomeHet) %>%
     dplyr::mutate(GenomeHetText = paste('Mean het. =', sprintf("%.3f", round(1000*GenomeHet, digits = 3)))) %>%
     dplyr::rename(sample = SampleId)
 
@@ -87,6 +89,17 @@ ggsave(filename = paste0('FigureS5.winHet_1Mbwin_1Mbstep_20Per_all50_hist_', tod
        height = 12, width = 9)
 
 # output data --------
+# Modification: Generate the source_data for pph
+# Date: Mon Jan 16 12:24:22 2023
+pphbuild = ggplot_build(pph)
+histdt = pphbuild$data[[1]]
+paneldt = pphbuild$layout$layout[,c('PANEL', 'sample')]
+histdt = histdt %>%
+    dplyr::select(PANEL,x, xmin, xmax, count) %>%
+    dplyr::left_join(., paneldt, by = 'PANEL') %>%
+    dplyr::select(sample, x, xmin, xmax, count)
+colnames(histdt) = c('sample', 'winhetbin_center', 'winhet_min', 'winhetbin_max', 'count')
+write.csv(histdt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS7.csv')
 
 # cleanup --------
 closeAllConnections()

@@ -12,6 +12,10 @@ dir <- "C:/Users/gabri/Documents/MorenoLab/Ballenas/Results/PopStructure"
 
 gds <- "./JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
 
+# Modification: Save the source data
+# Date: Sun Jan  8 16:43:42 2023
+dir <- "~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/"
+gds <- "~/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
 
 setwd(dir)
 
@@ -29,7 +33,9 @@ format_pca <- function(pca, popmap, poplevel) {
 }
 
 genofile <- snpgdsOpen(gds, readonly = TRUE) 
-popmap = read.table("../popmap.txt", header = T)
+# popmap = read.table("../popmap.txt", header = T)
+popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+colnames(popmap) = c('sample','group','location')
 
 pcaout = snpgdsPCA(genofile, num.thread=8, autosome.only=FALSE, verbose = FALSE)
 pcaformatted = format_pca(pcaout, popmap = popmap, poplevel = "location")
@@ -83,3 +89,15 @@ as_ggplot(get_legend(p2))
 ## 5*5
 
 closefn.gds(genofile)
+
+# Modification: Meixi Lin
+# Date: Sun Jan  8 16:41:09 2023
+# Save the source data
+write.csv(tab, file = 'Fig1b.csv')
+
+
+
+
+
+
+

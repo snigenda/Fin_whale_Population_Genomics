@@ -7,6 +7,8 @@
 # Date: Fri Aug 13 18:11:36 2021
 # Modification: Change font
 # Date: Fri Sep  3 15:36:39 2021
+# Modification: Add source data
+# Date: Mon Jan 16 10:21:36 2023
 
 
 
@@ -52,7 +54,7 @@ plot_rxy <- function(jk_forplot, rxy_summary, r2xy_summary, muttypes, mutlabs) {
         coord_flip() +
         ggpubr::theme_pubr() +
         labs(color = '', x = '', y = 'GOC/ENP Ratio')
-    return(pp)
+    return(list(pp, summary))
 }
 
 # def variables --------
@@ -66,7 +68,7 @@ mutlab1 = c('SYN', 'TOL', 'DEL', 'LOF')
 xpop = 'GOC'
 ypop = 'ENP'
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
+workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './plots/'
@@ -89,13 +91,19 @@ r2xy_summary = read.csv(file = './derive_data/rxy_table/Summary_all50_Minke_ALLr
 
 # main --------
 # plotting the jackknife and se estimates ========
-pp1 <- plot_rxy(jk_forplot, rxy_summary, r2xy_summary, prefixlist1, mutlab1) +
+ppsummary <- plot_rxy(jk_forplot, rxy_summary, r2xy_summary, prefixlist1, mutlab1)
+pp1 <- ppsummary[[1]]  +
     theme(text = element_text(family = 'ArialMT'))
 
 ggsave(filename = paste0('NewColRxyMut_all50_Minke_ALLregions_1000JK_xGOCyENP_PASSm6_', today,'.pdf'),
        plot = pp1, path = plotdir, height = 4, width = 6)
 
 # output files --------
+# get source data
+ppdata <- ppsummary[[2]]
+# output the se
+ppdata <- ppdata[,c(2,3,6:12)]
+write.csv(ppdata, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/Fig4c.csv')
 
 # cleanup --------
 date()

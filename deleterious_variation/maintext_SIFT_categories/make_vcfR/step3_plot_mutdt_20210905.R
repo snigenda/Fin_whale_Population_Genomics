@@ -1,10 +1,12 @@
 # Title: FINAL VERSION Plot the master dataset (syn/nonsynTOL/nonsynDEL/LOF) with the invariant sites and bad individuals filtered out
 # Author: Meixi Lin (meixilin@ucla.edu)
 # Date: Thu Feb 18 21:41:45 2021
-# Modification: Change layout to adapt for final figure setup 
+# Modification: Change layout to adapt for final figure setup
 # Date: Fri Mar 19 18:55:40 2021
 # Modification: Change font to ArialMT
 # Date: Fri Sep  3 15:35:14 2021
+# Modification: Generate source data
+# Date: Mon Jan  9 22:10:11 2023
 
 
 
@@ -26,11 +28,11 @@ scale_override <- function(which, scale) {
     if(!is.numeric(which) || (length(which) != 1) || (which %% 1 != 0)) {
         stop("which must be an integer of length 1")
     }
-    
+
     if(is.null(scale$aesthetics) || !any(c("x", "y") %in% scale$aesthetics)) {
         stop("scale must be an x or y position scale")
     }
-    
+
     structure(list(which = which, scale = scale), class = "scale_override")
 }
 
@@ -39,17 +41,17 @@ CustomFacetWrap <- ggproto(
     init_scales = function(self, layout, x_scale = NULL, y_scale = NULL, params) {
         # make the initial x, y scales list
         scales <- ggproto_parent(FacetWrap, self)$init_scales(layout, x_scale, y_scale, params)
-        
+
         if(is.null(params$scale_overrides)) return(scales)
-        
+
         max_scale_x <- length(scales$x)
         max_scale_y <- length(scales$y)
-        
+
         # ... do some modification of the scales$x and scales$y here based on params$scale_overrides
         for(scale_override in params$scale_overrides) {
             which <- scale_override$which
             scale <- scale_override$scale
-            
+
             if("x" %in% scale$aesthetics) {
                 if(!is.null(scales$x)) {
                     if(which < 0 || which > max_scale_x) stop("Invalid index of x scale: ", which)
@@ -64,7 +66,7 @@ CustomFacetWrap <- ggproto(
                 stop("Invalid scale")
             }
         }
-        
+
         # return scales
         scales
     }
@@ -75,17 +77,17 @@ CustomFacetGrid <- ggproto(
     init_scales = function(self, layout, x_scale = NULL, y_scale = NULL, params) {
         # make the initial x, y scales list
         scales <- ggproto_parent(FacetGrid, self)$init_scales(layout, x_scale, y_scale, params)
-        
+
         if(is.null(params$scale_overrides)) return(scales)
-        
+
         max_scale_x <- length(scales$x)
         max_scale_y <- length(scales$y)
-        
+
         # ... do some modification of the scales$x and scales$y here based on params$scale_overrides
         for(scale_override in params$scale_overrides) {
             which <- scale_override$which
             scale <- scale_override$scale
-            
+
             if("x" %in% scale$aesthetics) {
                 if(!is.null(scales$x)) {
                     if(which < 0 || which > max_scale_x) stop("Invalid index of x scale: ", which)
@@ -100,7 +102,7 @@ CustomFacetGrid <- ggproto(
                 stop("Invalid scale")
             }
         }
-        
+
         # return scales
         scales
     }
@@ -110,17 +112,17 @@ CustomFacetGrid <- ggproto(
 facet_wrap_custom <- function(..., scale_overrides = NULL) {
     # take advantage of the sanitizing that happens in facet_wrap
     facet_super <- facet_wrap(...)
-    
+
     # sanitize scale overrides
     if(inherits(scale_overrides, "scale_override")) {
         scale_overrides <- list(scale_overrides)
-    } else if(!is.list(scale_overrides) || 
+    } else if(!is.list(scale_overrides) ||
               !all(vapply(scale_overrides, inherits, "scale_override", FUN.VALUE = logical(1)))) {
         stop("scale_overrides must be a scale_override object or a list of scale_override objects")
     }
-    
+
     facet_super$params$scale_overrides <- scale_overrides
-    
+
     ggproto(NULL, CustomFacetWrap,
             shrink = facet_super$shrink,
             params = facet_super$params
@@ -130,17 +132,17 @@ facet_wrap_custom <- function(..., scale_overrides = NULL) {
 facet_grid_custom <- function(..., scale_overrides = NULL) {
     # take advantage of the sanitizing that happens in facet_wrap
     facet_super <- facet_grid(...)
-    
+
     # sanitize scale overrides
     if(inherits(scale_overrides, "scale_override")) {
         scale_overrides <- list(scale_overrides)
-    } else if(!is.list(scale_overrides) || 
+    } else if(!is.list(scale_overrides) ||
               !all(vapply(scale_overrides, inherits, "scale_override", FUN.VALUE = logical(1)))) {
         stop("scale_overrides must be a scale_override object or a list of scale_override objects")
     }
-    
+
     facet_super$params$scale_overrides <- scale_overrides
-    
+
     ggproto(NULL, CustomFacetGrid,
             shrink = facet_super$shrink,
             params = facet_super$params
@@ -155,7 +157,7 @@ ref = 'Minke'
 cdstype = 'ALLregions'
 prefixlist = c("syn", "nonsynTOL", "nonsynDEL", "LOF")
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './pub_plots/'
@@ -166,8 +168,8 @@ date()
 sessionInfo()
 # load data --------
 # from step4_generate_summarystats_20210218.R output
-mutdt = readRDS(file = './derive_data/sum_table/all50_Minke_ALLregions_SUMtable_Seg_PASSm6_Norm_20210219.rds') %>% 
-    dplyr::filter(MutType %in% prefixlist) 
+mutdt = readRDS(file = './derive_data/sum_table/all50_Minke_ALLregions_SUMtable_Seg_PASSm6_Norm_20210219.rds') %>%
+    dplyr::filter(MutType %in% prefixlist)
 mutdt$MutType = factor(mutdt$MutType, levels = prefixlist,
                        labels = c("SYN", "TOL", "DEL", "LOF"))
 
@@ -177,7 +179,7 @@ alleledt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "M
     dplyr::filter(variable %in% c("normAltAllele"))
 
 pp1 <- ggplot(data = alleledt, aes(x = PopId, y = value, fill = PopId)) +
-    geom_boxplot() + 
+    geom_boxplot() +
     scale_fill_manual(values = mycolors) +
     # facet_wrap_custom(. ~ MutType, scales = "free_y",scale_overrides = list(
     #     scale_override(1, scale_y_continuous(breaks = c(25400, 25600, 25800))),
@@ -201,14 +203,14 @@ pp1.2 <- pp1 +
 ggsave(filename = paste0(plotdir, "MutType_allele_number_box_", today, ".pdf"), plot =  pp1.2, height = 6, width = 6)
 
 # the genotype proportion plot ========
-genodt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "MutType")) %>% 
+genodt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "MutType")) %>%
     dplyr::filter(variable %in% c("normHet", "normHomAlt"))
 genodt$variable = as.character(genodt$variable)
 genodt$variable = factor(genodt$variable, levels = c("normHomAlt", "normHet"), labels = c("Homozygous Derived", "Heterozygous"))
 
 pp2 <- ggplot(data = genodt,
               aes(x = PopId, y = value, fill = PopId)) +
-    geom_boxplot() + 
+    geom_boxplot() +
     scale_fill_manual(values = mycolors) +
     # facet_grid(MutType ~ variable, scale = 'free_y') +
     facet_grid_custom(MutType ~ variable, scale = 'free_y',scale_overrides = list(
@@ -231,6 +233,12 @@ pp2.2 <- pp2 +
 
 
 ggsave(filename = paste0(plotdir, "MutType_geno_number_box_", today, ".pdf"), plot =  pp2.2, height = 8, width = 5)
+
+# Modification: Source data ========
+# Date: Mon Jan  9 22:14:53 2023
+alleledt$variable = 'Derived Alleles'
+write.csv(alleledt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/Fig4a.csv')
+write.csv(genodt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/Fig4b.csv')
 
 # cleanup --------
 sink()

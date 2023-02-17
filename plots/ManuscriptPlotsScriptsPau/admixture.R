@@ -4,6 +4,7 @@ library(dplyr)
 library(ggplot2)
 library(ggpubr)
 library(cowplot)
+# remotes::install_github('royfrancis/pophelper')
 library(pophelper)
 library(SNPRelate)
 library(ggpubr)
@@ -15,6 +16,13 @@ gdsfile <- "../../JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
 setwd(dir)
 popmap = read.table("../../../popmap.txt", header = T)
 
+# Modification: Save the source data
+# Date: Sun Jan  8 16:43:42 2023
+dir <- "/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/Admixture_20210318/maf10/"
+gdsfile <- "~/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
+popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+colnames(popmap) = c('sample','group','location')
+setwd(dir)
 ###########
 
 
@@ -43,7 +51,8 @@ pop <- popmap[c(3,2)]
 
 #Plot normal
 p1 <- plotQ(alignK(alist[2]),returnplot=T,exportplot=F,
-            quiet=T,basesize=11, clustercol = colors, 
+            # quiet=T,basesize=11, clustercol = colors,
+            basesize=11, clustercol = colors,
             showyaxis =T, grplabsize=3,
             linesize=0.8,pointsize=3, showindlab=T,useindlab=T,
             grplab= pop, splab=spnames[2], legendtextsize=10,
@@ -54,11 +63,12 @@ p1 <- plotQ(alignK(alist[2]),returnplot=T,exportplot=F,
             showgrplab = T)
 grid.arrange(p1$plot[[1]])
 
-  
+
 
 #Plot con subset ENP
 p2 <- plotQMultiline(alignK(alist[2]),returnplot=T,exportplot=F,
-            quiet=T, barsize=0.98,grplab=pop[,2,drop=F],useindlab=T,
+            # quiet=T, barsize=0.98,grplab=pop[,2,drop=F],useindlab=T,
+            barsize=0.98,grplab=pop[,2,drop=F],useindlab=T,
             sortind="Cluster1",clustercol = colors,
             subsetgrp=c("ENP"),
             basesize=30,grplabsize = 15, indlabsize = 12,
@@ -70,7 +80,8 @@ p2 <- plotQMultiline(alignK(alist[2]),returnplot=T,exportplot=F,
 grid.arrange(p2$plot[[1]][[1]])
 
 p1 <- plotQ(alignK(alist[2]),returnplot=T,exportplot=F,
-            quiet=T,basesize=0, clustercol = colors, 
+            # quiet=T,basesize=0, clustercol = colors,
+            basesize=0, clustercol = colors,
             showyaxis =T, grplabsize=3,
             linesize=0.8,pointsize=3, showindlab=T,useindlab=T,
             grplab= pop[,1,drop=F], splab="",
@@ -84,12 +95,13 @@ grid.arrange(p1$plot[[1]])
 
 #Plot con subset GOC
 p2 <- plotQMultiline(alignK(alist[2]),returnplot=T,exportplot=F,
-                     quiet=T, barsize=0.98,grplab=pop[,2,drop=F],useindlab=T,
+                     # quiet=T, barsize=0.98,grplab=pop[,2,drop=F],useindlab=T,
+                     barsize=0.98,grplab=pop[,2,drop=F],useindlab=T,
                      sortind="Cluster1",clustercol = colors,
                      subsetgrp=c("GOC"),
                      basesize=30,grplabsize = 15, indlabsize = 12,
                      barbordersize = 0.001,
-                     barbordercol="white", 
+                     barbordercol="white",
                      grplabbgcol = "white")
 
 
@@ -98,3 +110,15 @@ grid.arrange(p2$plot[[1]][[1]])
 
 
 ##4*6
+
+
+# Modification: Generate source data
+# Date: Mon Jan  9 14:18:50 2023
+# In the final data, we used one example run the `all50_pass_maf10.K2.iter10.Q`
+fig1cdt = alignK(alist[2])[[1]]
+write.csv(fig1cdt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/Fig1c.csv')
+
+
+
+
+

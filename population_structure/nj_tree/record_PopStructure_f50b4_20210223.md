@@ -32,22 +32,8 @@ gzip JointCalls_f50b4_filterpass_bialleic_all_20210226.txt
 ```
 # step1.x: transfer the files locally
 
-```bash
-# Fri Feb 26 17:28:10 2021
-LOCAL=/Users/linmeixi/google_drive/finwhale/analyses/PopStructure/f50b4/Minke
-REMOTE=meixilin@hoffman2.idre.ucla.edu:/u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke/
-
-rsync -ahv -e "ssh -i ~/.ssh/id_hoff_rsa" --exclude 'JointCalls_f50b4_08_B_VariantFiltration_bialleic_all.gds' ${REMOTE} ${LOCAL}
-
-REMOTE=meixilin@hoffman2.idre.ucla.edu:/u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke/JointCalls_f50b4_08_B_VariantFiltration_bialleic_all.gds
-rsync -ahv -e "ssh -i ~/.ssh/id_hoff_rsa" ${REMOTE} ${LOCAL}
-
-```
 
 # step2: gds file to vcf and plink formats
-
-```bash
-```
 
 # step 3.1: run APE and bootstrap (not plottings)
 
@@ -68,13 +54,6 @@ cd /u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke
 
 ```bash
 # Tue Mar  2 09:49:16 2021
-LOCAL=/Users/linmeixi/google_drive/finwhale/analyses/PopStructure/f50b4/Minke
-REMOTE=meixilin@hoffman2.idre.ucla.edu:/u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke/
-
-rsync -ahv -e "ssh -i ~/.ssh/id_hoff_rsa" --delete --update ${REMOTE} ${LOCAL}
-
-rsync -ahv -e "ssh -i ~/.ssh/id_hoff_rsa" --update ${REMOTE} ${LOCAL}
-
 
 # run the plotting
 # Wed Mar 10 13:33:28 2021

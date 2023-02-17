@@ -56,26 +56,28 @@ plot_trees <- function(tree_nj, type = c('rooted', 'unrooted'), popmap, outgrp, 
             labs(title = main, size = 'Bootstrap Support') +
             coord_cartesian(xlim = c(min(metadt$x), 1.1*max(metadt$x))) +
             theme_blank_legend
+        outlist = list(tree_nj,metadt,outpp)
     } else {
         tree_nj_root <- ape::root(tree_nj, outgroup = outgrp, resolve.root = TRUE, interactive = FALSE, edgelabel = FALSE)
         p1_rt <- ggtree(tree_nj_root)
         p1dt <- p1_rt$data
         metadt <- dplyr::full_join(p1dt, metadt0, by = 'label') %>%
-            dplyr::mutate(nodebt = ifelse(isTip == FALSE & label != 'Root', label, NA)) %>%
-            dplyr::mutate(nodebt = ifelse(as.integer(nodebt) >= 750, nodebt, NA))
+            dplyr::mutate(boot_strap_support = ifelse(isTip == FALSE & label != 'Root', label, NA)) %>%
+            dplyr::mutate(nodebt = ifelse(as.integer(boot_strap_support) >= 750, boot_strap_support, NA))
         p1_rt$data <- metadt
         outpp <- p1_rt +
             geom_tiplab(aes(color = SubPopId), show.legend = FALSE) +
             geom_point(aes(size = as.integer(nodebt), fill = as.integer(nodebt)), shape = 21, alpha = 0.8) +
             # geom_label(aes(label = nodebt), nudge_x = 1, size = 3, alpha=0.5) +
-            scale_size_binned(range = c(1,8)) + 
+            scale_size_binned(range = c(1,8)) +
             scale_fill_gradient(low = 'white', high = 'red') +
             scale_color_manual(values = c(speccolors[-5],loccolors)) +
             labs(title = main, size = 'Bootstrap Support', fill = '') +
             coord_cartesian(xlim = c(min(metadt$x), 1.1*max(metadt$x))) +
             theme_blank_legend
+        outlist = list(tree_nj_root, metadt, outpp)
     }
-    return(outpp)
+    return(outlist)
 }
 
 # plot the density trees
@@ -87,9 +89,11 @@ plot_densitrees <- function(btrees, alpha = 0.1, main) {
 }
 
 # def variables --------
-args <- commandArgs(trailingOnly=TRUE)
-workdir <- as.character(args[1]) # the working directory (should be the same as before and after)
-outprefix <- as.character(args[2]) # the output prefix
+# args <- commandArgs(trailingOnly=TRUE)
+# workdir <- as.character(args[1]) # the working directory (should be the same as before and after)
+# outprefix <- as.character(args[2]) # the output prefix
+workdir <- '/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/f50b4/Minke'
+outprefix <- 'f50b4_pass_bialleic_all_LDPruned_maf10'
 
 today = format(Sys.Date(), "%Y%m%d")
 datadate = '20210302'
@@ -130,6 +134,15 @@ ggsave(filename = paste0(outprefix, '_RtreePerc_', today, '.pdf'), path = plotdi
 # ggsave(filename = paste0(outprefix, '_BtreePair_', today, '.png'), path = plotdir, plot = p2_pair, width = 8, height = 8)
 
 # ggsave(filename = paste0(outprefix, '_BtreePerc_', today, '.png'), path = plotdir, plot = p2_perc, width = 8, height = 8)
+
+# Modification: Add source data ========
+# Date: Mon Jan 16 12:02:26 2023
+pp_pairlist <- plot_trees(tree_nj = treespair[[1]], type = 'rooted', popmap, outgrp, main = paste0('NJ pairwise Root:EubGla ', maf))
+mytree <- pp_pairlist[[1]]
+outdt <- pp_pairlist[[2]]
+
+ape::write.tree(mytree, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS5-tree.newick.txt')
+write.csv(outdt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS5.csv')
 
 # cleanup --------
 date()

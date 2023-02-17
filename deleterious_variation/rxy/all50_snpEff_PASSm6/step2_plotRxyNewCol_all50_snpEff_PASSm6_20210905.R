@@ -3,6 +3,8 @@
 # Date: Thu Apr 22 17:33:31 2021
 # Modification: Use the new color schematics and remove the violin plot
 # Date: Sun Sep  5 19:06:11 2021
+# Modification: Add source data
+# Date: Mon Jan 23 11:30:07 2023
 
 
 
@@ -49,7 +51,7 @@ plot_rxy <- function(jk_forplot, rxy_summary, r2xy_summary, muttypes, mutlabs) {
         coord_flip() +
         ggpubr::theme_pubr() +
         labs(color = '', x = '', y = 'GOC/ENP Ratio')
-    return(pp)
+    return(list(pp, summary))
 }
 
 # def variables --------
@@ -62,7 +64,8 @@ prefixlist = c('LOW','MODERATE','HIGH')
 xpop = 'GOC'
 ypop = 'ENP'
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
+# /Users/linmeixi/Google Drive/My Drive/finwhale/analyses/Rxy/all50_snpEff_matching/Minke
+workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './plots/'
@@ -82,9 +85,17 @@ jk_forplot = readRDS("derive_data/rxy_table/Summary_all50_snpEff_matching_Minke_
 # main --------
 
 # plotting the jackknife and se estimates ========
-pp1 <- plot_rxy(jk_forplot, rxy_summary, r2xy_summary, prefixlist, prefixlist)
+ppsummary <- plot_rxy(jk_forplot, rxy_summary, r2xy_summary, prefixlist, prefixlist)
+pp1 <- ppsummary[[1]]
 ggsave(filename = paste0('NewColRxyImp_all50_snpEff_matching_Minke_1000JK_xGOCyENP_PASSm6_', today,'.pdf'),
        plot = pp1, path = plotdir, height = 4, width = 7)
+
+# output files --------
+# get source data
+ppdata <- ppsummary[[2]]
+# output the se
+ppdata <- ppdata[,c(1,2,5:11)]
+write.csv(ppdata, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS19c.csv')
 
 # cleanup --------
 date()

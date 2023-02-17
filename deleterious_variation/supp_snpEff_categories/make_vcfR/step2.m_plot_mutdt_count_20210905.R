@@ -4,6 +4,8 @@
 # Date: Thu Apr 22 16:37:56 2021
 # Modification: FINAL use average counts
 # Date: Sun Sep  5 18:26:48 2021
+# Modification: Add source_data
+# Date: Mon Jan 23 11:14:16 2023
 
 
 # preparation --------
@@ -48,7 +50,8 @@ gttype = 'PASSm6'
 # gttype = 'PASSm6CL' # IMPORTANT: DON'T USE THIS VERSION!!!
 prefixlist = c('HIGH','MODERATE','LOW')
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+# /Users/linmeixi/Google Drive/My Drive/finwhale/analyses/DelVar_vcfR/all50_snpEff_matching/Minke
+workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './pub_plots/'
@@ -68,6 +71,9 @@ normdt = get_mean_rawdt(rawdt)
 saveRDS(normdt, file = './derive_data/sum_table/HML_all50_snpEff_matching_Minke_SUMtable_Seg_PASSm6_Norm_20210905.rds')
 
 # main --------
+# load normdt
+mutdt = readRDS(file = './derive_data/sum_table/HML_all50_snpEff_matching_Minke_SUMtable_Seg_PASSm6_Norm_20210905.rds')
+
 mutdt = normdt
 
 mutdt$MutType = factor(mutdt$MutType, levels = prefixlist)
@@ -77,7 +83,7 @@ alleledt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "M
     dplyr::filter(variable %in% c("normAltAllele"))
 
 pp1 <- ggplot(data = alleledt, aes(x = PopId, y = value, fill = PopId)) +
-    geom_boxplot() + 
+    geom_boxplot() +
     scale_fill_manual(values = mycolors) +
     # facet_wrap_custom(. ~ MutType, scales = "free_y",scale_overrides = list(
     #     scale_override(1, scale_y_continuous(breaks = c(25400, 25600, 25800))),
@@ -95,19 +101,19 @@ pp1.2 <- pp1 +
                        method = "wilcox.test",
                        label.x.npc = 'center',
                        vjust = 1,
-                       size = 4) 
+                       size = 4)
 
 ggsave(filename = paste0(plotdir, "SnpEffType_allele_number_box_", gttype, "_", today, ".pdf"), plot =  pp1.2, height = 4, width = 7)
 
 # the genotype proportion plot ========
-genodt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "MutType")) %>% 
+genodt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "MutType")) %>%
     dplyr::filter(variable %in% c("normHet", "normHomAlt"))
 genodt$variable = as.character(genodt$variable)
 genodt$variable = factor(genodt$variable, levels = c("normHomAlt", "normHet"), labels = c("Homozygous Derived", "Heterozygous"))
 
 pp2 <- ggplot(data = genodt,
               aes(x = PopId, y = value, fill = PopId)) +
-    geom_boxplot() + 
+    geom_boxplot() +
     scale_fill_manual(values = mycolors) +
     facet_grid(MutType ~ variable, scale = 'free_y') +
     # facet_grid_custom(MutType ~ variable, scale = 'free_y',scale_overrides = list(
@@ -125,10 +131,16 @@ pp2.2 <- pp2 +
                        method = "wilcox.test",
                        label.x.npc = 'center',
                        vjust = 1,
-                       size = 4) 
+                       size = 4)
 
 
 ggsave(filename = paste0(plotdir, "SnpEffType_geno_number_box_", gttype, "_", today, ".pdf"), plot =  pp2.2, height = 7, width = 5)
+
+# Modification: Add source_data
+# Date: Mon Jan 23 11:17:14 2023
+alleledt$variable = 'Derived Alleles'
+write.csv(alleledt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS19a.csv')
+write.csv(genodt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS19b.csv')
 
 # cleanup --------
 sink()

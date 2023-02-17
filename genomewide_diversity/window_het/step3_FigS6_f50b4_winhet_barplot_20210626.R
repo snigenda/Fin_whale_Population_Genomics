@@ -3,13 +3,15 @@
 # Date: Sat Sep 11 18:37:15 2021
 # NOTE: Here I used the all50 dataset for the fin whales and pulled data from the f50b4 dataset
 # Date: Mon Jun  7 18:14:42 2021
+# Modification: Add source_data
+# Date: Mon Jan 16 12:38:30 2023
 
 # preparation --------
 rm(list = ls())
 cat("\014")
 options(echo = TRUE, stringsAsFactors = FALSE)
 
-setwd('/Users/linmeixi/Lab/finwhale_manuscript/')
+setwd('/Users/linmeixi/Lab/fin_whale/finwhale_manuscript/')
 
 library(dplyr)
 library(stringr)
@@ -17,20 +19,20 @@ library(ggplot2)
 library(ggpubr)
 library(RColorBrewer)
 
-source("~/Lab/finwhale_manuscript/scripts/config/plotting_config.R")
+source("~/Lab/fin_whale/finwhale_manuscript/scripts/config/plotting_config.R")
 
 # def functions --------
-# format genomewide het to annotate 
+# format genomewide het to annotate
 read_genomehet <- function(iucndt) {
     all50het = read.csv('./data/genome_stats/derived_data/all50_genomewide_heterozygosity_20210824.csv') %>%
         dplyr::filter(SampleId == 'GOC002')
     f50b4het = read.csv('./data/genome_stats/derived_data/f50b4_genomewide_heterozygosity_20210824.csv') %>%
         dplyr::filter(SampleId %in% c('BalAcu02', 'MegNov01', 'BalMus01', 'EubGla01'))
     outhet = left_join(iucndt, dplyr::bind_rows(all50het, f50b4het), by = 'SampleId')
-    outhet = outhet %>% 
-        dplyr::mutate(hetpkb = stringr::str_sub(as.character(1000*GenomeHet), end = 5)) %>% 
+    outhet = outhet %>%
+        dplyr::mutate(hetpkb = stringr::str_sub(as.character(1000*GenomeHet), end = 5)) %>%
         dplyr::mutate(anntext = paste('Mean het. =', hetpkb, 'IUCN Status = ', IUCN)) %>%
-        dplyr::select(SampleId, anntext) %>% 
+        dplyr::select(SampleId, anntext) %>%
         dplyr::rename(sample = SampleId)
     outhet$sample = factor(outhet$sample, levels = iucndt$SampleId)
     return(outhet)
@@ -66,13 +68,13 @@ get_histdt0 <- function(plotdt, histbreaks) {
 
 # tally up bottom of a histogram (note that all these are left closed)
 tally_bottom <- function(histdt, cutoff) {
-    dt1 = histdt[histdt$maxhetpkb_ex <= cutoff,] %>% 
+    dt1 = histdt[histdt$maxhetpkb_ex <= cutoff,] %>%
         dplyr::mutate(maxhetpkb_ex = as.character(maxhetpkb_ex))
-    dt2 = histdt[histdt$maxhetpkb_ex > cutoff,] 
+    dt2 = histdt[histdt$maxhetpkb_ex > cutoff,]
     sumdt = data.frame(t(colSums(dt2)))
     sumdt$maxhetpkb_ex = paste0('>=', cutoff)
     outdt = rbind(dt1, sumdt) %>%
-        dplyr::select(-minhetpkb_in) 
+        dplyr::select(-minhetpkb_in)
     # calculate the percents
     for (ii in 2:ncol(outdt)) {
         outdt[,ii] <- outdt[,ii]/sum(outdt[,ii])
@@ -173,14 +175,14 @@ print(colSums(rawhistdt))
 # tally up the bottom
 barhistdt <- tally_bottom(histdt = rawhistdt, cutoff = 1)
 barhistdt$maxhetpkb_ex = factor(barhistdt$maxhetpkb_ex, levels = rev(barhistdt$maxhetpkb_ex))
-barplotdt <- reshape2::melt(barhistdt, id.var = 'maxhetpkb_ex', variable.name = 'sample', value.name = 'percent') 
+barplotdt <- reshape2::melt(barhistdt, id.var = 'maxhetpkb_ex', variable.name = 'sample', value.name = 'percent')
 barplotdt$sample = factor(barplotdt$sample, levels = c('BalAcu02', 'MegNov01', 'BalMus01', 'EubGla01', gocsamples))
 
 # plot barplot of histogram ========
 ppbar <- ggplot(data = barplotdt, aes(x = sample, y = percent, fill = maxhetpkb_ex)) +
     geom_bar(stat = 'identity') +
-    scale_fill_viridis_d() + 
-    scale_y_continuous(labels = scales::percent) + 
+    scale_fill_viridis_d() +
+    scale_y_continuous(labels = scales::percent) +
     labs(y = "% of 1Mb Windows", fill = "Het/kb") +
     ggpubr::theme_pubr() +
     theme(text = element_text(size = 10),
@@ -198,6 +200,22 @@ ggsave(filename = paste0('FigureS6.winHet_1Mbwin_1Mbstep_20Per_three_f50b4_', to
 
 # output data --------
 write.csv(barhistdt, file = paste0(outdir, 'winHet_1Mbwin_1Mbstep_20Per_4baleen20goc_barhistdt_', today, '.csv'))
+
+# Modification: Add source_data
+# Date: Mon Jan 16 15:00:25 2023
+# pph source data
+pphbuild = ggplot_build(pph)
+histdt = pphbuild$data[[1]]
+paneldt = pphbuild$layout$layout[,c('PANEL', 'sample')]
+histdt = histdt %>%
+    dplyr::select(PANEL,x, xmin, xmax, count) %>%
+    dplyr::left_join(., paneldt, by = 'PANEL') %>%
+    dplyr::select(sample, x, xmin, xmax, count)
+colnames(histdt) = c('sample', 'winhetbin_center', 'winhet_min', 'winhetbin_max', 'count')
+
+# barhistdt confirmed to be the same
+write.csv(plotdt1, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS8a.csv')
+write.csv(histdt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS8b.csv')
 
 # cleanup --------
 closeAllConnections()

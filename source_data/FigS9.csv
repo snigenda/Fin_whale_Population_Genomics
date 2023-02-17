@@ -1,0 +1,377 @@
+"","SampleId","PopId","SubPopId","type","length","bcftools","RZooRoH"
+"1","ENPAK19","ENP","AK","Total number","0.1_1",384,418
+"2","ENPAK20","ENP","AK","Total number","0.1_1",376,408
+"3","ENPAK21","ENP","AK","Total number","0.1_1",378,374
+"4","ENPAK22","ENP","AK","Total number","0.1_1",398,413
+"5","ENPAK23","ENP","AK","Total number","0.1_1",413,431
+"6","ENPAK24","ENP","AK","Total number","0.1_1",387,432
+"7","ENPAK25","ENP","AK","Total number","0.1_1",422,430
+"8","ENPAK26","ENP","AK","Total number","0.1_1",418,410
+"9","ENPAK27","ENP","AK","Total number","0.1_1",395,404
+"10","ENPAK28","ENP","AK","Total number","0.1_1",407,430
+"11","ENPAK29","ENP","AK","Total number","0.1_1",395,436
+"12","ENPAK30","ENP","AK","Total number","0.1_1",381,418
+"13","ENPBC16","ENP","BC","Total number","0.1_1",368,411
+"14","ENPBC17","ENP","BC","Total number","0.1_1",369,390
+"15","ENPBC18","ENP","BC","Total number","0.1_1",369,391
+"16","ENPCA01","ENP","CA","Total number","0.1_1",376,376
+"17","ENPCA02","ENP","CA","Total number","0.1_1",418,444
+"18","ENPCA03","ENP","CA","Total number","0.1_1",398,404
+"19","ENPCA04","ENP","CA","Total number","0.1_1",405,418
+"20","ENPCA05","ENP","CA","Total number","0.1_1",380,433
+"21","ENPCA06","ENP","CA","Total number","0.1_1",384,388
+"22","ENPCA07","ENP","CA","Total number","0.1_1",388,423
+"23","ENPCA08","ENP","CA","Total number","0.1_1",430,484
+"24","ENPOR10","ENP","OR","Total number","0.1_1",411,418
+"25","ENPOR11","ENP","OR","Total number","0.1_1",412,464
+"26","ENPOR13","ENP","OR","Total number","0.1_1",413,410
+"27","ENPWA14","ENP","WA","Total number","0.1_1",401,416
+"28","ENPWA15","ENP","WA","Total number","0.1_1",374,410
+"29","GOC002","GOC","GOC","Total number","0.1_1",1111,1292
+"30","GOC006","GOC","GOC","Total number","0.1_1",1053,1177
+"31","GOC025","GOC","GOC","Total number","0.1_1",1112,1248
+"32","GOC038","GOC","GOC","Total number","0.1_1",1077,1193
+"33","GOC050","GOC","GOC","Total number","0.1_1",1146,1285
+"34","GOC053","GOC","GOC","Total number","0.1_1",1077,1220
+"35","GOC063","GOC","GOC","Total number","0.1_1",1055,1179
+"36","GOC068","GOC","GOC","Total number","0.1_1",1069,1226
+"37","GOC071","GOC","GOC","Total number","0.1_1",1072,1214
+"38","GOC077","GOC","GOC","Total number","0.1_1",1103,1268
+"39","GOC080","GOC","GOC","Total number","0.1_1",1055,1219
+"40","GOC082","GOC","GOC","Total number","0.1_1",1017,1187
+"41","GOC086","GOC","GOC","Total number","0.1_1",1108,1281
+"42","GOC091","GOC","GOC","Total number","0.1_1",1115,1243
+"43","GOC100","GOC","GOC","Total number","0.1_1",1114,1289
+"44","GOC111","GOC","GOC","Total number","0.1_1",1145,1331
+"45","GOC112","GOC","GOC","Total number","0.1_1",1142,1339
+"46","GOC116","GOC","GOC","Total number","0.1_1",1170,1360
+"47","GOC125","GOC","GOC","Total number","0.1_1",1017,1148
+"48","ENPAK19","ENP","AK","Total number","1_5",4,5
+"49","ENPAK20","ENP","AK","Total number","1_5",4,4
+"50","ENPAK21","ENP","AK","Total number","1_5",34,32
+"51","ENPAK22","ENP","AK","Total number","1_5",31,32
+"52","ENPAK23","ENP","AK","Total number","1_5",3,2
+"53","ENPAK24","ENP","AK","Total number","1_5",4,5
+"54","ENPAK25","ENP","AK","Total number","1_5",32,32
+"55","ENPAK26","ENP","AK","Total number","1_5",33,33
+"56","ENPAK27","ENP","AK","Total number","1_5",35,33
+"57","ENPAK28","ENP","AK","Total number","1_5",38,37
+"58","ENPAK29","ENP","AK","Total number","1_5",1,1
+"59","ENPAK30","ENP","AK","Total number","1_5",5,4
+"60","ENPBC16","ENP","BC","Total number","1_5",6,6
+"61","ENPBC17","ENP","BC","Total number","1_5",32,32
+"62","ENPBC18","ENP","BC","Total number","1_5",33,33
+"63","ENPCA01","ENP","CA","Total number","1_5",44,41
+"64","ENPCA02","ENP","CA","Total number","1_5",4,4
+"65","ENPCA03","ENP","CA","Total number","1_5",36,37
+"66","ENPCA04","ENP","CA","Total number","1_5",45,45
+"67","ENPCA05","ENP","CA","Total number","1_5",21,21
+"68","ENPCA06","ENP","CA","Total number","1_5",41,42
+"69","ENPCA07","ENP","CA","Total number","1_5",2,2
+"70","ENPCA08","ENP","CA","Total number","1_5",4,3
+"71","ENPOR10","ENP","OR","Total number","1_5",3,2
+"72","ENPOR11","ENP","OR","Total number","1_5",6,5
+"73","ENPOR13","ENP","OR","Total number","1_5",38,37
+"74","ENPWA14","ENP","WA","Total number","1_5",32,32
+"75","ENPWA15","ENP","WA","Total number","1_5",5,5
+"76","GOC002","GOC","GOC","Total number","1_5",257,252
+"77","GOC006","GOC","GOC","Total number","1_5",253,249
+"78","GOC025","GOC","GOC","Total number","1_5",246,231
+"79","GOC038","GOC","GOC","Total number","1_5",256,250
+"80","GOC050","GOC","GOC","Total number","1_5",229,227
+"81","GOC053","GOC","GOC","Total number","1_5",249,239
+"82","GOC063","GOC","GOC","Total number","1_5",238,230
+"83","GOC068","GOC","GOC","Total number","1_5",232,229
+"84","GOC071","GOC","GOC","Total number","1_5",214,217
+"85","GOC077","GOC","GOC","Total number","1_5",215,213
+"86","GOC080","GOC","GOC","Total number","1_5",267,256
+"87","GOC082","GOC","GOC","Total number","1_5",270,270
+"88","GOC086","GOC","GOC","Total number","1_5",240,242
+"89","GOC091","GOC","GOC","Total number","1_5",257,243
+"90","GOC100","GOC","GOC","Total number","1_5",269,257
+"91","GOC111","GOC","GOC","Total number","1_5",226,214
+"92","GOC112","GOC","GOC","Total number","1_5",227,221
+"93","GOC116","GOC","GOC","Total number","1_5",252,239
+"94","GOC125","GOC","GOC","Total number","1_5",213,209
+"95","ENPAK19","ENP","AK","Total number","5_Inf",0,0
+"96","ENPAK20","ENP","AK","Total number","5_Inf",0,0
+"97","ENPAK21","ENP","AK","Total number","5_Inf",0,0
+"98","ENPAK22","ENP","AK","Total number","5_Inf",0,0
+"99","ENPAK23","ENP","AK","Total number","5_Inf",0,0
+"100","ENPAK24","ENP","AK","Total number","5_Inf",0,0
+"101","ENPAK25","ENP","AK","Total number","5_Inf",0,0
+"102","ENPAK26","ENP","AK","Total number","5_Inf",0,0
+"103","ENPAK27","ENP","AK","Total number","5_Inf",0,0
+"104","ENPAK28","ENP","AK","Total number","5_Inf",0,0
+"105","ENPAK29","ENP","AK","Total number","5_Inf",0,0
+"106","ENPAK30","ENP","AK","Total number","5_Inf",0,0
+"107","ENPBC16","ENP","BC","Total number","5_Inf",0,0
+"108","ENPBC17","ENP","BC","Total number","5_Inf",0,0
+"109","ENPBC18","ENP","BC","Total number","5_Inf",0,0
+"110","ENPCA01","ENP","CA","Total number","5_Inf",4,4
+"111","ENPCA02","ENP","CA","Total number","5_Inf",0,0
+"112","ENPCA03","ENP","CA","Total number","5_Inf",0,0
+"113","ENPCA04","ENP","CA","Total number","5_Inf",0,0
+"114","ENPCA05","ENP","CA","Total number","5_Inf",2,2
+"115","ENPCA06","ENP","CA","Total number","5_Inf",1,1
+"116","ENPCA07","ENP","CA","Total number","5_Inf",0,0
+"117","ENPCA08","ENP","CA","Total number","5_Inf",0,0
+"118","ENPOR10","ENP","OR","Total number","5_Inf",0,0
+"119","ENPOR11","ENP","OR","Total number","5_Inf",0,0
+"120","ENPOR13","ENP","OR","Total number","5_Inf",0,0
+"121","ENPWA14","ENP","WA","Total number","5_Inf",0,0
+"122","ENPWA15","ENP","WA","Total number","5_Inf",0,0
+"123","GOC002","GOC","GOC","Total number","5_Inf",13,12
+"124","GOC006","GOC","GOC","Total number","5_Inf",5,4
+"125","GOC025","GOC","GOC","Total number","5_Inf",4,4
+"126","GOC038","GOC","GOC","Total number","5_Inf",9,8
+"127","GOC050","GOC","GOC","Total number","5_Inf",6,5
+"128","GOC053","GOC","GOC","Total number","5_Inf",6,5
+"129","GOC063","GOC","GOC","Total number","5_Inf",3,3
+"130","GOC068","GOC","GOC","Total number","5_Inf",2,2
+"131","GOC071","GOC","GOC","Total number","5_Inf",8,7
+"132","GOC077","GOC","GOC","Total number","5_Inf",6,5
+"133","GOC080","GOC","GOC","Total number","5_Inf",2,2
+"134","GOC082","GOC","GOC","Total number","5_Inf",6,4
+"135","GOC086","GOC","GOC","Total number","5_Inf",7,6
+"136","GOC091","GOC","GOC","Total number","5_Inf",10,10
+"137","GOC100","GOC","GOC","Total number","5_Inf",9,9
+"138","GOC111","GOC","GOC","Total number","5_Inf",7,7
+"139","GOC112","GOC","GOC","Total number","5_Inf",8,8
+"140","GOC116","GOC","GOC","Total number","5_Inf",8,7
+"141","GOC125","GOC","GOC","Total number","5_Inf",5,4
+"142","ENPAK19","ENP","AK","Total length (Mb)","0.1_1",73277116,75943004
+"143","ENPAK20","ENP","AK","Total length (Mb)","0.1_1",69961818,75318572
+"144","ENPAK21","ENP","AK","Total length (Mb)","0.1_1",78804114,79843811
+"145","ENPAK22","ENP","AK","Total length (Mb)","0.1_1",86212763,86166171
+"146","ENPAK23","ENP","AK","Total length (Mb)","0.1_1",76913698,79725793
+"147","ENPAK24","ENP","AK","Total length (Mb)","0.1_1",75645793,80251489
+"148","ENPAK25","ENP","AK","Total length (Mb)","0.1_1",88266824,88230736
+"149","ENPAK26","ENP","AK","Total length (Mb)","0.1_1",89375955,88079975
+"150","ENPAK27","ENP","AK","Total length (Mb)","0.1_1",82076345,84401732
+"151","ENPAK28","ENP","AK","Total length (Mb)","0.1_1",87913540,90654947
+"152","ENPAK29","ENP","AK","Total length (Mb)","0.1_1",75487846,83346888
+"153","ENPAK30","ENP","AK","Total length (Mb)","0.1_1",75030891,81138945
+"154","ENPBC16","ENP","BC","Total length (Mb)","0.1_1",69745598,75354326
+"155","ENPBC17","ENP","BC","Total length (Mb)","0.1_1",80168388,82483384
+"156","ENPBC18","ENP","BC","Total length (Mb)","0.1_1",80420862,81627573
+"157","ENPCA01","ENP","CA","Total length (Mb)","0.1_1",80461941,81097845
+"158","ENPCA02","ENP","CA","Total length (Mb)","0.1_1",78684096,82648884
+"159","ENPCA03","ENP","CA","Total length (Mb)","0.1_1",84486121,83393897
+"160","ENPCA04","ENP","CA","Total length (Mb)","0.1_1",83055890,83452358
+"161","ENPCA05","ENP","CA","Total length (Mb)","0.1_1",74106611,83730741
+"162","ENPCA06","ENP","CA","Total length (Mb)","0.1_1",83634122,79605471
+"163","ENPCA07","ENP","CA","Total length (Mb)","0.1_1",78352921,82228574
+"164","ENPCA08","ENP","CA","Total length (Mb)","0.1_1",85599544,93209837
+"165","ENPOR10","ENP","OR","Total length (Mb)","0.1_1",74835383,76892588
+"166","ENPOR11","ENP","OR","Total length (Mb)","0.1_1",80956373,87864922
+"167","ENPOR13","ENP","OR","Total length (Mb)","0.1_1",87548064,84653478
+"168","ENPWA14","ENP","WA","Total length (Mb)","0.1_1",86636345,85834483
+"169","ENPWA15","ENP","WA","Total length (Mb)","0.1_1",71941013,77443762
+"170","GOC002","GOC","GOC","Total length (Mb)","0.1_1",398574617,439037500
+"171","GOC006","GOC","GOC","Total length (Mb)","0.1_1",389246042,414017450
+"172","GOC025","GOC","GOC","Total length (Mb)","0.1_1",412595469,451692014
+"173","GOC038","GOC","GOC","Total length (Mb)","0.1_1",397444832,423225439
+"174","GOC050","GOC","GOC","Total length (Mb)","0.1_1",436405335,464326682
+"175","GOC053","GOC","GOC","Total length (Mb)","0.1_1",399320814,429057347
+"176","GOC063","GOC","GOC","Total length (Mb)","0.1_1",380424210,408243208
+"177","GOC068","GOC","GOC","Total length (Mb)","0.1_1",394388640,428416828
+"178","GOC071","GOC","GOC","Total length (Mb)","0.1_1",395930155,425011012
+"179","GOC077","GOC","GOC","Total length (Mb)","0.1_1",392084210,427769116
+"180","GOC080","GOC","GOC","Total length (Mb)","0.1_1",392352014,430544915
+"181","GOC082","GOC","GOC","Total length (Mb)","0.1_1",365232395,401661291
+"182","GOC086","GOC","GOC","Total length (Mb)","0.1_1",419867288,461087601
+"183","GOC091","GOC","GOC","Total length (Mb)","0.1_1",411372614,447863168
+"184","GOC100","GOC","GOC","Total length (Mb)","0.1_1",393663316,426789735
+"185","GOC111","GOC","GOC","Total length (Mb)","0.1_1",419202372,463539743
+"186","GOC112","GOC","GOC","Total length (Mb)","0.1_1",410916246,459373402
+"187","GOC116","GOC","GOC","Total length (Mb)","0.1_1",429067306,474993688
+"188","GOC125","GOC","GOC","Total length (Mb)","0.1_1",372851176,402811878
+"189","ENPAK19","ENP","AK","Total length (Mb)","1_5",5708217,6917831
+"190","ENPAK20","ENP","AK","Total length (Mb)","1_5",8071811,8072604
+"191","ENPAK21","ENP","AK","Total length (Mb)","1_5",55966183,53535762
+"192","ENPAK22","ENP","AK","Total length (Mb)","1_5",52849177,54183337
+"193","ENPAK23","ENP","AK","Total length (Mb)","1_5",4343599,3073046
+"194","ENPAK24","ENP","AK","Total length (Mb)","1_5",5910684,7057841
+"195","ENPAK25","ENP","AK","Total length (Mb)","1_5",53543918,53557800
+"196","ENPAK26","ENP","AK","Total length (Mb)","1_5",55735028,55912591
+"197","ENPAK27","ENP","AK","Total length (Mb)","1_5",60614438,58187611
+"198","ENPAK28","ENP","AK","Total length (Mb)","1_5",63073011,60558477
+"199","ENPAK29","ENP","AK","Total length (Mb)","1_5",1511514,1511676
+"200","ENPAK30","ENP","AK","Total length (Mb)","1_5",9099969,7750566
+"201","ENPBC16","ENP","BC","Total length (Mb)","1_5",10331389,10331988
+"202","ENPBC17","ENP","BC","Total length (Mb)","1_5",52154689,50920800
+"203","ENPBC18","ENP","BC","Total length (Mb)","1_5",54962450,54963024
+"204","ENPCA01","ENP","CA","Total length (Mb)","1_5",79740462,76410592
+"205","ENPCA02","ENP","CA","Total length (Mb)","1_5",5690845,5692583
+"206","ENPCA03","ENP","CA","Total length (Mb)","1_5",62135620,63177383
+"207","ENPCA04","ENP","CA","Total length (Mb)","1_5",75504392,74782941
+"208","ENPCA05","ENP","CA","Total length (Mb)","1_5",42193128,41288141
+"209","ENPCA06","ENP","CA","Total length (Mb)","1_5",71601293,72717492
+"210","ENPCA07","ENP","CA","Total length (Mb)","1_5",2811775,2796066
+"211","ENPCA08","ENP","CA","Total length (Mb)","1_5",4699382,3530773
+"212","ENPOR10","ENP","OR","Total length (Mb)","1_5",4037105,2994757
+"213","ENPOR11","ENP","OR","Total length (Mb)","1_5",11340144,9695141
+"214","ENPOR13","ENP","OR","Total length (Mb)","1_5",62073940,60983974
+"215","ENPWA14","ENP","WA","Total length (Mb)","1_5",51608493,51656686
+"216","ENPWA15","ENP","WA","Total length (Mb)","1_5",9061892,8692239
+"217","GOC002","GOC","GOC","Total length (Mb)","1_5",486986314,472930894
+"218","GOC006","GOC","GOC","Total length (Mb)","1_5",446730017,437787813
+"219","GOC025","GOC","GOC","Total length (Mb)","1_5",441874045,409231367
+"220","GOC038","GOC","GOC","Total length (Mb)","1_5",447566626,439605458
+"221","GOC050","GOC","GOC","Total length (Mb)","1_5",403910981,398100510
+"222","GOC053","GOC","GOC","Total length (Mb)","1_5",442238913,426917135
+"223","GOC063","GOC","GOC","Total length (Mb)","1_5",438755476,420359921
+"224","GOC068","GOC","GOC","Total length (Mb)","1_5",427276580,412902136
+"225","GOC071","GOC","GOC","Total length (Mb)","1_5",403666266,400556124
+"226","GOC077","GOC","GOC","Total length (Mb)","1_5",382047728,373897632
+"227","GOC080","GOC","GOC","Total length (Mb)","1_5",482283060,459229092
+"228","GOC082","GOC","GOC","Total length (Mb)","1_5",470319793,466158399
+"229","GOC086","GOC","GOC","Total length (Mb)","1_5",423565904,413701624
+"230","GOC091","GOC","GOC","Total length (Mb)","1_5",466488292,443291224
+"231","GOC100","GOC","GOC","Total length (Mb)","1_5",492425539,470821958
+"232","GOC111","GOC","GOC","Total length (Mb)","1_5",397632185,371237182
+"233","GOC112","GOC","GOC","Total length (Mb)","1_5",394174251,379126301
+"234","GOC116","GOC","GOC","Total length (Mb)","1_5",444848640,420995322
+"235","GOC125","GOC","GOC","Total length (Mb)","1_5",393802648,384481153
+"236","ENPAK19","ENP","AK","Total length (Mb)","5_Inf",0,0
+"237","ENPAK20","ENP","AK","Total length (Mb)","5_Inf",0,0
+"238","ENPAK21","ENP","AK","Total length (Mb)","5_Inf",0,0
+"239","ENPAK22","ENP","AK","Total length (Mb)","5_Inf",0,0
+"240","ENPAK23","ENP","AK","Total length (Mb)","5_Inf",0,0
+"241","ENPAK24","ENP","AK","Total length (Mb)","5_Inf",0,0
+"242","ENPAK25","ENP","AK","Total length (Mb)","5_Inf",0,0
+"243","ENPAK26","ENP","AK","Total length (Mb)","5_Inf",0,0
+"244","ENPAK27","ENP","AK","Total length (Mb)","5_Inf",0,0
+"245","ENPAK28","ENP","AK","Total length (Mb)","5_Inf",0,0
+"246","ENPAK29","ENP","AK","Total length (Mb)","5_Inf",0,0
+"247","ENPAK30","ENP","AK","Total length (Mb)","5_Inf",0,0
+"248","ENPBC16","ENP","BC","Total length (Mb)","5_Inf",0,0
+"249","ENPBC17","ENP","BC","Total length (Mb)","5_Inf",0,0
+"250","ENPBC18","ENP","BC","Total length (Mb)","5_Inf",0,0
+"251","ENPCA01","ENP","CA","Total length (Mb)","5_Inf",28075648,28070715
+"252","ENPCA02","ENP","CA","Total length (Mb)","5_Inf",0,0
+"253","ENPCA03","ENP","CA","Total length (Mb)","5_Inf",0,0
+"254","ENPCA04","ENP","CA","Total length (Mb)","5_Inf",0,0
+"255","ENPCA05","ENP","CA","Total length (Mb)","5_Inf",11182783,11168374
+"256","ENPCA06","ENP","CA","Total length (Mb)","5_Inf",9158557,9153781
+"257","ENPCA07","ENP","CA","Total length (Mb)","5_Inf",0,0
+"258","ENPCA08","ENP","CA","Total length (Mb)","5_Inf",0,0
+"259","ENPOR10","ENP","OR","Total length (Mb)","5_Inf",0,0
+"260","ENPOR11","ENP","OR","Total length (Mb)","5_Inf",0,0
+"261","ENPOR13","ENP","OR","Total length (Mb)","5_Inf",0,0
+"262","ENPWA14","ENP","WA","Total length (Mb)","5_Inf",0,0
+"263","ENPWA15","ENP","WA","Total length (Mb)","5_Inf",0,0
+"264","GOC002","GOC","GOC","Total length (Mb)","5_Inf",77573707,71216146
+"265","GOC006","GOC","GOC","Total length (Mb)","5_Inf",32518658,25457917
+"266","GOC025","GOC","GOC","Total length (Mb)","5_Inf",27951076,27925824
+"267","GOC038","GOC","GOC","Total length (Mb)","5_Inf",59270022,52474638
+"268","GOC050","GOC","GOC","Total length (Mb)","5_Inf",38492907,31453578
+"269","GOC053","GOC","GOC","Total length (Mb)","5_Inf",35042788,28764489
+"270","GOC063","GOC","GOC","Total length (Mb)","5_Inf",24490706,24483960
+"271","GOC068","GOC","GOC","Total length (Mb)","5_Inf",16905225,16886217
+"272","GOC071","GOC","GOC","Total length (Mb)","5_Inf",53620327,48554339
+"273","GOC077","GOC","GOC","Total length (Mb)","5_Inf",42196115,33230172
+"274","GOC080","GOC","GOC","Total length (Mb)","5_Inf",17210411,17198078
+"275","GOC082","GOC","GOC","Total length (Mb)","5_Inf",37129409,23831810
+"276","GOC086","GOC","GOC","Total length (Mb)","5_Inf",49337938,41372331
+"277","GOC091","GOC","GOC","Total length (Mb)","5_Inf",76994185,70538240
+"278","GOC100","GOC","GOC","Total length (Mb)","5_Inf",62517204,61036311
+"279","GOC111","GOC","GOC","Total length (Mb)","5_Inf",47165565,44927599
+"280","GOC112","GOC","GOC","Total length (Mb)","5_Inf",57201338,51168535
+"281","GOC116","GOC","GOC","Total length (Mb)","5_Inf",53072654,47529158
+"282","GOC125","GOC","GOC","Total length (Mb)","5_Inf",38005674,26753930
+"283","ENPAK19","ENP","AK","Total number","all",388,423
+"284","ENPAK20","ENP","AK","Total number","all",380,412
+"285","ENPAK21","ENP","AK","Total number","all",412,406
+"286","ENPAK22","ENP","AK","Total number","all",429,445
+"287","ENPAK23","ENP","AK","Total number","all",416,433
+"288","ENPAK24","ENP","AK","Total number","all",391,437
+"289","ENPAK25","ENP","AK","Total number","all",454,462
+"290","ENPAK26","ENP","AK","Total number","all",451,443
+"291","ENPAK27","ENP","AK","Total number","all",430,437
+"292","ENPAK28","ENP","AK","Total number","all",445,467
+"293","ENPAK29","ENP","AK","Total number","all",396,437
+"294","ENPAK30","ENP","AK","Total number","all",386,422
+"295","ENPBC16","ENP","BC","Total number","all",374,417
+"296","ENPBC17","ENP","BC","Total number","all",401,422
+"297","ENPBC18","ENP","BC","Total number","all",402,424
+"298","ENPCA01","ENP","CA","Total number","all",424,421
+"299","ENPCA02","ENP","CA","Total number","all",422,448
+"300","ENPCA03","ENP","CA","Total number","all",434,441
+"301","ENPCA04","ENP","CA","Total number","all",450,463
+"302","ENPCA05","ENP","CA","Total number","all",403,456
+"303","ENPCA06","ENP","CA","Total number","all",426,431
+"304","ENPCA07","ENP","CA","Total number","all",390,425
+"305","ENPCA08","ENP","CA","Total number","all",434,487
+"306","ENPOR10","ENP","OR","Total number","all",414,420
+"307","ENPOR11","ENP","OR","Total number","all",418,469
+"308","ENPOR13","ENP","OR","Total number","all",451,447
+"309","ENPWA14","ENP","WA","Total number","all",433,448
+"310","ENPWA15","ENP","WA","Total number","all",379,415
+"311","GOC002","GOC","GOC","Total number","all",1381,1556
+"312","GOC006","GOC","GOC","Total number","all",1311,1430
+"313","GOC025","GOC","GOC","Total number","all",1362,1483
+"314","GOC038","GOC","GOC","Total number","all",1342,1451
+"315","GOC050","GOC","GOC","Total number","all",1381,1517
+"316","GOC053","GOC","GOC","Total number","all",1332,1464
+"317","GOC063","GOC","GOC","Total number","all",1296,1412
+"318","GOC068","GOC","GOC","Total number","all",1303,1457
+"319","GOC071","GOC","GOC","Total number","all",1294,1438
+"320","GOC077","GOC","GOC","Total number","all",1324,1486
+"321","GOC080","GOC","GOC","Total number","all",1324,1477
+"322","GOC082","GOC","GOC","Total number","all",1293,1461
+"323","GOC086","GOC","GOC","Total number","all",1355,1529
+"324","GOC091","GOC","GOC","Total number","all",1382,1496
+"325","GOC100","GOC","GOC","Total number","all",1392,1555
+"326","GOC111","GOC","GOC","Total number","all",1378,1552
+"327","GOC112","GOC","GOC","Total number","all",1377,1568
+"328","GOC116","GOC","GOC","Total number","all",1430,1606
+"329","GOC125","GOC","GOC","Total number","all",1235,1361
+"330","ENPAK19","ENP","AK","Total length (Mb)","all",78985333,82860835
+"331","ENPAK20","ENP","AK","Total length (Mb)","all",78033629,83391176
+"332","ENPAK21","ENP","AK","Total length (Mb)","all",134770297,133379573
+"333","ENPAK22","ENP","AK","Total length (Mb)","all",139061940,140349508
+"334","ENPAK23","ENP","AK","Total length (Mb)","all",81257297,82798839
+"335","ENPAK24","ENP","AK","Total length (Mb)","all",81556477,87309330
+"336","ENPAK25","ENP","AK","Total length (Mb)","all",141810742,141788536
+"337","ENPAK26","ENP","AK","Total length (Mb)","all",145110983,143992566
+"338","ENPAK27","ENP","AK","Total length (Mb)","all",142690783,142589343
+"339","ENPAK28","ENP","AK","Total length (Mb)","all",150986551,151213424
+"340","ENPAK29","ENP","AK","Total length (Mb)","all",76999360,84858564
+"341","ENPAK30","ENP","AK","Total length (Mb)","all",84130860,88889511
+"342","ENPBC16","ENP","BC","Total length (Mb)","all",80076987,85686314
+"343","ENPBC17","ENP","BC","Total length (Mb)","all",132323077,133404184
+"344","ENPBC18","ENP","BC","Total length (Mb)","all",135383312,136590597
+"345","ENPCA01","ENP","CA","Total length (Mb)","all",188278051,185579152
+"346","ENPCA02","ENP","CA","Total length (Mb)","all",84374941,88341467
+"347","ENPCA03","ENP","CA","Total length (Mb)","all",146621741,146571280
+"348","ENPCA04","ENP","CA","Total length (Mb)","all",158560282,158235299
+"349","ENPCA05","ENP","CA","Total length (Mb)","all",127482522,136187256
+"350","ENPCA06","ENP","CA","Total length (Mb)","all",164393972,161476744
+"351","ENPCA07","ENP","CA","Total length (Mb)","all",81164696,85024640
+"352","ENPCA08","ENP","CA","Total length (Mb)","all",90298926,96740610
+"353","ENPOR10","ENP","OR","Total length (Mb)","all",78872488,79887345
+"354","ENPOR11","ENP","OR","Total length (Mb)","all",92296517,97560063
+"355","ENPOR13","ENP","OR","Total length (Mb)","all",149622004,145637452
+"356","ENPWA14","ENP","WA","Total length (Mb)","all",138244838,137491169
+"357","ENPWA15","ENP","WA","Total length (Mb)","all",81002905,86136001
+"358","GOC002","GOC","GOC","Total length (Mb)","all",963134638,983184540
+"359","GOC006","GOC","GOC","Total length (Mb)","all",868494717,877263180
+"360","GOC025","GOC","GOC","Total length (Mb)","all",882420590,888849205
+"361","GOC038","GOC","GOC","Total length (Mb)","all",904281480,915305535
+"362","GOC050","GOC","GOC","Total length (Mb)","all",878809223,893880770
+"363","GOC053","GOC","GOC","Total length (Mb)","all",876602515,884738971
+"364","GOC063","GOC","GOC","Total length (Mb)","all",843670392,853087089
+"365","GOC068","GOC","GOC","Total length (Mb)","all",838570445,858205181
+"366","GOC071","GOC","GOC","Total length (Mb)","all",853216748,874121475
+"367","GOC077","GOC","GOC","Total length (Mb)","all",816328053,834896920
+"368","GOC080","GOC","GOC","Total length (Mb)","all",891845485,906972085
+"369","GOC082","GOC","GOC","Total length (Mb)","all",872681597,891651500
+"370","GOC086","GOC","GOC","Total length (Mb)","all",892771130,916161556
+"371","GOC091","GOC","GOC","Total length (Mb)","all",954855091,961692632
+"372","GOC100","GOC","GOC","Total length (Mb)","all",948606059,958648004
+"373","GOC111","GOC","GOC","Total length (Mb)","all",864000122,879704524
+"374","GOC112","GOC","GOC","Total length (Mb)","all",862291835,889668238
+"375","GOC116","GOC","GOC","Total length (Mb)","all",926988600,943518168
+"376","GOC125","GOC","GOC","Total length (Mb)","all",804659498,814046961

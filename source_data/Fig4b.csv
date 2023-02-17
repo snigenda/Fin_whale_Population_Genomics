@@ -1,0 +1,353 @@
+"","SampleId","PopId","SubPopId","MutType","variable","value"
+"1","ENPAK19","ENP","AK","SYN","Homozygous Derived",7503.30608218076
+"2","ENPAK20","ENP","AK","SYN","Homozygous Derived",7514.22158107053
+"3","ENPAK21","ENP","AK","SYN","Homozygous Derived",7323.84851067126
+"4","ENPAK22","ENP","AK","SYN","Homozygous Derived",7508.88931403598
+"5","ENPAK23","ENP","AK","SYN","Homozygous Derived",7609.22073288057
+"6","ENPAK24","ENP","AK","SYN","Homozygous Derived",7477.09240711081
+"7","ENPAK25","ENP","AK","SYN","Homozygous Derived",7512.32513167326
+"8","ENPAK26","ENP","AK","SYN","Homozygous Derived",7583.7196722792
+"9","ENPAK27","ENP","AK","SYN","Homozygous Derived",7563.03106477689
+"10","ENPAK28","ENP","AK","SYN","Homozygous Derived",7562.79926830159
+"11","ENPAK29","ENP","AK","SYN","Homozygous Derived",7526.21646331043
+"12","ENPAK30","ENP","AK","SYN","Homozygous Derived",7635.83889506276
+"13","ENPBC16","ENP","BC","SYN","Homozygous Derived",7473.45282208884
+"14","ENPBC17","ENP","BC","SYN","Homozygous Derived",7455.60236252849
+"15","ENPBC18","ENP","BC","SYN","Homozygous Derived",7503.23218558122
+"16","ENPCA02","ENP","CA","SYN","Homozygous Derived",7487.36058928916
+"17","ENPCA03","ENP","CA","SYN","Homozygous Derived",7484.99490345218
+"18","ENPCA04","ENP","CA","SYN","Homozygous Derived",7662.5039382971
+"19","ENPCA05","ENP","CA","SYN","Homozygous Derived",7719.3104719938
+"20","ENPCA06","ENP","CA","SYN","Homozygous Derived",7558.57751019658
+"21","ENPCA07","ENP","CA","SYN","Homozygous Derived",7525.03780192319
+"22","ENPCA08","ENP","CA","SYN","Homozygous Derived",7627.2310658336
+"23","ENPOR10","ENP","OR","SYN","Homozygous Derived",7475.2034745562
+"24","ENPOR11","ENP","OR","SYN","Homozygous Derived",7446.75740741314
+"25","ENPOR13","ENP","OR","SYN","Homozygous Derived",7342.46549039396
+"26","ENPWA14","ENP","WA","SYN","Homozygous Derived",7342.05650689723
+"27","ENPWA15","ENP","WA","SYN","Homozygous Derived",7502.53039605985
+"28","GOC002","GOC","GOC","SYN","Homozygous Derived",9903.67936003355
+"29","GOC006","GOC","GOC","SYN","Homozygous Derived",9281.82667234768
+"30","GOC025","GOC","GOC","SYN","Homozygous Derived",9569.32833087622
+"31","GOC038","GOC","GOC","SYN","Homozygous Derived",9454.32577651418
+"32","GOC050","GOC","GOC","SYN","Homozygous Derived",9406.46083495691
+"33","GOC053","GOC","GOC","SYN","Homozygous Derived",9452.77296040453
+"34","GOC063","GOC","GOC","SYN","Homozygous Derived",9303.15038438775
+"35","GOC068","GOC","GOC","SYN","Homozygous Derived",9543.23262413119
+"36","GOC071","GOC","GOC","SYN","Homozygous Derived",9494.68238965685
+"37","GOC077","GOC","GOC","SYN","Homozygous Derived",9438.12693230174
+"38","GOC082","GOC","GOC","SYN","Homozygous Derived",9461.60731311603
+"39","GOC086","GOC","GOC","SYN","Homozygous Derived",9694.1806061642
+"40","GOC091","GOC","GOC","SYN","Homozygous Derived",9600.92644174216
+"41","GOC100","GOC","GOC","SYN","Homozygous Derived",9669.4294316346
+"42","GOC112","GOC","GOC","SYN","Homozygous Derived",9625.04083148904
+"43","GOC116","GOC","GOC","SYN","Homozygous Derived",9787.93255857993
+"44","GOC125","GOC","GOC","SYN","Homozygous Derived",9263.48429456957
+"45","ENPAK19","ENP","AK","DEL","Homozygous Derived",1496.51968317186
+"46","ENPAK20","ENP","AK","DEL","Homozygous Derived",1479.18723196837
+"47","ENPAK21","ENP","AK","DEL","Homozygous Derived",1515.0162471054
+"48","ENPAK22","ENP","AK","DEL","Homozygous Derived",1491.33087631098
+"49","ENPAK23","ENP","AK","DEL","Homozygous Derived",1552.46018506011
+"50","ENPAK24","ENP","AK","DEL","Homozygous Derived",1471.85532922399
+"51","ENPAK25","ENP","AK","DEL","Homozygous Derived",1482.8620685848
+"52","ENPAK26","ENP","AK","DEL","Homozygous Derived",1437.89020757493
+"53","ENPAK27","ENP","AK","DEL","Homozygous Derived",1568.19794154311
+"54","ENPAK28","ENP","AK","DEL","Homozygous Derived",1445.11625774443
+"55","ENPAK29","ENP","AK","DEL","Homozygous Derived",1497.98696626095
+"56","ENPAK30","ENP","AK","DEL","Homozygous Derived",1459.93549499712
+"57","ENPBC16","ENP","BC","DEL","Homozygous Derived",1507.84862735297
+"58","ENPBC17","ENP","BC","DEL","Homozygous Derived",1465.15306730262
+"59","ENPBC18","ENP","BC","DEL","Homozygous Derived",1452.85097496706
+"60","ENPCA02","ENP","CA","DEL","Homozygous Derived",1476.48728415874
+"61","ENPCA03","ENP","CA","DEL","Homozygous Derived",1526.29707322209
+"62","ENPCA04","ENP","CA","DEL","Homozygous Derived",1472.61803617396
+"63","ENPCA05","ENP","CA","DEL","Homozygous Derived",1510.30802926725
+"64","ENPCA06","ENP","CA","DEL","Homozygous Derived",1488.19647557029
+"65","ENPCA07","ENP","CA","DEL","Homozygous Derived",1500.81602228767
+"66","ENPCA08","ENP","CA","DEL","Homozygous Derived",1541.62846693263
+"67","ENPOR10","ENP","OR","DEL","Homozygous Derived",1449.46179961013
+"68","ENPOR11","ENP","OR","DEL","Homozygous Derived",1511.48590328146
+"69","ENPOR13","ENP","OR","DEL","Homozygous Derived",1449.90913035475
+"70","ENPWA14","ENP","WA","DEL","Homozygous Derived",1420.18288248982
+"71","ENPWA15","ENP","WA","DEL","Homozygous Derived",1516.85515491558
+"72","GOC002","GOC","GOC","DEL","Homozygous Derived",2185.72628686345
+"73","GOC006","GOC","GOC","DEL","Homozygous Derived",2029.18609809962
+"74","GOC025","GOC","GOC","DEL","Homozygous Derived",2137.84657238024
+"75","GOC038","GOC","GOC","DEL","Homozygous Derived",2065.63814646855
+"76","GOC050","GOC","GOC","DEL","Homozygous Derived",2027.03664005358
+"77","GOC053","GOC","GOC","DEL","Homozygous Derived",2080.4949868235
+"78","GOC063","GOC","GOC","DEL","Homozygous Derived",2069.8093793013
+"79","GOC068","GOC","GOC","DEL","Homozygous Derived",2088.36956791381
+"80","GOC071","GOC","GOC","DEL","Homozygous Derived",2085.22503925761
+"81","GOC077","GOC","GOC","DEL","Homozygous Derived",2054.87151578079
+"82","GOC082","GOC","GOC","DEL","Homozygous Derived",2045.93607892083
+"83","GOC086","GOC","GOC","DEL","Homozygous Derived",2132.59272890208
+"84","GOC091","GOC","GOC","DEL","Homozygous Derived",2050.11922318828
+"85","GOC100","GOC","GOC","DEL","Homozygous Derived",2078.41594168196
+"86","GOC112","GOC","GOC","DEL","Homozygous Derived",2088.23796405454
+"87","GOC116","GOC","GOC","DEL","Homozygous Derived",2140.76793674169
+"88","GOC125","GOC","GOC","DEL","Homozygous Derived",1983.31743526197
+"89","ENPAK19","ENP","AK","TOL","Homozygous Derived",4064.74632780428
+"90","ENPAK20","ENP","AK","TOL","Homozygous Derived",4067.38362312948
+"91","ENPAK21","ENP","AK","TOL","Homozygous Derived",3988.26211987116
+"92","ENPAK22","ENP","AK","TOL","Homozygous Derived",4126.33985632896
+"93","ENPAK23","ENP","AK","TOL","Homozygous Derived",3981.14167309635
+"94","ENPAK24","ENP","AK","TOL","Homozygous Derived",3958.03393138653
+"95","ENPAK25","ENP","AK","TOL","Homozygous Derived",4108.62178827563
+"96","ENPAK26","ENP","AK","TOL","Homozygous Derived",4060.83960600057
+"97","ENPAK27","ENP","AK","TOL","Homozygous Derived",3988.08581115836
+"98","ENPAK28","ENP","AK","TOL","Homozygous Derived",3969.79203299338
+"99","ENPAK29","ENP","AK","TOL","Homozygous Derived",3977.96118599223
+"100","ENPAK30","ENP","AK","TOL","Homozygous Derived",4037.15155551578
+"101","ENPBC16","ENP","BC","TOL","Homozygous Derived",3964.02171914294
+"102","ENPBC17","ENP","BC","TOL","Homozygous Derived",4023.39298802676
+"103","ENPBC18","ENP","BC","TOL","Homozygous Derived",3968.06494838153
+"104","ENPCA02","ENP","CA","TOL","Homozygous Derived",4018.83933717579
+"105","ENPCA03","ENP","CA","TOL","Homozygous Derived",4024.29786776907
+"106","ENPCA04","ENP","CA","TOL","Homozygous Derived",3996.62792371548
+"107","ENPCA05","ENP","CA","TOL","Homozygous Derived",4164.44274564086
+"108","ENPCA06","ENP","CA","TOL","Homozygous Derived",3977.17987217888
+"109","ENPCA07","ENP","CA","TOL","Homozygous Derived",4017.62567165418
+"110","ENPCA08","ENP","CA","TOL","Homozygous Derived",4073.39333711163
+"111","ENPOR10","ENP","OR","TOL","Homozygous Derived",3957.20780885781
+"112","ENPOR11","ENP","OR","TOL","Homozygous Derived",4029.318570784
+"113","ENPOR13","ENP","OR","TOL","Homozygous Derived",3964.16155657628
+"114","ENPWA14","ENP","WA","TOL","Homozygous Derived",4066.66800658773
+"115","ENPWA15","ENP","WA","TOL","Homozygous Derived",4012.0966804435
+"116","GOC002","GOC","GOC","TOL","Homozygous Derived",5321.36849553781
+"117","GOC006","GOC","GOC","TOL","Homozygous Derived",5032.28850173675
+"118","GOC025","GOC","GOC","TOL","Homozygous Derived",5185.90477047705
+"119","GOC038","GOC","GOC","TOL","Homozygous Derived",5109.42109569392
+"120","GOC050","GOC","GOC","TOL","Homozygous Derived",5068.62359260673
+"121","GOC053","GOC","GOC","TOL","Homozygous Derived",5197.54131705095
+"122","GOC063","GOC","GOC","TOL","Homozygous Derived",5016.20516813721
+"123","GOC068","GOC","GOC","TOL","Homozygous Derived",5098.84226426721
+"124","GOC071","GOC","GOC","TOL","Homozygous Derived",5148.53792055636
+"125","GOC077","GOC","GOC","TOL","Homozygous Derived",5093.1580902722
+"126","GOC082","GOC","GOC","TOL","Homozygous Derived",5065.13072793206
+"127","GOC086","GOC","GOC","TOL","Homozygous Derived",5243.23139078698
+"128","GOC091","GOC","GOC","TOL","Homozygous Derived",5087.6522866926
+"129","GOC100","GOC","GOC","TOL","Homozygous Derived",5124.7151982304
+"130","GOC112","GOC","GOC","TOL","Homozygous Derived",5231.63338094073
+"131","GOC116","GOC","GOC","TOL","Homozygous Derived",5362.73734312913
+"132","GOC125","GOC","GOC","TOL","Homozygous Derived",4890.23137512307
+"133","ENPAK19","ENP","AK","LOF","Homozygous Derived",96.9174677991413
+"134","ENPAK20","ENP","AK","LOF","Homozygous Derived",110.972173062593
+"135","ENPAK21","ENP","AK","LOF","Homozygous Derived",110.516204748578
+"136","ENPAK22","ENP","AK","LOF","Homozygous Derived",115.308572608018
+"137","ENPAK23","ENP","AK","LOF","Homozygous Derived",107.258516941307
+"138","ENPAK24","ENP","AK","LOF","Homozygous Derived",115.399257217603
+"139","ENPAK25","ENP","AK","LOF","Homozygous Derived",113.163972391245
+"140","ENPAK26","ENP","AK","LOF","Homozygous Derived",108.491349721707
+"141","ENPAK27","ENP","AK","LOF","Homozygous Derived",114.452879581152
+"142","ENPAK28","ENP","AK","LOF","Homozygous Derived",106.582427628238
+"143","ENPAK29","ENP","AK","LOF","Homozygous Derived",104.334204545455
+"144","ENPAK30","ENP","AK","LOF","Homozygous Derived",107.33971661055
+"145","ENPBC16","ENP","BC","LOF","Homozygous Derived",96.7978040845834
+"146","ENPBC17","ENP","BC","LOF","Homozygous Derived",108.113254203759
+"147","ENPBC18","ENP","BC","LOF","Homozygous Derived",116.026061513337
+"148","ENPCA02","ENP","CA","LOF","Homozygous Derived",102.48051291479
+"149","ENPCA03","ENP","CA","LOF","Homozygous Derived",106.67513103199
+"150","ENPCA04","ENP","CA","LOF","Homozygous Derived",113.993377941855
+"151","ENPCA05","ENP","CA","LOF","Homozygous Derived",125.970980084824
+"152","ENPCA06","ENP","CA","LOF","Homozygous Derived",105.792559927635
+"153","ENPCA07","ENP","CA","LOF","Homozygous Derived",111.178639542276
+"154","ENPCA08","ENP","CA","LOF","Homozygous Derived",105.483979926655
+"155","ENPOR10","ENP","OR","LOF","Homozygous Derived",111.613794505693
+"156","ENPOR11","ENP","OR","LOF","Homozygous Derived",105.060793208768
+"157","ENPOR13","ENP","OR","LOF","Homozygous Derived",99.6619346393428
+"158","ENPWA14","ENP","WA","LOF","Homozygous Derived",100.259308872945
+"159","ENPWA15","ENP","WA","LOF","Homozygous Derived",106.393753348812
+"160","GOC002","GOC","GOC","LOF","Homozygous Derived",137.871429858546
+"161","GOC006","GOC","GOC","LOF","Homozygous Derived",136.886633930985
+"162","GOC025","GOC","GOC","LOF","Homozygous Derived",138.307928744503
+"163","GOC038","GOC","GOC","LOF","Homozygous Derived",142.658932294027
+"164","GOC050","GOC","GOC","LOF","Homozygous Derived",138.581534933909
+"165","GOC053","GOC","GOC","LOF","Homozygous Derived",140.13141025641
+"166","GOC063","GOC","GOC","LOF","Homozygous Derived",137.59868716842
+"167","GOC068","GOC","GOC","LOF","Homozygous Derived",138.091595715463
+"168","GOC071","GOC","GOC","LOF","Homozygous Derived",146.244180718475
+"169","GOC077","GOC","GOC","LOF","Homozygous Derived",140.258042653172
+"170","GOC082","GOC","GOC","LOF","Homozygous Derived",135.773256348914
+"171","GOC086","GOC","GOC","LOF","Homozygous Derived",138.118613636364
+"172","GOC091","GOC","GOC","LOF","Homozygous Derived",143.353979518505
+"173","GOC100","GOC","GOC","LOF","Homozygous Derived",141.093586926669
+"174","GOC112","GOC","GOC","LOF","Homozygous Derived",136.145519613311
+"175","GOC116","GOC","GOC","LOF","Homozygous Derived",142.09325
+"176","GOC125","GOC","GOC","LOF","Homozygous Derived",143.221240737394
+"177","ENPAK19","ENP","AK","SYN","Heterozygous",10643.4075435003
+"178","ENPAK20","ENP","AK","SYN","Heterozygous",10641.6745507654
+"179","ENPAK21","ENP","AK","SYN","Heterozygous",10679.2506410505
+"180","ENPAK22","ENP","AK","SYN","Heterozygous",10512.644293712
+"181","ENPAK23","ENP","AK","SYN","Heterozygous",10349.2684486022
+"182","ENPAK24","ENP","AK","SYN","Heterozygous",10565.7224041626
+"183","ENPAK25","ENP","AK","SYN","Heterozygous",10466.655062798
+"184","ENPAK26","ENP","AK","SYN","Heterozygous",10423.5634170803
+"185","ENPAK27","ENP","AK","SYN","Heterozygous",10506.1529195547
+"186","ENPAK28","ENP","AK","SYN","Heterozygous",10391.7599121127
+"187","ENPAK29","ENP","AK","SYN","Heterozygous",10589.731147215
+"188","ENPAK30","ENP","AK","SYN","Heterozygous",10612.0955101103
+"189","ENPBC16","ENP","BC","SYN","Heterozygous",10482.0525332081
+"190","ENPBC17","ENP","BC","SYN","Heterozygous",10637.399938555
+"191","ENPBC18","ENP","BC","SYN","Heterozygous",10655.9755247733
+"192","ENPCA02","ENP","CA","SYN","Heterozygous",10518.1736205483
+"193","ENPCA03","ENP","CA","SYN","Heterozygous",10676.44067324
+"194","ENPCA04","ENP","CA","SYN","Heterozygous",10370.4436008832
+"195","ENPCA05","ENP","CA","SYN","Heterozygous",10120.8513910709
+"196","ENPCA06","ENP","CA","SYN","Heterozygous",10633.9731172077
+"197","ENPCA07","ENP","CA","SYN","Heterozygous",10482.9305908014
+"198","ENPCA08","ENP","CA","SYN","Heterozygous",10548.5257906138
+"199","ENPOR10","ENP","OR","SYN","Heterozygous",10622.0325782216
+"200","ENPOR11","ENP","OR","SYN","Heterozygous",10797.7982407491
+"201","ENPOR13","ENP","OR","SYN","Heterozygous",10841.0449236284
+"202","ENPWA14","ENP","WA","SYN","Heterozygous",10883.4138476174
+"203","ENPWA15","ENP","WA","SYN","Heterozygous",10689.1154273747
+"204","GOC002","GOC","GOC","SYN","Heterozygous",5917.57159771159
+"205","GOC006","GOC","GOC","SYN","Heterozygous",7044.56179261727
+"206","GOC025","GOC","GOC","SYN","Heterozygous",6349.71364882874
+"207","GOC038","GOC","GOC","SYN","Heterozygous",6656.6675478833
+"208","GOC050","GOC","GOC","SYN","Heterozygous",6776.55964683688
+"209","GOC053","GOC","GOC","SYN","Heterozygous",6559.88999718395
+"210","GOC063","GOC","GOC","SYN","Heterozygous",7016.52409590274
+"211","GOC068","GOC","GOC","SYN","Heterozygous",6676.77080195357
+"212","GOC071","GOC","GOC","SYN","Heterozygous",6689.25360357614
+"213","GOC077","GOC","GOC","SYN","Heterozygous",6888.1907311412
+"214","GOC082","GOC","GOC","SYN","Heterozygous",6691.0648549037
+"215","GOC086","GOC","GOC","SYN","Heterozygous",6225.72992207348
+"216","GOC091","GOC","GOC","SYN","Heterozygous",6601.19270940407
+"217","GOC100","GOC","GOC","SYN","Heterozygous",6518.52570752727
+"218","GOC112","GOC","GOC","SYN","Heterozygous",6451.57451510639
+"219","GOC116","GOC","GOC","SYN","Heterozygous",6073.18146893743
+"220","GOC125","GOC","GOC","SYN","Heterozygous",7238.85716714844
+"221","ENPAK19","ENP","AK","DEL","Heterozygous",2961.77783657396
+"222","ENPAK20","ENP","AK","DEL","Heterozygous",2775.89719686414
+"223","ENPAK21","ENP","AK","DEL","Heterozygous",2882.49169629008
+"224","ENPAK22","ENP","AK","DEL","Heterozygous",2877.13366658126
+"225","ENPAK23","ENP","AK","DEL","Heterozygous",2804.57513170336
+"226","ENPAK24","ENP","AK","DEL","Heterozygous",2931.44519737111
+"227","ENPAK25","ENP","AK","DEL","Heterozygous",2889.09301013536
+"228","ENPAK26","ENP","AK","DEL","Heterozygous",2977.18310961918
+"229","ENPAK27","ENP","AK","DEL","Heterozygous",2846.21752382431
+"230","ENPAK28","ENP","AK","DEL","Heterozygous",2796.78388912201
+"231","ENPAK29","ENP","AK","DEL","Heterozygous",2863.94459752342
+"232","ENPAK30","ENP","AK","DEL","Heterozygous",2883.64929611423
+"233","ENPBC16","ENP","BC","DEL","Heterozygous",2944.55367595796
+"234","ENPBC17","ENP","BC","DEL","Heterozygous",2947.14697445929
+"235","ENPBC18","ENP","BC","DEL","Heterozygous",2942.3201284585
+"236","ENPCA02","ENP","CA","DEL","Heterozygous",2843.71651402468
+"237","ENPCA03","ENP","CA","DEL","Heterozygous",2863.78408103911
+"238","ENPCA04","ENP","CA","DEL","Heterozygous",2970.67867836337
+"239","ENPCA05","ENP","CA","DEL","Heterozygous",2748.57925539763
+"240","ENPCA06","ENP","CA","DEL","Heterozygous",2876.71931451419
+"241","ENPCA07","ENP","CA","DEL","Heterozygous",2848.08321061192
+"242","ENPCA08","ENP","CA","DEL","Heterozygous",2869.76767504856
+"243","ENPOR10","ENP","OR","DEL","Heterozygous",2912.77511129844
+"244","ENPOR11","ENP","OR","DEL","Heterozygous",2873.2117203454
+"245","ENPOR13","ENP","OR","DEL","Heterozygous",2927.47320325032
+"246","ENPWA14","ENP","WA","DEL","Heterozygous",3006.21929041726
+"247","ENPWA15","ENP","WA","DEL","Heterozygous",2894.20679169773
+"248","GOC002","GOC","GOC","DEL","Heterozygous",1626.74720944857
+"249","GOC006","GOC","GOC","DEL","Heterozygous",1952.16589583598
+"250","GOC025","GOC","GOC","DEL","Heterozygous",1702.61402110981
+"251","GOC038","GOC","GOC","DEL","Heterozygous",1853.14427015719
+"252","GOC050","GOC","GOC","DEL","Heterozygous",1834.69009756674
+"253","GOC053","GOC","GOC","DEL","Heterozygous",1828.79048936282
+"254","GOC063","GOC","GOC","DEL","Heterozygous",1931.95337877695
+"255","GOC068","GOC","GOC","DEL","Heterozygous",1870.74788253847
+"256","GOC071","GOC","GOC","DEL","Heterozygous",1862.30788501291
+"257","GOC077","GOC","GOC","DEL","Heterozygous",1881.73597641553
+"258","GOC082","GOC","GOC","DEL","Heterozygous",1868.76842433718
+"259","GOC086","GOC","GOC","DEL","Heterozygous",1686.02840688908
+"260","GOC091","GOC","GOC","DEL","Heterozygous",1905.02171437332
+"261","GOC100","GOC","GOC","DEL","Heterozygous",1842.59567137574
+"262","GOC112","GOC","GOC","DEL","Heterozygous",1735.3528160242
+"263","GOC116","GOC","GOC","DEL","Heterozygous",1669.2244208282
+"264","GOC125","GOC","GOC","DEL","Heterozygous",1975.42363452461
+"265","ENPAK19","ENP","AK","TOL","Heterozygous",5751.087183503
+"266","ENPAK20","ENP","AK","TOL","Heterozygous",5733.52853714732
+"267","ENPAK21","ENP","AK","TOL","Heterozygous",5803.90307996169
+"268","ENPAK22","ENP","AK","TOL","Heterozygous",5660.51739827647
+"269","ENPAK23","ENP","AK","TOL","Heterozygous",5797.47424812479
+"270","ENPAK24","ENP","AK","TOL","Heterozygous",5815.15492455521
+"271","ENPAK25","ENP","AK","TOL","Heterozygous",5705.0920761618
+"272","ENPAK26","ENP","AK","TOL","Heterozygous",5746.70025479124
+"273","ENPAK27","ENP","AK","TOL","Heterozygous",5875.12125431224
+"274","ENPAK28","ENP","AK","TOL","Heterozygous",5638.77033385745
+"275","ENPAK29","ENP","AK","TOL","Heterozygous",5823.94966446442
+"276","ENPAK30","ENP","AK","TOL","Heterozygous",5711.75477921627
+"277","ENPBC16","ENP","BC","TOL","Heterozygous",5833.22716783516
+"278","ENPBC17","ENP","BC","TOL","Heterozygous",5839.16429472354
+"279","ENPBC18","ENP","BC","TOL","Heterozygous",5828.93011116031
+"280","ENPCA02","ENP","CA","TOL","Heterozygous",5785.52711553576
+"281","ENPCA03","ENP","CA","TOL","Heterozygous",5810.45710816988
+"282","ENPCA04","ENP","CA","TOL","Heterozygous",5768.83296634162
+"283","ENPCA05","ENP","CA","TOL","Heterozygous",5520.75208023031
+"284","ENPCA06","ENP","CA","TOL","Heterozygous",5704.11323773023
+"285","ENPCA07","ENP","CA","TOL","Heterozygous",5841.56626771727
+"286","ENPCA08","ENP","CA","TOL","Heterozygous",5626.64253328919
+"287","ENPOR10","ENP","OR","TOL","Heterozygous",5902.66181041181
+"288","ENPOR11","ENP","OR","TOL","Heterozygous",5768.05820484496
+"289","ENPOR13","ENP","OR","TOL","Heterozygous",5776.49109717332
+"290","ENPWA14","ENP","WA","TOL","Heterozygous",5836.08112116269
+"291","ENPWA15","ENP","WA","TOL","Heterozygous",5835.86632014547
+"292","GOC002","GOC","GOC","TOL","Heterozygous",3164.45622360966
+"293","GOC006","GOC","GOC","TOL","Heterozygous",3804.15280249283
+"294","GOC025","GOC","GOC","TOL","Heterozygous",3402.57450173589
+"295","GOC038","GOC","GOC","TOL","Heterozygous",3555.32612157288
+"296","GOC050","GOC","GOC","TOL","Heterozygous",3581.15704238434
+"297","GOC053","GOC","GOC","TOL","Heterozygous",3488.94914586984
+"298","GOC063","GOC","GOC","TOL","Heterozygous",3790.72220875726
+"299","GOC068","GOC","GOC","TOL","Heterozygous",3601.4127517129
+"300","GOC071","GOC","GOC","TOL","Heterozygous",3533.7601419084
+"301","GOC077","GOC","GOC","TOL","Heterozygous",3709.33051826
+"302","GOC082","GOC","GOC","TOL","Heterozygous",3613.66638671292
+"303","GOC086","GOC","GOC","TOL","Heterozygous",3402.83930473642
+"304","GOC091","GOC","GOC","TOL","Heterozygous",3591.6908258162
+"305","GOC100","GOC","GOC","TOL","Heterozygous",3706.17804784304
+"306","GOC112","GOC","GOC","TOL","Heterozygous",3418.75081866315
+"307","GOC116","GOC","GOC","TOL","Heterozygous",3156.47880277865
+"308","GOC125","GOC","GOC","TOL","Heterozygous",3992.75099555778
+"309","ENPAK19","ENP","AK","LOF","Heterozygous",162.209235579615
+"310","ENPAK20","ENP","AK","LOF","Heterozygous",158.822559612519
+"311","ENPAK21","ENP","AK","LOF","Heterozygous",166.76105895098
+"312","ENPAK22","ENP","AK","LOF","Heterozygous",149.399802770388
+"313","ENPAK23","ENP","AK","LOF","Heterozygous",161.899648213294
+"314","ENPAK24","ENP","AK","LOF","Heterozygous",139.908833971784
+"315","ENPAK25","ENP","AK","LOF","Heterozygous",152.870629370629
+"316","ENPAK26","ENP","AK","LOF","Heterozygous",163.243993506493
+"317","ENPAK27","ENP","AK","LOF","Heterozygous",162.314992860543
+"318","ENPAK28","ENP","AK","LOF","Heterozygous",177.637379380396
+"319","ENPAK29","ENP","AK","LOF","Heterozygous",156.004477272727
+"320","ENPAK30","ENP","AK","LOF","Heterozygous",159.476150392817
+"321","ENPBC16","ENP","BC","LOF","Heterozygous",179.767350442798
+"322","ENPBC17","ENP","BC","LOF","Heterozygous",171.998358960525
+"323","ENPBC18","ENP","BC","LOF","Heterozygous",148.751360914535
+"324","ENPCA02","ENP","CA","LOF","Heterozygous",178.838542145418
+"325","ENPCA03","ENP","CA","LOF","Heterozygous",159.024963853244
+"326","ENPCA04","ENP","CA","LOF","Heterozygous",158.380179972312
+"327","ENPCA05","ENP","CA","LOF","Heterozygous",137.056426332288
+"328","ENPCA06","ENP","CA","LOF","Heterozygous",162.14934418815
+"329","ENPCA07","ENP","CA","LOF","Heterozygous",148.899963672691
+"330","ENPCA08","ENP","CA","LOF","Heterozygous",159.280809689249
+"331","ENPOR10","ENP","OR","LOF","Heterozygous",141.245775347913
+"332","ENPOR11","ENP","OR","LOF","Heterozygous",158.082128099174
+"333","ENPOR13","ENP","OR","LOF","Heterozygous",153.93328518552
+"334","ENPWA14","ENP","WA","LOF","Heterozygous",170.738625011352
+"335","ENPWA15","ENP","WA","LOF","Heterozygous",164.959122164672
+"336","GOC002","GOC","GOC","LOF","Heterozygous",86.6620416253717
+"337","GOC006","GOC","GOC","LOF","Heterozygous",105.373164249031
+"338","GOC025","GOC","GOC","LOF","Heterozygous",100.052544198151
+"339","GOC038","GOC","GOC","LOF","Heterozygous",80.2456494153902
+"340","GOC050","GOC","GOC","LOF","Heterozygous",101.233319845338
+"341","GOC053","GOC","GOC","LOF","Heterozygous",84.2748341402188
+"342","GOC063","GOC","GOC","LOF","Heterozygous",103.199015376315
+"343","GOC068","GOC","GOC","LOF","Heterozygous",103.068364918063
+"344","GOC071","GOC","GOC","LOF","Heterozygous",92.1538673020528
+"345","GOC077","GOC","GOC","LOF","Heterozygous",99.7610021688053
+"346","GOC082","GOC","GOC","LOF","Heterozygous",101.578510305484
+"347","GOC086","GOC","GOC","LOF","Heterozygous",96.3849318181818
+"348","GOC091","GOC","GOC","LOF","Heterozygous",101.133286920589
+"349","GOC100","GOC","GOC","LOF","Heterozygous",100.066373706857
+"350","GOC112","GOC","GOC","LOF","Heterozygous",96.5210773377951
+"351","GOC116","GOC","GOC","LOF","Heterozygous",87.442
+"352","GOC125","GOC","GOC","LOF","Heterozygous",100.748734863546

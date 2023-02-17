@@ -3,13 +3,15 @@
 # Date: Thu Mar 25 20:26:32 2021
 # Modification: Migrate to a new folder
 # Date: Sun Sep 12 15:14:42 2021
+# Modification: Add source_data
+# Date: Mon Jan 16 15:31:03 2023
 
 # preparation --------
 rm(list = ls())
 cat("\014")
 options(echo = TRUE, stringsAsFactors = FALSE)
 
-setwd('/Users/linmeixi/Lab/finwhale_manuscript/')
+setwd('/Users/linmeixi/Lab/fin_whale/finwhale_manuscript/')
 
 library(dplyr)
 library(ggplot2)
@@ -49,7 +51,7 @@ contiglist = load_contiglist(contigfile = "./scripts/config/minke_contig_summary
 
 # main --------
 # plotting zooroh ========
-nrohcat = length(unique(zooroh$rohcat)) # nrohcat =3 
+nrohcat = length(unique(zooroh$rohcat)) # nrohcat =3
 rohcatbrewer = RColorBrewer::brewer.pal(name = "Reds", n = 9)[c(5,7,9)]
 names(rohcatbrewer) = unique(zooroh$rohcat)
 # pals::pal.bands(rohcatbrewer)
@@ -80,6 +82,11 @@ pp3 <- ggplot(plotzoo2) +
 pp <- ggarrange(pp2, pp3, nrow = 2, labels = 'AUTO', heights = c(2, 1), common.legend = TRUE)
 
 ggsave(filename = 'FigureS8.genomewide_distribution_RZooRoH_newcat_20210912.pdf', plot = pp, path = plotdir, width = 12, height = 9)
+
+# write zooroh as it is --------
+# Modification: write the zooroh RDS
+# Date: Sun Jan 22 15:57:29 2023
+write.csv(zooroh, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS10.csv')
 
 # cleanup --------
 closeAllConnections()

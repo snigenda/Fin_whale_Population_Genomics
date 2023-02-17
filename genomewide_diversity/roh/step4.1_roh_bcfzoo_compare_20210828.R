@@ -11,7 +11,7 @@
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
-setwd("/Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/")
+setwd("/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/important_results/Runs_of_homozygosity/")
 
 library(dplyr)
 library(ggplot2)
@@ -35,21 +35,21 @@ get_rohnames <- function(rohlens) {
 # get bcf and zooroh compare plot
 get_forplot <- function(rohsum) {
     forplot = rohsum %>%
-        select(-starts_with('froh'), -GenomeHet) %>%  
-        reshape2::melt(., id.vars = c('SampleId', 'PopId', 'SubPopId')) 
+        select(-starts_with('froh'), -GenomeHet) %>%
+        reshape2::melt(., id.vars = c('SampleId', 'PopId', 'SubPopId'))
     dt = reshape2::colsplit(forplot$variable, pattern = '_', names = c('type', 'software', 'length'))
-    forplot = cbind(forplot, dt) 
-    forplotbcf = forplot %>% 
-        dplyr::filter(software == 'bcf') %>% 
+    forplot = cbind(forplot, dt)
+    forplotbcf = forplot %>%
+        dplyr::filter(software == 'bcf') %>%
         dplyr::rename(bcftools = value) %>%
         dplyr::select(SampleId, PopId, SubPopId, type, length, bcftools)
-    forplotzoo = forplot %>% 
-        dplyr::filter(software == 'zoo') %>% 
+    forplotzoo = forplot %>%
+        dplyr::filter(software == 'zoo') %>%
         dplyr::rename(RZooRoH = value) %>%
         dplyr::select(SampleId, PopId, SubPopId, type, length, RZooRoH)
-    forplot = dplyr::full_join(x = forplotbcf, y = forplotzoo, 
-                               by = c('SampleId','PopId','SubPopId','type','length')) %>% 
-        tidyr::drop_na() %>% 
+    forplot = dplyr::full_join(x = forplotbcf, y = forplotzoo,
+                               by = c('SampleId','PopId','SubPopId','type','length')) %>%
+        tidyr::drop_na() %>%
         dplyr::mutate(type = ifelse(type == 'N', 'Total number', 'Total length (Mb)'))
     return(forplot)
 }
@@ -89,8 +89,8 @@ for (ii in types) {
         lenlab = lenslab[j]
         lencat = lenscat[j]
         counter = counter + 1
-        forplotx = forplot %>% 
-            dplyr::filter(type == ii, length == jj) 
+        forplotx = forplot %>%
+            dplyr::filter(type == ii, length == jj)
         if (ii == "Total length (Mb)") {
             forplotx = forplotx %>%
                 dplyr::mutate(bcftools = bcftools/1e+6,
@@ -98,22 +98,22 @@ for (ii in types) {
         }
         pltrange = range(forplotx$bcftools,forplotx$RZooRoH)
         my.formula = y ~ x
-        pp <- ggplot() + 
-            geom_point(data = forplotx, mapping = aes(x = bcftools, y = RZooRoH), shape = '.') + 
+        pp <- ggplot() +
+            geom_point(data = forplotx, mapping = aes(x = bcftools, y = RZooRoH), shape = '.') +
             geom_smooth(data = forplotx, mapping = aes(x = bcftools, y = RZooRoH), method = "lm", se=FALSE, formula = my.formula, size = 0.5, linetype = 'dashed', color = 'black') +
-            ggpmisc::stat_poly_eq(data = forplotx, 
-                                  mapping = aes(x = bcftools, y = RZooRoH, 
-                                                label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
+            ggpmisc::stat_poly_eq(data = forplotx,
+                                  mapping = aes(x = bcftools, y = RZooRoH,
+                                                label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
                                   formula = my.formula, parse = TRUE, size = 3) +
-            geom_smooth(data = forplotx, mapping = aes(x = bcftools, y = RZooRoH, color = PopId), 
+            geom_smooth(data = forplotx, mapping = aes(x = bcftools, y = RZooRoH, color = PopId),
                         method = "lm", se=FALSE, formula = my.formula, size = 0.8) +
             geom_point(data = forplotx, mapping = aes(x = bcftools, y = RZooRoH, color = PopId)) +
-            ggpmisc::stat_poly_eq(data = forplotx, 
+            ggpmisc::stat_poly_eq(data = forplotx,
                                   mapping = aes(x = bcftools, y = RZooRoH,  color = PopId,
-                                                label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
+                                                label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
                                   formula = my.formula, parse = TRUE, size = 3, label.y = c(0.9, 0.85)) +
             geom_abline(slope = 1, intercept = 0, color = 'darkgray', linetype = 'dotted') +
-            labs(title = paste(ii, 'of', lencat, 'ROH'), subtitle = paste('ROH length:', lenlab)) + 
+            labs(title = paste(ii, 'of', lencat, 'ROH'), subtitle = paste('ROH length:', lenlab)) +
             coord_fixed(ratio = 1, xlim = pltrange, ylim = pltrange) +
             scale_color_manual(values = mycolors) +
             theme_bw() +
@@ -129,6 +129,10 @@ ppout <- ggpubr::ggarrange(plotlist = plotlist, nrow = length(types), ncol = len
 
 # output --------
 ggsave(filename = paste0('FigureS8.ROH_bcfzoo_compare_', today, '.pdf'), path = plotdir, width = 14, height = 8)
+
+# Modification: Add source_data
+# Date: Mon Jan 16 15:28:07 2023
+write.csv(forplot, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS9.csv')
 
 # cleanup --------
 date()
