@@ -1,5 +1,5 @@
 # Title: configuration for plotting
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Jun 12 11:55:50 2020
 
 # def functions --------
@@ -15,7 +15,7 @@ mylocs = c("AK", "BC", "CA", "OR", "WA", "GOC")
 # loccolors = RColorBrewer::brewer.pal(n = 8, name = "Dark2")[c(3:7,2)]
 loccolors = c("#7570B3","#E7298A","#66A61E","#E6AB02","#A6761D","#D95F02")
 names(loccolors) = mylocs
-subpoporder = c("AK", "BC", "WA", "OR", "CA", "GOC") # order for subpopulations 
+subpoporder = c("AK", "BC", "WA", "OR", "CA", "GOC") # order for subpopulations
 
 myspecies = c("BalAcu", "BalMus", "EubGla", "MegNov", "BalPhy")
 # speccolors = pals::alphabet(n=26)[c(1,2,4,10,9)]
