@@ -6,12 +6,14 @@
 # Date: Sun Sep  5 18:26:48 2021
 # Modification: Add source_data
 # Date: Mon Jan 23 11:14:16 2023
+# Modification: Add p-value
+# Date: Mon Mar 20 11:26:44 2023
 
 
 # preparation --------
 rm(list = ls())
 cat("\014")
-options(echo = TRUE)
+options(echo = TRUE, stringsAsFactors = FALSE)
 
 library(dplyr)
 library(reshape2)
@@ -79,6 +81,9 @@ mutdt = normdt
 mutdt$MutType = factor(mutdt$MutType, levels = prefixlist)
 
 # the allele proportion plot ========
+# alleledt = read.csv(file = './source_data/FigS19a.csv', row.names = 1)
+# alleledt$MutType = factor(alleledt$MutType, levels = prefixlist)
+
 alleledt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "MutType")) %>%
     dplyr::filter(variable %in% c("normAltAllele"))
 
@@ -106,6 +111,9 @@ pp1.2 <- pp1 +
 ggsave(filename = paste0(plotdir, "SnpEffType_allele_number_box_", gttype, "_", today, ".pdf"), plot =  pp1.2, height = 4, width = 7)
 
 # the genotype proportion plot ========
+# genodt = read.csv(file = './source_data/FigS19b.csv', row.names = 1)
+# genodt$MutType = factor(genodt$MutType, levels = prefixlist)
+
 genodt = reshape2::melt(mutdt, id.vars = c("SampleId", "PopId", "SubPopId", "MutType")) %>%
     dplyr::filter(variable %in% c("normHet", "normHomAlt"))
 genodt$variable = as.character(genodt$variable)
@@ -141,6 +149,17 @@ ggsave(filename = paste0(plotdir, "SnpEffType_geno_number_box_", gttype, "_", to
 alleledt$variable = 'Derived Alleles'
 write.csv(alleledt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS19a.csv')
 write.csv(genodt, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS19b.csv')
+
+# Modification: Add p-value
+# Date: Mon Mar 20 11:30:05 2023
+pval_allele = ggplot_build(pp1.2)$data[[2]][,'p.adj']
+pval_geno = ggplot_build(pp2.2)$data[[2]][,'p.adj']
+outpval = expand.grid(c('HIGH', 'MODERATE', 'LOW'),
+                      c('Number of derived alleles', 'Number of heterozygous genotypes', 'Number of derived homozygous genotypes'))
+outpval$P_adj = c(pval_allele, pval_geno)
+outpval$Groups = 'ENP-GOC'
+colnames(outpval)[1:2] = c('SnpEff Mutation Type', 'Comparisons')
+write.csv(outpval, file = '~/Lab/fin_whale/FinWhale_PopGenomics_2021/source_data/FigS19ab_pval.csv')
 
 # cleanup --------
 sink()
