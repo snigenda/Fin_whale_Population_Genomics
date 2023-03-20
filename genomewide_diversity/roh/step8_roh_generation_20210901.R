@@ -1,12 +1,12 @@
 # Title: Get average ROH lengths and the generation of coalescent
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed Sep  1 20:36:02 2021
 
 # preparation --------
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
-setwd("/Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/")
+setwd("<homedir>/finwhale/analyses/important_results/Runs_of_homozygosity/")
 
 library(dplyr)
 library(ggplot2)
@@ -22,7 +22,7 @@ zooroh = readRDS(file = './derived_data/ROH_zooroh_summary_final_20210812.rds')
 # get average length
 meanroh = zooroh %>%
     dplyr::group_by(rohcat, sample, pop) %>%
-    dplyr::summarise(meanlen = mean(length), .groups = 'drop') 
+    dplyr::summarise(meanlen = mean(length), .groups = 'drop')
 
 poproh = meanroh %>%
     dplyr::group_by(rohcat, pop) %>%

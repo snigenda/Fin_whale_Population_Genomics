@@ -1,5 +1,5 @@
 # Title: revisions for kinship within major groups
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sat Jan  1 16:41:41 2022
 # Modification: Add source_data
 # Date: Sun Jan 22 16:10:40 2023
@@ -16,12 +16,12 @@ library(ggpubr)
 library(dplyr)
 library(dunn.test)
 
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
+source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
 
 # def variables --------
 today = format(Sys.Date(), "%Y%m%d")
 
-setwd('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/')
+setwd('<homedir>/finwhale/analyses/PopStructure/all50/')
 outdir = './derive_data/revisions_Kinship/'
 plotdir = './plots/revisions_Kinship/'
 
@@ -165,7 +165,7 @@ genofile = SNPRelate::snpgdsOpen(filename = paste0(ref, '/', gdsfile))
 sample.id <- read.gdsn(index.gdsn(genofile, "sample.id"))
 
 # sample designations
-popmap = read.csv(file = '/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv', stringsAsFactors = FALSE) %>%
+popmap = read.csv(file = '<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv', stringsAsFactors = FALSE) %>%
     dplyr::mutate(SubPopId2 = ifelse(SubPopId %in% c('WA', 'OR', 'BC'), 'MENP', SubPopId)) %>%
     dplyr::mutate(SubPopId2 = factor(SubPopId2, levels = c('AK','MENP','CA','GOC'))) %>%
     dplyr::arrange(SubPopId2)

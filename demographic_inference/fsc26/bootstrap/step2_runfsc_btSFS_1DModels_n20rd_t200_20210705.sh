@@ -1,16 +1,16 @@
 #!/bin/bash
 #$ -l h_data=1G,h_vmem=1G,h_rt=23:59:00
 #$ -pe shared 8
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step2_runfsc_btSFS_1DModels_n20rd_t200_20210705.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step2_runfsc_btSFS_1DModels_n20rd_t200_20210705.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/fsc26/param_btsp/step2_runfsc_btSFS_1DModels_n20rd_t200_20210705.out.txt
+#$ -e <homedir>/reports/fsc26/param_btsp/step2_runfsc_btSFS_1DModels_n20rd_t200_20210705.err.txt
 #$ -m abe
 #$ -t 1-200
 
 # @version 		v1
 # @usage		qsub step2_runfsc_btSFS_1DModels_n20rd_t200_20210705.sh <refid>
 # @description	Estimate parameters again from bootstrapped SFS generated from the maximum likelihood parameter estimations (Based on n20pv: Each bootstrap estimate 20 times, use best estimate from data as initial values) For use with 1DModels. This is n20rd, not restricting on the initial values.
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Jul  5 16:55:12 2021
 
 ############################################################
@@ -28,7 +28,7 @@ REFID=${1}
 SETTING='neutral'
 NCORE=8
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 FSCFILE=${HOMEDIR}/scripts/fsc26/param_btsp/fsc_output_list.csv
 
 if [[ ! -f ${FSCFILE} ]]; then

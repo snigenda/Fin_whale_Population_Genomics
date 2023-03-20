@@ -1,14 +1,14 @@
 #!/bin/bash
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
+#$ -wd <homedir>
 #$ -l h_data=15G,h_vmem=16G,h_rt=23:00:00
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/snpEff_LOF_step1_extract_ALLregions_bed_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/snpEff_LOF_step1_extract_ALLregions_bed_20201218.err.txt
+#$ -o <homedir>/reports/get_ALLregions_CDS/snpEff_LOF_step1_extract_ALLregions_bed_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/snpEff_LOF_step1_extract_ALLregions_bed_20201218.err.txt
 #$ -m abe
 
 # @version        v0
 # @usage          qsub -t 1-96 step1_snpEff_LOF_extract_ALLregions_bed_20201218.sh
 # @description    Add loss-of-function annotations bedfiles using snpEff
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Dec 18 13:20:48 2020
 # Criteria: http://snpeff.sourceforge.net/snpEff_lof_nmd.pdfs
 
@@ -16,7 +16,7 @@
 ## import packages
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -38,15 +38,15 @@ IDX=$(printf %02d ${SGE_TASK_ID})
 TODAY=$(date "+%Y%m%d")
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 WORKSCRIPT=${HOMEDIR}/scripts/get_ALLregions_CDS/snpEff_LOF/extract_LOFregion_snpEff_bed.py
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
-VCFDIR="/u/project/rwayne/snigenda/finwhale/filteredvcf/${DATASET}/${REF}"
+VCFDIR="<homedir2>/finwhale/filteredvcf/${DATASET}/${REF}"
 OUTDIR=${HOMEDIR}/get_ALLregions_CDS//${DATASET}/${REF}/bedfiles
 LOGDIR=${HOMEDIR}/get_ALLregions_CDS//${DATASET}/${REF}/logs
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
+SCRATCHDIR=<scratchdir>/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 mkdir -p ${OUTDIR}
 mkdir -p ${SCRATCHDIR}
 
@@ -54,7 +54,7 @@ mkdir -p ${SCRATCHDIR}
 # input vcf
 MYVCF=${VCFDIR}/JointCalls_all50_08_B_VariantFiltration_${IDX}.vcf.gz
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 ###########################################################
 ## main

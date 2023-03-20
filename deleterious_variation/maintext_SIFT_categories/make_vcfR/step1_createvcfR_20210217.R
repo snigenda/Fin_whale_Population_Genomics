@@ -1,5 +1,5 @@
-# Title: Read in the vcf files and store vcfR objects 
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Title: Read in the vcf files and store vcfR objects
+# Author: Meixi Lin
 # Date: Wed Feb 17 15:00:01 2021
 
 # preparation --------
@@ -117,8 +117,8 @@ vcffile = as.character(args[2])
 dataset = 'all50'
 ref = 'Minke'
 cdstype = 'ALLregions'
-indir = paste('/Users/linmeixi/google_drive/finwhale/analyses/get_ALLregions_CDS/', dataset, ref, sep = '/')
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+indir = paste('<homedir>/finwhale/analyses/get_ALLregions_CDS/', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 dir.create(workdir, recursive = T)
 
 setwd(workdir)

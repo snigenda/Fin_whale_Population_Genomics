@@ -12,7 +12,7 @@ Dataset: `all50` only the finwhale individuals
 
 ```bash
 # Sun Dec  6 15:05:40 2020
-cd /u/project/rwayne/meixilin/fin_whale/analyses/scripts/window_het
+cd <homedir>/scripts/window_het
 
 qsub -t 1-96 step1_generate_window_het_20201206.sh
 
@@ -23,7 +23,7 @@ Dataset: `f50b4` 50 finwhale indivdiduals and 4 other baleen whales
 
 ```bash
 # Wed Jan 27 15:20:13 2021
-cd /u/project/rwayne/meixilin/fin_whale/analyses/scripts/window_het
+cd <homedir>/scripts/window_het
 
 qsub -t 1-96 step1_generate_window_het_f50b4_20210127.sh
 

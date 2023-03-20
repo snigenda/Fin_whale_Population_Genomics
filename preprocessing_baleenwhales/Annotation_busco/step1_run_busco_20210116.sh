@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l highp,h_data=8G,h_vmem=INFINITY,h_rt=48:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/BUSCO_run_20210116.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/BUSCO_run_20210116.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/BUSCO_run_20210116.out.txt
+#$ -e <homedir>/reports/baleen_genomes/BUSCO_run_20210116.err.txt
 #$ -m abe
 
 # @version 		v2
 # @usage		run the busco analyses
 # @description	baleen_genomes/BUSCO_run_20210116
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Jan 15 15:09:09 2021
 # @modification: Sun Jan 17 11:01:59 2021
 # @modification: Run the protein mode first and change the Bryde's rna structure
@@ -17,7 +17,7 @@
 ## import packages
 sleep $((RANDOM % 120))
 
-eval "$(/u/project/rwayne/meixilin/miniconda3/bin/conda shell.bash hook)"
+eval "$(<software>/miniconda3/bin/conda shell.bash hook)"
 conda activate busco
 
 set -eo pipefail
@@ -32,9 +32,9 @@ BUSCODB=${2} # what busco database to compare it to
 PROTEINMODE="TRUE" # default run protein too
 
 TODAY=$(date "+%Y%m%d")
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/busco
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes/busco
 # WORKDIR=${HOMEDIR}/baleen_genomes/busco
 # mkdir -p ${WORKDIR}
 mkdir -p ${SCRATCHDIR}
@@ -136,7 +136,7 @@ echo -e "[$(date "+%Y-%m-%d %T")] JOB ID ${JOB_ID} Done" >> ${LOG}
 
 # BUSCODB="cetartiodactyla_odb10"
 # REF="Minke"
-# REFDIR=/u/project/rwayne/snigenda/finwhale
+# REFDIR=<homedir2>/finwhale
 # TRANSCRIPT=${REFDIR}/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_rna.fasta
 # PROTEIN=${REFDIR}/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_protein.faa
 # LOG="test.log"

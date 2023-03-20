@@ -12,7 +12,7 @@
 # Author: Anabell Beichman , modified by Paulina Nunez (pnunez@lcg.unam.mx)
 # Usage: qsub fsc_wrapper.sh
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail

@@ -30,7 +30,7 @@ import argparse
 
 ###########################################################
 ## def functions
-sys.path.append('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config')
+sys.path.append('<homedir>/scripts/config')
 from vcf_parser_finwhale import get_samples, read_minke_contig_len, read_minke_contig_idx
 
 def parse_args():
@@ -137,7 +137,7 @@ def main():
 
 	# Filter have to be 'PASS'
 	myfilter='PASS'
-	contig_summary='/u/project/rwayne/snigenda/finwhale/scripts/config/minke_contig_summary.csv'
+	contig_summary='<homedir2>/finwhale/scripts/config/minke_contig_summary.csv'
 	# Read chromosome length dictionary
 	chrom_size=read_minke_contig_len(contig_summary)
 	# Read the contig list dictionary

@@ -1,7 +1,7 @@
 # Title: Convert the LD pruned gds files to vcf files
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Mon Mar  1 01:29:50 2021
-# Example: Rscript --vanilla  '/Users/linmeixi/google_drive/finwhale/analyses/PopStructure/f50b4/Minke' 'JointCalls_f50b4_filterpass_bialleic_all_LDPruned_mafNA.gds' 'JointCalls_f50b4_filterpass_bialleic_all_LDPruned_mafNA'
+# Example: Rscript --vanilla  '<homedir>/finwhale/analyses/PopStructure/f50b4/Minke' 'JointCalls_f50b4_filterpass_bialleic_all_LDPruned_mafNA.gds' 'JointCalls_f50b4_filterpass_bialleic_all_LDPruned_mafNA'
 
 # preparation --------
 rm(list = ls())

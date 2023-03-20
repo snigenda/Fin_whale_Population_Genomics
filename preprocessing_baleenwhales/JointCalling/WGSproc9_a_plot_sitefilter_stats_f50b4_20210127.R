@@ -1,5 +1,5 @@
 # Title: Plot the sites level filter statistics
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed Jan 27 09:57:37 2021
 
 # preparation --------

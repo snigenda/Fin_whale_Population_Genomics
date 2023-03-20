@@ -3,12 +3,12 @@
 # @version 		v0
 # @script		bash step3_Prunedvcf2plink_all50_20210316.sh
 # @description	convert a given vcf file to plink format
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Mar 18 14:42:13 2021
 
 ###########################################################
 ## import packages
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -xeo pipefail

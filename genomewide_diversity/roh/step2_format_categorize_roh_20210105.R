@@ -1,5 +1,5 @@
 # Title: Format and categorize ROH output from both bcftools and zooroh
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Jan  7 09:43:13 2021
 
 # preparation --------
@@ -13,7 +13,7 @@ library(RZooRoH)
 library(dplyr)
 library(ggplot2)
 
-setwd('/Users/linmeixi/Lab/finwhale_manuscript/')
+setwd('<homedir>/finwhale_manuscript/')
 
 # def functions --------
 loadRData <- function(fileName){

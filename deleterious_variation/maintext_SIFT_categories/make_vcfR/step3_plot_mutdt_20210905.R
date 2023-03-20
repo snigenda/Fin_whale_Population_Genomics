@@ -1,5 +1,5 @@
 # Title: FINAL VERSION Plot the master dataset (syn/nonsynTOL/nonsynDEL/LOF) with the invariant sites and bad individuals filtered out
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Feb 18 21:41:45 2021
 # Modification: Change layout to adapt for final figure setup
 # Date: Fri Mar 19 18:55:40 2021
@@ -157,7 +157,7 @@ ref = 'Minke'
 cdstype = 'ALLregions'
 prefixlist = c("syn", "nonsynTOL", "nonsynDEL", "LOF")
 
-workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './pub_plots/'

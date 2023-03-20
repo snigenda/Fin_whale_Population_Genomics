@@ -1,5 +1,5 @@
 # Title:Generate summary statistics for the fin whale summary
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Apr  5 09:54:37 2022
 
 # preparation --------
@@ -19,7 +19,7 @@ get_mean2pop <- function(plotdt, measurevar) {
         dplyr::summarise(meanval = mean(eval(as.name(measurevar))),
                          nmeasure = n(),
                          .groups = 'drop')
-    # percent change based on enp 
+    # percent change based on enp
     enpmean = meandt$meanval[meandt$popmodel == 'ENP']
     meandt = meandt %>%
         dplyr::mutate(enpchange = (meanval - enpmean)/enpmean)
@@ -36,7 +36,7 @@ get_median2pop <- function(plotdt, measurevar) {
         dplyr::summarise(medianval = median(eval(as.name(measurevar))),
                          nmeasure = n(),
                          .groups = 'drop')
-    # percent change based on enp 
+    # percent change based on enp
     enpmedian = mediandt$medianval[mediandt$popmodel == 'ENP']
     mediandt = mediandt %>%
         dplyr::mutate(enpchange = (medianval - enpmedian)/enpmedian)

@@ -1,11 +1,11 @@
 #! /bin/bash
-#$ -wd /u/project/rwayne/snigenda/finwhale
+#$ -wd <homedir2>/finwhale
 #$ -l h_rt=22:00:00,h_data=24G,h_vmem=30G
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc1.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc1.err.txt
+#$ -o <homedir2>/finwhale/reports/WGSproc1.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc1.err.txt
 #$ -m abe
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -23,15 +23,15 @@ NAME=${3} # for picard input: SAMPLE_NAME = Sample name to insert into the read 
 RGID=${4} # for picard input: READ_GROUP_NAME = Read group name Default value: A.
 RGLB=${5} # for picard input: LIBRARY_NAME = The library name to place into the LB attribute in the read group header
 RGPU=${6} # for picard input: PLATFORM_UNIT = The platform unit (often run_barcode.lane) to insert into the read group header; {FLOWCELL_BARCODE}.{LANE}.{SAMPLE_NAME}
-RGCN=${7} # for picard input: SEQUENCING_CENTER = The sequencing center from which the data originated 
+RGCN=${7} # for picard input: SEQUENCING_CENTER = The sequencing center from which the data originated
 RGPM=${8} # for picard input: PLATFORM_MODEL = "NovaSeq/HiSeq"
 FLAG=${9} # 0/1 whether or not to continue the processing (if 0, don't continue; if 1, continue)
-USER=${10} # hoffman2 user name 
+USER=${10} # hoffman2 user name
 REF=${11} # reference genome name, takes 'Minke'/'Bryde'
 
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
-SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale 
-SIRIUSDIR=/data3/finwhale  
+HOMEDIR=<homedir2>/finwhale
+SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale
+SIRIUSDIR=/data3/finwhale
 
 # we will decide which reference file to use for further analysis after testing mapping quality
 if [ $REF == 'Minke' ]; then
@@ -42,9 +42,9 @@ if [ $REF == 'Bryde' ]; then
 fi
 
 SCRIPTDIR=${HOMEDIR}/scripts
-NEXTSCRIPT=${SCRIPTDIR}/WGSproc1/WGSproc1_b_Align_20200216.sh  
+NEXTSCRIPT=${SCRIPTDIR}/WGSproc1/WGSproc1_b_Align_20200216.sh
 
-# echo the input 
+# echo the input
 echo "[$(date "+%Y-%m-%d %T")] Start WGSproc1 for ${NAME} ${REF} Job ID: ${JOB_ID}"
 echo "The qsub input"
 echo "${FQ1} ${FQ2} ${NAME} ${RGID} ${RGLB} ${RGPU} ${RGCN} ${RGPM} ${FLAG} ${USER} ${REF}"
@@ -60,9 +60,9 @@ mkdir -p ${HOMEDIR}/preprocessing/${NAME}/${REF}
 mkdir -p ${SCRATCHDIR}/preprocessing/${NAME}/${REF}
 # chmod -R 775 ${HOMEDIR}/preprocessing/${NAME}/${REF} # set permissions
 
-ssh ${USER}@sirius.eeb.ucla.edu "mkdir -p ${SIRIUSDIR}/preprocessing" 
-ssh ${USER}@sirius.eeb.ucla.edu "mkdir -p ${SIRIUSDIR}/preprocessing/${NAME}/${REF}" 
-# ssh ${USER}@sirius.eeb.ucla.edu "chmod -R 777 ${SIRIUSDIR}/preprocessing/${NAME}/${REF}" 
+ssh ${USER}@sirius.eeb.ucla.edu "mkdir -p ${SIRIUSDIR}/preprocessing"
+ssh ${USER}@sirius.eeb.ucla.edu "mkdir -p ${SIRIUSDIR}/preprocessing/${NAME}/${REF}"
+# ssh ${USER}@sirius.eeb.ucla.edu "chmod -R 777 ${SIRIUSDIR}/preprocessing/${NAME}/${REF}"
 
 
 cd ${SCRATCHDIR}/preprocessing/${NAME}/${REF}
@@ -79,7 +79,7 @@ LOG=01_${RGID}_FastqToSam.log
 date "+%Y-%m-%d %T" > ${LOG}
 
 # -Xmx40G limits java's memory usage
-# CHECK: some variables not needed 
+# CHECK: some variables not needed
 picard -Xmx16G FastqToSam \
 FASTQ=${FQ1} \
 FASTQ2=${FQ2} \
@@ -139,7 +139,7 @@ picard -Xmx16G SamToFastq \
 INPUT=${RGID}_MarkIlluminaAdapters.bam \
 FASTQ=${RGID}_MarkIlluminaAdapters.fastq \
 CLIPPING_ATTRIBUTE=XT CLIPPING_ACTION=2 INTERLEAVE=true NON_PF=true \
-TMP_DIR=./temp 2>> ${LOG1} 
+TMP_DIR=./temp 2>> ${LOG1}
 
 exitVal=${?}
 if [ ${exitVal} -ne 0 ]; then

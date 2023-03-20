@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l h_data=20G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/PopStructure/
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/PopStructure/
+#$ -wd <homedir>
+#$ -o <homedir>/reports/PopStructure/
+#$ -e <homedir>/reports/PopStructure/
 #$ -m abe
 
 # @version      v2
 # @usage        qsub step4_admixture_all50_20210316.sh
 # @description  Performs admixture analyses on the LDpruned sites (MAF cutoff = 0.10) on only the ENP individuals
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Thu Mar 18 15:22:26 2021
 # Output:
 # 1) 10 runs of admixture from K=1 to K=6
@@ -22,7 +22,7 @@
 
 ############################################################
 ## import packages
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -37,16 +37,16 @@ REF='Minke'
 MAFCUT='10'
 TODAY=$(date "+%Y%m%d")
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 WORKDIR=${HOMEDIR}/PopStructure/${DATASET}/${REF}
 OUTDIR=${WORKDIR}/revisions_Admixture_ENP_maf10
 mkdir -p ${OUTDIR}
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # admixture software source: http://dalexander.github.io/admixture/binaries/admixture_linux-1.3.0.tar.gz
-ADMIXTURE=/u/project/rwayne/meixilin/software/admixture/dist/admixture_linux-1.3.0/admixture
+ADMIXTURE=<software>/admixture/dist/admixture_linux-1.3.0/admixture
 # Minke whale reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 # sample to exclude
 EXCLUDE_SAMPLE=("GOC002" "GOC006" "GOC010" "GOC025" "GOC038" "GOC050" "GOC053" "GOC063" "GOC068" "GOC071" "GOC077" "GOC080" "GOC082" "GOC086" "GOC091" "GOC100" "GOC111" "GOC112" "GOC116" "GOC125")

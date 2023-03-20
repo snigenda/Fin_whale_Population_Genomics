@@ -2,7 +2,7 @@
 # 1. Add a vcfR object that restrict to protein_coding and no warnings in snpEff
 # 2. Remove invariant sites
 # 3. Generate genotype table summary
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Apr 22 15:36:20 2021
 
 # preparation --------
@@ -132,13 +132,13 @@ dataset = 'all50_snpEff_matching'
 ref = 'Minke'
 cdstypelist = c('filteredvcf','ALLregions','ALLregions','filteredvcf')
 prefixlist = c('HIGH','MODERATE','LOW','MODIFIER')
-projectpth = '/Users/linmeixi/google_drive/finwhale/analyses/'
+projectpth = '<homedir>/finwhale/analyses/'
 vcfRpathes = c('snpEff_impact/all50/Minke/derive_data/vcfR/HIGH_all50_Minke_filteredvcf_PASSm6_20210416.rds',
                'DelVar_vcfR/all50_snpEff_impactCDS/Minke/derive_data/vcfR/MODERATE_all50_snpEff_impactCDS_Minke_ALLregions_PASSm6_20210415.rds',
                'DelVar_vcfR/all50_snpEff_impactCDS/Minke/derive_data/vcfR/LOW_all50_snpEff_impactCDS_Minke_ALLregions_PASSm6_20210415.rds')
 annfields = c('Allele','Annotation','Annotation_Impact','Gene_Name','Gene_ID','Feature_Type','Feature_ID','Transcript_BioType','Rank','HGVS.c','HGVS.p','cDNA.pos / cDNA.length','CDS.pos / CDS.length','AA.pos / AA.length','Distance','ERRORS / WARNINGS / INFO')
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/DelVar_vcfR', dataset, ref, sep = '/')
 dir.create(workdir, recursive = TRUE)
 setwd(workdir)
 

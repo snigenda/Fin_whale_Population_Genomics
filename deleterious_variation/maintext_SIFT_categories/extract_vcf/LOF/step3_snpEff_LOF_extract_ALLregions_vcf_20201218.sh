@@ -1,14 +1,14 @@
 #!/bin/bash
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
+#$ -wd <homedir>
 #$ -l h_data=15G,h_vmem=16G,h_rt=23:00:00
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/snpEff_LOF_step3_extract_ALLregions_vcf_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/snpEff_LOF_step3_extract_ALLregions_vcf_20201218.err.txt
+#$ -o <homedir>/reports/get_ALLregions_CDS/snpEff_LOF_step3_extract_ALLregions_vcf_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/snpEff_LOF_step3_extract_ALLregions_vcf_20201218.err.txt
 #$ -m abe
 
 # @version        v1
 # @usage          qsub step3_snpEff_LOF_extract_ALLregions_vcf_20201218.sh
 # @description    Extract LOF vcf files from ALLregions
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sat Dec  5 16:20:11 2020
 # @modification: Mon Dec 28 15:30:45 2020
 # @modification: New LOF regions with triming alternatives applied
@@ -16,7 +16,7 @@
 ###########################################################
 ## import packages
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -81,11 +81,11 @@ TODAY=$(date "+%Y%m%d")
 NJOBS="96"
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}
+SCRATCHDIR=<scratchdir>/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}
 WORKDIR=${HOMEDIR}/get_ALLregions_CDS/${DATASET}/${REF}
 
 BEDDIR=${WORKDIR}/bedfiles
@@ -93,10 +93,10 @@ LOGDIR=${WORKDIR}/logs
 LOG=${LOGDIR}/snpEff_LOF_step3_extract_ALLregions_vcf_${TODAY}.log
 
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 # input vcf
-VCFDIR=/u/project/rwayne/snigenda/finwhale/filteredvcf/${DATASET}/${REF}
+VCFDIR=<homedir2>/finwhale/filteredvcf/${DATASET}/${REF}
 VCFPREFIX="JointCalls_${DATASET}_08_B_VariantFiltration"
 
 ###########################################################

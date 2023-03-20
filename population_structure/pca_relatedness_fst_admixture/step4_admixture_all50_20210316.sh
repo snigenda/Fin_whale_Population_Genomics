@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l h_data=20G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/PopStructure/step4_admixture_all50_20210316.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/PopStructure/step4_admixture_all50_20210316.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/PopStructure/step4_admixture_all50_20210316.out.txt
+#$ -e <homedir>/reports/PopStructure/step4_admixture_all50_20210316.err.txt
 #$ -m abe
 
 # @version      v0
 # @usage        qsub step4_admixture_all50_20210316.sh
 # @description  Performs admixture analyses on the LDpruned sites (MAF cutoff = NA/0.05/0.10)
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Thu Mar 18 15:22:26 2021
 # Output:
 # 1) 10 runs of admixture from K=2 to K=6
@@ -32,14 +32,14 @@ REF='Minke'
 MAFLISTS=('05' '10' 'NA')
 TODAY=$(date "+%Y%m%d")
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 WORKDIR=${HOMEDIR}/PopStructure/${DATASET}/${REF}
 
 
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # admixture software source: http://dalexander.github.io/admixture/binaries/admixture_linux-1.3.0.tar.gz
-ADMIXTURE=/u/project/rwayne/meixilin/software/admixture/dist/admixture_linux-1.3.0/admixture
+ADMIXTURE=<software>/admixture/dist/admixture_linux-1.3.0/admixture
 
 ############################################################
 ## main

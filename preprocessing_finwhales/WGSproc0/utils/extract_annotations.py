@@ -1,9 +1,9 @@
 # Title:  extract snpEff annoation errors and combine with the previous filters
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sat Mar 28 14:31:57 2020
 
 ###########################################################
-## import packages 
+## import packages
 import os
 import sys
 import argparse
@@ -11,7 +11,7 @@ import csv
 import gzip
 
 ###########################################################
-## def functions 
+## def functions
 def parse_args():
     """
     Parse command-line arguments
@@ -38,18 +38,18 @@ def parse_args():
     return args
 
 ###########################################################
-## def variables 
+## def variables
 header = "CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tANN_Allele\tANN_Annotation\tANN_Annotation_Impact\tANN_Gene_Name\tANN_Gene_ID\tANN_Feature_Type\tANN_Feature_ID\tANN_Transcript_BioType\tANN_Rank\tANN_HGVS.c\tANN_HGVS.p\tANN_cDNA.pos / cDNA.length\tANN_CDS.pos / CDS.length\tANN_AA.pos / AA.length\tANN_Distance\tANN_ERRORS / WARNINGS / INFO\n"
 
 ###########################################################
-## main 
+## main
 
 def main():
     args = parse_args()
     os.chdir(args.path)
     outfile = open(args.outfile, "w")
     # scaff=str(args.scaffold)
-    outfile.write(header) 
+    outfile.write(header)
     with gzip.open(args.VCF, "r") as VCF:
     #with gzip.open(filepath,"r") as VCF:
         for line in VCF:
@@ -61,8 +61,8 @@ def main():
                 # # if the scaffold isn't the scaff you've chosen, skip rest of loop
                 # if scaffold!=scaff:
                 #    continue
-                # only work with lines that contain ANN (annotations)         
-                if "ANN" in info_col: 
+                # only work with lines that contain ANN (annotations)
+                if "ANN" in info_col:
                     myscaf=line[0:7] # get all the previous lines
                     myinfo=line[7]
                     # split info fields:
@@ -71,9 +71,9 @@ def main():
                     myANN=infoFields["ANN"]
                     # first split by "," to get alternate alleles
                     myANN=myANN.split(",")
-                    for ann in myANN: 
+                    for ann in myANN:
                         ANNline = ann.split("|")
-                        # append the scaffold information 
+                        # append the scaffold information
                         output = myscaf + ANNline
                         outfile.write("\t".join(output))
                         outfile.write("\n")

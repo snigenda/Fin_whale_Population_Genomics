@@ -10,9 +10,9 @@
 
 # This script filters vcf and subset them per pops
 # Author: Paulina Nunez (pnunez@lcg.unam.mx)
-# Usage: qsub   
+# Usage: qsub
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -21,7 +21,7 @@ set -o pipefail
 #Defining directories ---------------------
 
 workdir=/u/project/rwayne/pnunez/FinWhale/ROHs/RZOOROH
-vcfdir=/u/project/rwayne/snigenda/finwhale/filteredvcf/all50/Minke
+vcfdir=<homedir2>/finwhale/filteredvcf/all50/Minke
 IDX=$(printf %02d ${SGE_TASK_ID})
 
 

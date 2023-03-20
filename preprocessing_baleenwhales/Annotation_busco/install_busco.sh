@@ -3,14 +3,14 @@
 # @version 		v0
 # @script		.sh
 # @description	record the install process
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Jan 15 13:23:52 2021
 # Use the python3 version
 # https://busco.ezlab.org/busco_userguide.html
 
 ###########################################################
 ## import packages
-eval "$(/u/project/rwayne/meixilin/miniconda3/bin/conda shell.bash hook)"
+eval "$(<software>/miniconda3/bin/conda shell.bash hook)"
 conda activate busco
 
 ###########################################################
@@ -41,4 +41,4 @@ busco --list-datasets
 
 # config files
 
-# /u/project/rwayne/meixilin/miniconda3/envs/busco/share/busco/config.ini
+# <software>/miniconda3/envs/busco/share/busco/config.ini

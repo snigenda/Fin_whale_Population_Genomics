@@ -1,12 +1,12 @@
 #! /bin/bash
-#$ -wd /u/project/rwayne/snigenda/finwhale
+#$ -wd <homedir2>/finwhale
 #$ -l h_rt=22:00:00,h_data=10G,h_vmem=16G
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc2.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc2.err.txt
+#$ -o <homedir2>/finwhale/reports/WGSproc2.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc2.err.txt
 #$ -m abe
 
-# this step: marks duplicate and remove bad reads 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+# this step: marks duplicate and remove bad reads
+
 conda activate gentools
 
 set -o pipefail
@@ -19,14 +19,14 @@ QSUB=/u/systems/UGE8.6.4/bin/lx-amd64/qsub
 ### Set variables
 
 NAME=${1} # sample name
-RGID=${2} # Read group id 
+RGID=${2} # Read group id
 FLAG=${3} # 0/1 whether or not to continue the processing (if 0, don't continue; if 1, continue)
-USER=${4} # meixilin 
+USER=${4} # meixilin
 REF=${5} # reference
 
 
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
-SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale 
+HOMEDIR=<homedir2>/finwhale
+SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale
 SIRIUSDIR=/data3/finwhale  ## CHECK: we will need to check the location and name of this directory and of the files inside
 
 # we will decide which reference file to use for further analysis after testing mapping quality
@@ -40,14 +40,14 @@ if [ $REF == 'Bryde' ]; then
 fi
 
 SCRIPTDIR=${HOMEDIR}/scripts
-NEXTSCRIPT=${SCRIPTDIR}/WGSproc3/WGSproc3_HaplotypeCaller_20200103.sh 
+NEXTSCRIPT=${SCRIPTDIR}/WGSproc3/WGSproc3_HaplotypeCaller_20200103.sh
 
-# echo the input 
+# echo the input
 echo "[$(date "+%Y-%m-%d %T")] Start WGSproc2 for ${NAME} ${REF} Job ID: ${JOB_ID}"
 echo "The qsub input"
 echo "${NAME} ${RGID} ${FLAG} ${USER} ${REF}"
 
-cd ${SCRATCHDIR}/preprocessing/${NAME}/${REF} 
+cd ${SCRATCHDIR}/preprocessing/${NAME}/${REF}
 mkdir -p temp
 
 PROGRESSLOG=WGSproc2_${NAME}_${REF}_progress.log
@@ -106,7 +106,7 @@ exit3=${?}
 mv ${NAME}_MarkDuplicates.bai ${HOMEDIR}/preprocessing/${NAME}/${REF}
 exit4=${?}
 
-let "exitVal=$exit1+$exit2+$exit3+$exit4" 
+let "exitVal=$exit1+$exit2+$exit3+$exit4"
 if [ ${exitVal} -ne 0 ]; then
     echo -e "[$(date "+%Y-%m-%d %T")] FAIL" >> ${PROGRESSLOG}
     exit 1

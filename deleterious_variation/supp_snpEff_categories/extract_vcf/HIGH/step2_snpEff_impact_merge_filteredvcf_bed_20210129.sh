@@ -1,21 +1,21 @@
 #!/bin/bash
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
+#$ -wd <homedir>
 #$ -l h_data=4G,h_vmem=8G,h_rt=23:00:00
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/snpEff_impact/step2_snpEff_impact_merge_filteredvcf_bed_20210129.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/snpEff_impact/step2_snpEff_impact_merge_filteredvcf_bed_20210129.err.txt
+#$ -o <homedir>/reports/snpEff_impact/step2_snpEff_impact_merge_filteredvcf_bed_20210129.out.txt
+#$ -e <homedir>/reports/snpEff_impact/step2_snpEff_impact_merge_filteredvcf_bed_20210129.err.txt
 #$ -m abe
 
 # @version        v0
 # @usage          qsub step2_snpEff_impact_merge_filteredvcf_bed_20210129.sh
 # @description    Merge snpEff Annotation_Impact bedfiles into three categories
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Dec 28 15:20:44 2020
 # Should be run after step1_snpEff_LOF_extract_ALLregions_bed_20201218.sh
 
 ###########################################################
 ## import packages
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -52,10 +52,10 @@ NJOBS="96"
 TODAY=$(date "+%Y%m%d")
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 WORKDIR=${HOMEDIR}/snpEff_impact/${DATASET}/${REF}
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/snpEff_impact/${DATASET}/${REF}/bedfiles
+SCRATCHDIR=<scratchdir>/finwhale/analyses/snpEff_impact/${DATASET}/${REF}/bedfiles
 mkdir -p ${WORKDIR}
 mkdir -p ${WORKDIR}/logs
 mkdir -p ${WORKDIR}/bedfiles

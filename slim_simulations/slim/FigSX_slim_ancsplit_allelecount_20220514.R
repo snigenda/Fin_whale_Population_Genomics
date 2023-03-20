@@ -1,5 +1,5 @@
 # Title: FINAL FINAL manuscript plots for Fig S17 slim simulations allele count
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Sep 10 23:30:05 2021
 # Modification: Update to match data version in 20220405
 # Date: Sat May 14 19:25:35 2022
@@ -9,7 +9,7 @@ rm(list = ls())
 cat("\014")
 options(echo = TRUE)
 
-setwd('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/revisions_SLiM_final/')
+setwd('<homedir>/finwhale/analyses/revisions_SLiM_final/')
 
 library(dplyr)
 library(ggplot2)
@@ -53,7 +53,7 @@ plot2popdt = readRDS(file = './derived_data/plotdt/slim_plotdt_2pop_ancestralCha
 # main --------
 # panel B: 2 pop ========
 long2popdt = plot2popdt %>%
-    reshape2::melt(id.vars = c('rep','model', 'pop', 'popmodel')) %>% 
+    reshape2::melt(id.vars = c('rep','model', 'pop', 'popmodel')) %>%
     dplyr::filter(variable %in% plotting_vars)
 long2popdt$variable = factor(long2popdt$variable, levels = plotting_vars)
 

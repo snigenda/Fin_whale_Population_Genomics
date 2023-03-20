@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 # Title:  extract SIFT annoations regions depending on the annotation types
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Dec 14 14:51:01 2020
 # Adapted from: extract_annregion_SIFT_bed.py
 # Note that it does not check for SIFT WARNING. You can find that at the output sift info file and filter further if you prefer.
@@ -139,7 +139,7 @@ def main():
 	else:
 		verbosity = False
 	# load the annotation ranking file
-	SIFT_order = load_SIFT_sortorder('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/SIFT_annotation_sort_order.txt')
+	SIFT_order = load_SIFT_sortorder('<homedir>/scripts/config/SIFT_annotation_sort_order.txt')
 	with gzip.open(args.VCF, 'rt') as VCF:
 		for line0 in VCF:
 			if not line0.startswith('#'):

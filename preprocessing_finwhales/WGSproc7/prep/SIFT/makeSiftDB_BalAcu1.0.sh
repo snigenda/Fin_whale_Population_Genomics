@@ -22,8 +22,8 @@ mkdir dbSNP
 mkdir gene-annotation-src
 
 ### Get genome fasta and gene annotation
-scp jarobins@hoffman2.idre.ucla.edu:/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta .
-scp jarobins@hoffman2.idre.ucla.edu:/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.gtf .
+scp jarobins@hoffman2.idre.ucla.edu:<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta .
+scp jarobins@hoffman2.idre.ucla.edu:<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.gtf .
 
 gzip GCF_000493695.1_BalAcu1.0_genomic.gtf
 mv GCF_000493695.1_BalAcu1.0_genomic.gtf.gz gene-annotation-src/
@@ -86,8 +86,8 @@ tar -czf GCF_000493695.1_BalAcu1.0_makeSiftDB.tar.gz GCF_000493695.1_BalAcu1.0_m
 ### Variant annotation example
 # NOTE: VCF input file must be uncompressed
 # NOTE: SIFT skips any sites without '.' or 'PASS' in FILTER column
-# NOTE: Names of files in SIFT database must match chromosome names in VCF file, except 
-# that database files must be named e.g. 1.gz rather than chr1.gz, even if 'chr1' is the 
+# NOTE: Names of files in SIFT database must match chromosome names in VCF file, except
+# that database files must be named e.g. 1.gz rather than chr1.gz, even if 'chr1' is the
 # name used in the VCF file (rename database files and/or chromosomes in VCF files as needed)
 SIFT=~/project/programs/sift/SIFT4G_Annotator_v2.4.jar
 DB=~/project/programs/sift/SIFT_databases/GCF_000493695.1_BalAcu1.0

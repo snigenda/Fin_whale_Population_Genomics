@@ -1,16 +1,16 @@
 #!/bin/bash
 #$ -l highp,h_data=1G,h_vmem=1G,h_rt=72:00:00
 #$ -pe shared 8
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step2_runfsc_btSFS_2DModels_n20rd_20210823.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step2_runfsc_btSFS_2DModels_n20rd_20210823.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/fsc26/param_btsp/step2_runfsc_btSFS_2DModels_n20rd_20210823.out.txt
+#$ -e <homedir>/reports/fsc26/param_btsp/step2_runfsc_btSFS_2DModels_n20rd_20210823.err.txt
 #$ -m abe
 #$ -t 1-2000
 
 # @version 		v0
 # @usage		qsub step2_runfsc_btSFS_2DModels_n20rd_20210823.sh <model> <submodel> <population> <prefix> <setting>
 # @description	Estimate parameters again from bootstrapped SFS generated from the maximum likelihood parameter estimations (n20rd: Each bootstrap estimate 20 times, use random start positions) For use with 2DModels. Split into 400 threads now to get it done faster.
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Aug 23 23:10:54 2021
 
 ############################################################
@@ -27,7 +27,7 @@ set -eo pipefail
 REFID=${1}
 SETTING='neutral'
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 FSCFILE=${HOMEDIR}/scripts/fsc26/param_btsp/fsc_output_list.csv
 
 if [[ ! -f ${FSCFILE} ]]; then

@@ -1,12 +1,12 @@
 #! /bin/bash
-#$ -wd /u/project/rwayne/snigenda/finwhale
+#$ -wd <homedir2>/finwhale
 #$ -l highp,h_rt=48:00:00,h_data=23G,h_vmem=23G
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc3.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc3.err.txt
+#$ -o <homedir2>/finwhale/reports/WGSproc3.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc3.err.txt
 #$ -m abe
 
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -21,9 +21,9 @@ USER=${2}
 REF=${3}
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
-SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale 
-SIRIUSDIR=/data3/finwhale 
+HOMEDIR=<homedir2>/finwhale
+SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale
+SIRIUSDIR=/data3/finwhale
 mkdir -p ${SCRATCHDIR}/preprocessing/${NAME}/${REF}
 
 IDX=$(printf %02d ${SGE_TASK_ID})
@@ -39,7 +39,7 @@ if [ $REF == 'Bryde' ]; then
     INTERVAL=${REFERENCE/Balaenoptera_edeni_HiC.fasta/contiglist\/Bal_edeni_HiC.contiglist}_${IDX}.list
 fi
 
-# echo the input 
+# echo the input
 echo "[$(date "+%Y-%m-%d %T")] Start WGSproc3 for ${NAME} ${REF} ${SGE_TASK_ID} Job ID: ${JOB_ID}"
 echo "The qsub input"
 echo "${NAME} ${USER} ${REF} ${SGE_TASK_ID}"
@@ -110,6 +110,6 @@ echo -e "[$(date "+%Y-%m-%d %T")] Done" >> ${PROGRESSLOG}
 
 
 echo "[$(date "+%Y-%m-%d %T")] Done WGSproc3 for ${NAME} ${REF} ${SGE_TASK_ID} Job ID: ${JOB_ID}"
-conda deactivate 
+conda deactivate
 
 

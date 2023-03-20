@@ -1,6 +1,6 @@
 # Different repeat masks
 
-`DIRECTORY="/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/"`
+`DIRECTORY="<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/"`
 
 | Maskfile                                                     | description                          | WGSproc8                          | Neutral Region | Canonical Coding Region | Length        |
 | ------------------------------------------------------------ | ------------------------------------ | --------------------------------- | -------------- | ----------------------- | ------------- |

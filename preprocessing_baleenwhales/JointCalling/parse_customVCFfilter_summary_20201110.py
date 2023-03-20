@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 Title: parse customVCFfilter_summary output line by line
-Author: Meixi Lin (meixilin@ucla.edu)
+Author: Meixi Lin
 Date: Tue Nov 10 19:47:53 2020
 '''
 

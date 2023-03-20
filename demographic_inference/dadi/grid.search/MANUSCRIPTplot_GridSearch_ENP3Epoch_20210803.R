@@ -1,5 +1,5 @@
 # Title: Plot grid search result for the manuscript
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed Aug 25 23:53:14 2021
 # Modification: Add source_data
 # Date: Mon Jan 23 10:48:25 2023
@@ -9,7 +9,7 @@
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
-setwd('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/dadi/grid.search/')
+setwd('<homedir>/finwhale/analyses/dadi/grid.search/')
 
 library(ggplot2)
 library(dplyr)

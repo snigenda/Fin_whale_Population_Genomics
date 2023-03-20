@@ -1,6 +1,6 @@
 '''
 # Title: reformatting the INFO field for inputting GATK
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Aug 18 20:39:05 2020
 # @modification: Thu Nov  5 21:59:08 2020
 # @modification: 1. Change to directly use vcf output from SIFT4G annotator

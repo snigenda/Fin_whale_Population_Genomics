@@ -1,8 +1,8 @@
 #!/bin/bash
 #$ -l highp,h_data=8G,h_rt=120:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/get_sra_baleen_genomes_20210108.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/get_sra_baleen_genomes_20210108.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/get_sra_baleen_genomes_20210108.out.txt
+#$ -e <homedir>/reports/baleen_genomes/get_sra_baleen_genomes_20210108.err.txt
 #$ -m abe
 
 # @version 		v1
@@ -12,12 +12,12 @@
 # @modification change the srapath step to wget
 # @modification: Fri Jan  8 16:45:52 2021
 # @modification: 1. add md5sum check for SRA and fastq files 2. move to ENA system
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Jun 26 12:27:38 2020
 
 ###########################################################
 ## import packages
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -29,9 +29,9 @@ set -eo pipefail
 ## def variables
 SRAID=${1}
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/sra_seq
-LOGDIR=/u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes
+HOMEDIR=<homedir>
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes/sra_seq
+LOGDIR=<homedir>/reports/baleen_genomes
 
 LOG=${LOGDIR}/get_sra_baleen_genomes_${SRAID}.log
 MD5FILE=${LOGDIR}/get_sra_baleen_genomes.md5sum

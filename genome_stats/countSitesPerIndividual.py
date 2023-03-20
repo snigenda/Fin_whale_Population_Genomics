@@ -15,7 +15,7 @@ import gzip
 
 ###########################################################
 ## def functions
-sys.path.append('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config')
+sys.path.append('<homedir>/scripts/config')
 from vcf_parser_finwhale import get_samples
 
 # delete variables every line

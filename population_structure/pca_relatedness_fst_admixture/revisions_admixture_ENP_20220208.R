@@ -1,6 +1,6 @@
 # Title: Plot admixture output for all scenarios only in ENP populations
 # Plan to be included in supp figures
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # 2022-02-09 13:35:01
 
 # preparation --------
@@ -12,7 +12,7 @@ library(ggplot2)
 library(ggpubr)
 library(dplyr)
 
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
+source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
 
 # def functions --------
 read_admixture <- function(k, prefix, nrep, popmap, subpoporder) {
@@ -75,7 +75,7 @@ dir.create(outdir)
 dir.create(plotdir)
 
 # load data --------
-popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F) %>%
+popmap = read.csv(file = "<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F) %>%
     dplyr::filter(PopId == 'ENP')
 plinkname = read.table(file = paste0(indir, plinkfile), header = FALSE, stringsAsFactors = FALSE)
 # check that plinkname is the same as popmap
@@ -103,7 +103,7 @@ forplotQ$SampleId = factor(forplotQ$SampleId, levels = get_sampleorder(popmap, s
 # plotting ========
 pp <- ggplot(forplotQ, aes(x = SampleId, y = value, fill = variable)) +
     geom_bar(stat = "identity", position = "stack") +
-    geom_vline(xintercept = 12.5, linetype = 'dotted') + 
+    geom_vline(xintercept = 12.5, linetype = 'dotted') +
     geom_vline(xintercept = 21.5, linetype = 'dotted') +
     scale_fill_brewer(palette = "Set3") +
     facet_grid(run ~ K) +

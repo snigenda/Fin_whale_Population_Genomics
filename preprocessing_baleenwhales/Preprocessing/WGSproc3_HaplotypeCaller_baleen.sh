@@ -1,8 +1,8 @@
 #! /bin/bash
 #$ -l highp,h_rt=72:00:00,h_data=20G,h_vmem=24G
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc3_20210112.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc3_20210112.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/baleen_WGSproc3_20210112.out.txt
+#$ -e <homedir>/reports/baleen_genomes/baleen_WGSproc3_20210112.err.txt
 #$ -m abe
 
 # @version         v1
@@ -13,7 +13,7 @@
 
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -27,9 +27,9 @@ NAME=${1}
 REF=${2}
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>/baleen_genomes
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes
 # SIRIUSDIR=/data3/finwhale/baleen_genomes
 
 IDX=$(printf %02d ${SGE_TASK_ID})

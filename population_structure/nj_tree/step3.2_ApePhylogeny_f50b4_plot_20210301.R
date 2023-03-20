@@ -1,7 +1,7 @@
 # Title: Plot the ape neighbor joining tree
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Mon Mar  1 02:15:28 2021
-# Example: Rscript --vanilla /Users/linmeixi/Lab/fin_whale/scripts_analyses/PopStructure/f50b4/step3.2_ApePhylogeny_f50b4_plot_20210301.R '/Users/linmeixi/google_drive/finwhale/analyses/PopStructure/f50b4/Minke' 'f50b4_pass_bialleic_all_LDPruned_maf05'
+# Example: Rscript --vanilla <homedir>/fin_whale/scripts_analyses/PopStructure/f50b4/step3.2_ApePhylogeny_f50b4_plot_20210301.R '<homedir>/finwhale/analyses/PopStructure/f50b4/Minke' 'f50b4_pass_bialleic_all_LDPruned_maf05'
 
 # IMPORTANT NOTE: The input rows (sample names) for ape::nj need to be named with values other than 1,2,3... The dist.gene function will confuse the dimmension of genotype
 # IMPORTANT NOTE: Here the input matrix should be on the dosage of alternative alleles (when you use the dosage of reference allele, tree looks differently.)
@@ -20,8 +20,8 @@ library(dplyr)
 library(ggplot2)
 library(ggtree)
 
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
-# source('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/plotting_config.R')
+source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
+# source('<homedir>/scripts/config/plotting_config.R')
 
 # def functions --------
 # get maf
@@ -92,7 +92,7 @@ plot_densitrees <- function(btrees, alpha = 0.1, main) {
 # args <- commandArgs(trailingOnly=TRUE)
 # workdir <- as.character(args[1]) # the working directory (should be the same as before and after)
 # outprefix <- as.character(args[2]) # the output prefix
-workdir <- '/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/f50b4/Minke'
+workdir <- '<homedir>/finwhale/analyses/PopStructure/f50b4/Minke'
 outprefix <- 'f50b4_pass_bialleic_all_LDPruned_maf10'
 
 today = format(Sys.Date(), "%Y%m%d")
@@ -114,8 +114,8 @@ treespair <- readRDS(file = paste0(outdir, outprefix, '_treespair_20210302.rds')
 treesperc <- readRDS(file = paste0(outdir, outprefix, '_treesperc_20210302.rds'))
 
 # get the population names
-popmap = read.csv(file = '/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/baleen_popid.csv', stringsAsFactor = FALSE)
-# popmap = read.csv(file = '/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/baleen_popid.csv', stringsAsFactor = FALSE)
+popmap = read.csv(file = '<homedir>/fin_whale/scripts_analyses/config/baleen_popid.csv', stringsAsFactor = FALSE)
+# popmap = read.csv(file = '<homedir>/scripts/config/baleen_popid.csv', stringsAsFactor = FALSE)
 
 # main --------
 

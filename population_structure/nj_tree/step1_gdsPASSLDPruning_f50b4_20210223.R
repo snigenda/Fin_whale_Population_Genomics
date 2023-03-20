@@ -1,7 +1,7 @@
 # Title: Filter GDS file with 1. filter == PASS and 2. SNPRelated LD pruning
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Wed Feb 24 00:03:44 2021
-# Example: Rscript --vanilla step1_gdsLDPruning_f50b4_20210223.R '/u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke' 'JointCalls_f50b4_08_B_VariantFiltration_bialleic_all.gds' 'JointCalls_f50b4_filterpass_bialleic_all'
+# Example: Rscript --vanilla step1_gdsLDPruning_f50b4_20210223.R '<homedir>/PopStructure/f50b4/Minke' 'JointCalls_f50b4_08_B_VariantFiltration_bialleic_all.gds' 'JointCalls_f50b4_filterpass_bialleic_all'
 # preparation --------
 rm(list = ls())
 cat("\014")

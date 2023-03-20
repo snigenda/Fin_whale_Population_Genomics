@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l highp,h_data=12G,h_vmem=16G,h_rt=72:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/PopStructure/step3.1_ApePhylogeny_f50b4_hoff_20210301.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/PopStructure/step3.1_ApePhylogeny_f50b4_hoff_20210301.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/PopStructure/step3.1_ApePhylogeny_f50b4_hoff_20210301.out.txt
+#$ -e <homedir>/reports/PopStructure/step3.1_ApePhylogeny_f50b4_hoff_20210301.err.txt
 #$ -m abe
 
 # @version 		v0
 # @usage		qsub wrapper_step3_ApePhylogeny_f50b4_20210301.sh <gdsfile> <outprefix>
 # @description	Wrapper to submit the Rscript for Ape Trees with bootstraps (NOTE: Using three maf cutoffs) Not plotting anything
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Mar  2 01:57:00 2021
 
 ############################################################
@@ -16,7 +16,7 @@
 
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -32,7 +32,7 @@ DATASET='f50b4'
 REF='Minke'
 TODAY=$(date "+%Y%m%d")
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 WORKDIR=${HOMEDIR}/PopStructure/${DATASET}/${REF}
 LOGDIR=${WORKDIR}/logs
 mkdir -p ${LOGDIR}

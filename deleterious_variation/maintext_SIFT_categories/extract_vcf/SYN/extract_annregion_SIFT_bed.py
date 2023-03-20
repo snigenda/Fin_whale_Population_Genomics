@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 # Title:  extract SIFT annoations regions depending on the annotation types
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Dec 18 00:56:25 2020
 '''
 
@@ -105,7 +105,7 @@ def main():
 	else:
 		verbosity = False
 	# load the annotation ranking file
-	SIFT_order = load_SIFT_sortorder('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/SIFT_annotation_sort_order.txt')
+	SIFT_order = load_SIFT_sortorder('<homedir>/scripts/config/SIFT_annotation_sort_order.txt')
 	with gzip.open(args.VCF, 'rt') as VCF:
 		for line0 in VCF:
 			if not line0.startswith('#'):

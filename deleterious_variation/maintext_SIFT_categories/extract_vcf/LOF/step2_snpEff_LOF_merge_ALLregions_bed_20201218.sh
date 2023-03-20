@@ -1,21 +1,21 @@
 #!/bin/bash
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
+#$ -wd <homedir>
 #$ -l h_data=4G,h_vmem=8G,h_rt=23:00:00
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/snpEff_LOF_step2_merge_ALLregions_bed_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/snpEff_LOF_step2_merge_ALLregions_bed_20201218.err.txt
+#$ -o <homedir>/reports/get_ALLregions_CDS/snpEff_LOF_step2_merge_ALLregions_bed_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/snpEff_LOF_step2_merge_ALLregions_bed_20201218.err.txt
 #$ -m abe
 
 # @version        v0
 # @usage          qsub step2_snpEff_LOF_merge_ALLregions_bed_20201218.sh
 # @description    Merge loss-of-function annotations bedfiles using snpEff
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Dec 28 15:20:44 2020
 # Should be run after step1_snpEff_LOF_extract_ALLregions_bed_20201218.sh
 
 ###########################################################
 ## import packages
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -36,17 +36,17 @@ CDSTYPE="ALLregions"
 TODAY=$(date "+%Y%m%d")
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
+SCRATCHDIR=<scratchdir>/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 OUTDIR=${HOMEDIR}/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 
 # output prefix
 MYOUT=JointCalls_${DATASET}_filterpassmiss_LOF05_${CDSTYPE}_all_snpEff
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 ###########################################################
 ## main

@@ -1,8 +1,8 @@
 # Title: Mann Whitney U test for the genomewide heterozygosity
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Aug 24 20:33:02 2021
 
-# Relevant values: In GOC individuals we found patterns of reduced variation, with an average 1.13 heterozygotes per kb ... In contrast, the ENP population had much higher diversity (1.76 het/kb; Mann-Whitney U [MWU] test p<0.001; Figure 2A) 
+# Relevant values: In GOC individuals we found patterns of reduced variation, with an average 1.13 heterozygotes per kb ... In contrast, the ENP population had much higher diversity (1.76 het/kb; Mann-Whitney U [MWU] test p<0.001; Figure 2A)
 
 # preparation --------
 rm(list = ls())
@@ -25,7 +25,7 @@ totaldt = read.csv(file = './data/genome_stats/derived_data/all50_genomewide_het
 # mwu test
 wilcox.test(GenomeHet ~ PopId, data = totaldt)
 # Wilcoxon rank sum test
-# 
+#
 # data:  GenomeHet by PopId
 # W = 580, p-value = 1.152e-10
 # alternative hypothesis: true location shift is not equal to 0

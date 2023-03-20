@@ -1,20 +1,20 @@
 #!/bin/bash
 #$ -l h_data=4G,h_vmem=4G,h_rt=04:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/gtf_CDS_step1_output_CDS_from_gtf_20201217.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/gtf_CDS_step1_output_CDS_from_gtf_20201217.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/get_ALLregions_CDS/gtf_CDS_step1_output_CDS_from_gtf_20201217.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/gtf_CDS_step1_output_CDS_from_gtf_20201217.err.txt
 #$ -m abe
 
 # @version 		v0
 # @usage		qsub step1_output_CDS_from_gtf_20201217.sh
 # @description	generate bedfiles from gtf directly, match up with Vaquita analyses pipeline
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Thu Dec 17 23:56:52 2020
 
 ###########################################################
 ## import packages
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -34,12 +34,12 @@ REF="Minke"
 CDSTYPE="ALLregions"
 TODAY=$(date "+%Y%m%d")
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 OUTDIR=${HOMEDIR}/get_ALLregions_CDS//${DATASET}/${REF}/bedfiles
 LOGDIR=${OUTDIR}/logs
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
-GTFFILE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.gtf
+GTFFILE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.gtf
 
 ###########################################################
 ## main

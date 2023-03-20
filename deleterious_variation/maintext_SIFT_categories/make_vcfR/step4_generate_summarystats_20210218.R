@@ -1,6 +1,6 @@
 # Title: Generate summary statistics for both mutdt and typedt for the newly filtered dataset
 # NOTE: All of the typedt and mutdt here are 44 samples. Only variants that are segregating in these 44 samples were counted
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Feb 19 11:57:24 2021
 
 # preparation --------
@@ -102,7 +102,7 @@ cdstype = 'ALLregions'
 mutprefix = c("syn", "nonsyn", "nonsynTOL", "nonsynDEL", "LOF")
 typeprefix = c("BenignRM", "Damaging")
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 setwd(workdir)
 outdir = './derive_data/statssum_table/'
 dir.create(outdir)

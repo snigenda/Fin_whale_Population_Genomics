@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l h_data=8G,h_rt=23:59:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/BUSCO_archive_20210119.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/BUSCO_archive_20210119.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/BUSCO_archive_20210119.out.txt
+#$ -e <homedir>/reports/baleen_genomes/BUSCO_archive_20210119.err.txt
 #$ -m abe
 
 # @version 		v0
 # @usage		qsub step3_archive_busco_20210119.sh
 # @description	archive the busco analyses into tar balls
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Jan 19 00:19:22 2021
 
 ###########################################################
@@ -26,9 +26,9 @@ REFLIST=("Minke" "Bryde" "Fin" "Blue" "Humpback")
 BUSCODBLIST=("cetartiodactyla_odb10" "mammalia_odb10")
 
 TODAY=$(date "+%Y%m%d")
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/busco
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes/busco
 WORKDIR=${HOMEDIR}/baleen_genomes/busco
 
 ###########################################################

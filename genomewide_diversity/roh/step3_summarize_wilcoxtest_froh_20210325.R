@@ -1,5 +1,5 @@
 # Title: Calculate Froh and summarized length
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed Sep  8 00:25:56 2021
 # Related to main text: wilcoxon test and generate data frame for downstream plotting
 
@@ -11,14 +11,14 @@ options(echo = TRUE)
 library(dplyr)
 library(ggplot2)
 
-setwd('/Users/linmeixi/Lab/finwhale_manuscript/')
+setwd('<homedir>/finwhale_manuscript/')
 
 # def functions --------
 calculate_froh <- function(roh, minlen = 1e+6, totallen) {
     output = roh %>%
         dplyr::filter(length >= minlen) %>%
         dplyr::group_by(sample) %>%
-        dplyr::summarise(froh = sum(length)/totallen, 
+        dplyr::summarise(froh = sum(length)/totallen,
                          .groups = "drop")
     return(output)
 }
@@ -27,7 +27,7 @@ calculate_froh <- function(roh, minlen = 1e+6, totallen) {
 calculate_nlenrohcat <- function(roh, software) {
     output = roh %>%
         dplyr::group_by(sample, rohcat) %>%
-        dplyr::summarise(countcat = n(), 
+        dplyr::summarise(countcat = n(),
                          sumcat = sum(length),
                          .groups = "drop")
     outputn = output %>%
@@ -84,13 +84,13 @@ summary(zooroh_froh)
 
 # write a summary table ========
 bcfrohsum = dplyr::left_join(bcfroh_froh, bcfroh_nlenrohcat, by = "sample")
-zoorohsum = dplyr::left_join(zooroh_froh, zooroh_nlenrohcat, by = "sample") 
+zoorohsum = dplyr::left_join(zooroh_froh, zooroh_nlenrohcat, by = "sample")
 
 rohsum = dplyr::left_join(genomehet,zoorohsum, by = c('SampleId' = 'sample')) %>%
-    dplyr::left_join(., bcfrohsum, by = c('SampleId' = 'sample'), suffix = c("_zoo", "_bcf")) 
+    dplyr::left_join(., bcfrohsum, by = c('SampleId' = 'sample'), suffix = c("_zoo", "_bcf"))
 # get samples not called in bcftools
 rohsum[which(is.na(rohsum$froh_bcf)), 'SampleId']
-# [1] "ENPCA09" "ENPOR12" "GOC010" 
+# [1] "ENPCA09" "ENPOR12" "GOC010"
 
 # get total N and length
 rohsum2 = rohsum %>%
@@ -103,7 +103,7 @@ rohsum2 = rohsum %>%
 # "Overall, GOC individuals contained considerably more ROH segments than ENP individuals (MWU test p<0.001)"
 wilcox.test(N_zoo_all ~ PopId, data = rohsum2)
 # Wilcoxon rank sum test with continuity correction
-# 
+#
 # data:  N_zoo_all by PopId
 # W = 30, p-value = 9.415e-08
 # alternative hypothesis: true location shift is not equal to 0

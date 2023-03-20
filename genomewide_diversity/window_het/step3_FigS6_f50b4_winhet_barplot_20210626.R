@@ -1,5 +1,5 @@
 # Title: FINAL Figure S6 Window-based Heterozygosity plots for baleen whale and GOC whale comparisons
-# Author: Jacqueline Robinson, Paulina Nunez Valencia (pnunez@lcg.unam.mx), Sergio Nigenda and Meixi Lin (meixilin@ucla.edu)
+# Author: Jacqueline Robinson, Paulina Nunez Valencia (pnunez@lcg.unam.mx), Sergio Nigenda and Meixi Lin
 # Date: Sat Sep 11 18:37:15 2021
 # NOTE: Here I used the all50 dataset for the fin whales and pulled data from the f50b4 dataset
 # Date: Mon Jun  7 18:14:42 2021
@@ -11,7 +11,7 @@ rm(list = ls())
 cat("\014")
 options(echo = TRUE, stringsAsFactors = FALSE)
 
-setwd('/Users/linmeixi/Lab/fin_whale/finwhale_manuscript/')
+setwd('<homedir>/fin_whale/finwhale_manuscript/')
 
 library(dplyr)
 library(stringr)

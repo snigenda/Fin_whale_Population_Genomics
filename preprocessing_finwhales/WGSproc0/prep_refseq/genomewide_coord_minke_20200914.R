@@ -1,5 +1,5 @@
-# Title: Get genomewide coordinates for minke genome 
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Title: Get genomewide coordinates for minke genome
+# Author: Meixi Lin
 # Date: Mon Sep 14 14:36:02 2020
 
 # preparation --------
@@ -13,7 +13,7 @@ library(dplyr)
 # def variables --------
 
 # load data --------
-contiglist = read.csv("minke_contig_summary.csv", row.names = 1, stringsAsFactors = F, 
+contiglist = read.csv("minke_contig_summary.csv", row.names = 1, stringsAsFactors = F,
                       colClasses = c("character","character","character","character","character","integer", "character", "integer", "integer"))
 
 # main --------
@@ -23,10 +23,10 @@ for (ii in 2:nrow(contiglist)) {
     genomewide_coord=c(genomewide_coord, temp)
 }
 
-# check for total length 
+# check for total length
 (genomewide_coord[nrow(contiglist)] + contiglist[nrow(contiglist), 'LN'] - 1) == sum(contiglist$LN)
 
-# write the new contiglist 
+# write the new contiglist
 contiglist = cbind(contiglist, genomewide_coord)
 plot(x = contiglist$binid, y = contiglist$genomewide_coord, type = "b")
 write.csv(contiglist, file = "minke_contig_summary.csv")

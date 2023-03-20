@@ -1,8 +1,8 @@
 #! /bin/bash
 #$ -l h_data=12G,h_vmem=16G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/snigenda/finwhale
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/prep_filter_vcf_getdp_all50.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/prep_filter_vcf_getdp_all50.err.txt
+#$ -wd <homedir2>/finwhale
+#$ -o <homedir2>/finwhale/reports/prep_filter_vcf_getdp_all50.out.txt
+#$ -e <homedir2>/finwhale/reports/prep_filter_vcf_getdp_all50.err.txt
 #$ -m abe
 
 # Usage: generate per contiglist sum on gtDP for all sites
@@ -18,7 +18,7 @@
 ###########################################################
 ## import packages
 sleep $((RANDOM % 120))
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -34,7 +34,7 @@ REF=${2}
 IDX=$(printf %02d ${SGE_TASK_ID})
 
 # Directories
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
+HOMEDIR=<homedir2>/finwhale
 WORKDIR=${HOMEDIR}/filteredvcf/all50/${REF}
 SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale
 OUTDIR=${WORKDIR}/variant_summary

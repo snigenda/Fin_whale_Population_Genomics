@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 # Title: convert the gaps in transcripts to N
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sun Jan 17 10:34:28 2021
 # Example usage: python convert_gap2N.py <input> <output>
 '''

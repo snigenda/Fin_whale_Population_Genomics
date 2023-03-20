@@ -1,19 +1,19 @@
 #!/bin/bash
 #$ -l h_data=8G,h_vmem=10G,h_rt=20:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step2_merge_ALLregions_bed_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step2_merge_ALLregions_bed_20201218.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step2_merge_ALLregions_bed_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step2_merge_ALLregions_bed_20201218.err.txt
 #$ -m abe
 
 # @version      v1
 # @script       qsub step2_SIFT_syn_nonsyn_merge_ALLregions_bed_20201218.sh
 # @description  Mergeing the output of step1_SIFT_syn_nonsyn_extract_ALLregions_bed_20201218.sh
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Dec 18 11:13:12 2020
 
 ###########################################################
 ## import packages
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -50,20 +50,20 @@ CDSTYPE="ALLregions"
 TODAY=$(date "+%Y%m%d")
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
 OUTDIR=${HOMEDIR}/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 LOGDIR=${HOMEDIR}/get_ALLregions_CDS/${DATASET}/${REF}/logs
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
+SCRATCHDIR=<scratchdir>/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 
 mkdir -p ${SCRATCHDIR}
 mkdir -p ${OUTDIR}
 mkdir -p ${LOGDIR}
 
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 ###########################################################
 ## logging

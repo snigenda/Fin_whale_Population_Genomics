@@ -1,7 +1,7 @@
 # Title: Prepare read statistics for variant filtering using files from
 # prep_filter_vcf_gtdp_fast.sh
 # Using all contigs information
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date:
 
 # Usage:

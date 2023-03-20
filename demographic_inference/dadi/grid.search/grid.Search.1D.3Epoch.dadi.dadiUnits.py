@@ -4,7 +4,7 @@ Title: Grid search for ENP population, 1D3Epoch (whaling bottleneck).
 Notes: 1. TF+TB and nuB are fixed according to the best estimation.
        2. Bottleneck function used pnunez version.
 Author: annabelbeichman, pnunez
-Modified by Meixi Lin (meixilin@ucla.edu)
+Modified by Meixi Lin
 Date: Tue Jul 20 21:22:03 2021
 Example usage:
 python grid.Search.1D.3Epoch.dadi.dadiUnits.py --pop 'ENP' --sfs SFS/ENP-44.sfs --TBplusTF_Fix 0.134 ... --outdir <output directory>
@@ -101,14 +101,14 @@ modelName="1D.3Epoch"
 mu=2.77e-8
 
 # testing variables and justifications MAKE SURE THEY ARE IN DADI UNITS
-# SFS (Dec 20, 2020): /u/project/rwayne/snigenda/finwhale/SFS/Neutral/SFS_projection_fsc/ENP-44.sfs
+# SFS (Dec 20, 2020): <homedir2>/finwhale/SFS/Neutral/SFS_projection_fsc/ENP-44.sfs
 # ENP run: 1D3Epoch, version 1 rundate: 20201223
 # TBplusTF_Fix (April 12, 2020, ENP 1D3Epoch, version 1): TB + TF in dadi units for the best run. The top 15 ranking runs fall within (0.127,0.140)
 # nuB_Fix (April 12, 2020, ENP 1D3Epoch, version 1): nuB in dadi units for the best run. The top 15 ranking runs fall within (1.430,1.482)
 # nuF and TF low and high: upper and lower bound in dadi settings. TF_High has to be smaller than TBplusTF. Realistically, nuF is not larger than nuB_Fix a lot
 
 #args={'pop': 'ENP',
-#     'sfs': '/Users/linmeixi/Lab/fin_whale/scripts_analyses/dadi/grid.search/SFS/ENP-44.sfs',
+#     'sfs': '<homedir>/fin_whale/scripts_analyses/dadi/grid.search/SFS/ENP-44.sfs',
 #     'L': 392707916,
 #     'TBplusTF_Fix': 0.134235802901809,
 #     'nuB_Fix': 1.45113705136459,

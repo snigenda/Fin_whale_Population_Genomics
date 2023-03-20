@@ -1,6 +1,6 @@
 # Title: Plot admixture output for all scenarios in all50 populations
 # Plan to be included in supp figures
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Thu May 19 10:47:01 2022
 
 # preparation --------
@@ -12,7 +12,7 @@ library(ggplot2)
 library(ggpubr)
 library(dplyr)
 
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
+source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
 
 # def functions --------
 read_admixture <- function(k, prefix, nrep, popmap, subpoporder) {
@@ -64,7 +64,7 @@ subpoporder = c("AK", "BC", "WA", "OR", "CA") # order for subpopulations
 gdsfile = 'JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds'
 
 # set derived data outside of the 'Minke' folder to make hoffman2 folder unique
-workdir = '/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/'
+workdir = '<homedir>/finwhale/analyses/PopStructure/all50/'
 setwd(workdir)
 indir = './Minke/Admixture_20210318/maf10/'
 outdir = './derive_data/revisions_Admixture_all50_maf10/'
@@ -74,7 +74,7 @@ dir.create(outdir)
 dir.create(plotdir)
 
 # load data --------
-popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+popmap = read.csv(file = "<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
 
 plinkname = read.table(file = './Minke/JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10_SA_mrF.nosex', header = FALSE, stringsAsFactors = FALSE)
 
@@ -103,7 +103,7 @@ forplotQ$SampleId = factor(forplotQ$SampleId, levels = get_sampleorder(popmap, s
 # plotting ========
 pp <- ggplot(forplotQ, aes(x = SampleId, y = value, fill = variable)) +
     geom_bar(stat = "identity", position = "stack") +
-    geom_vline(xintercept = 12.5, linetype = 'dotted') + 
+    geom_vline(xintercept = 12.5, linetype = 'dotted') +
     geom_vline(xintercept = 21.5, linetype = 'dotted') +
     geom_vline(xintercept = 30.5, linetype = 'dotted') +
     scale_fill_brewer(palette = "Set3") +

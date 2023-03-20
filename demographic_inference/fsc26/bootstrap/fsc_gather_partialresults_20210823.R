@@ -1,5 +1,5 @@
 # Title: Read in the gathered results, generate summaries
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Feb 23 09:57:12 2021
 # Modification: Use it for random starts dataset
 # Modification: Allowing for partially missing data
@@ -113,7 +113,7 @@ get_CI <- function(delta95, estimate) {
 # assume working directory from the called command
 args = commandArgs(trailingOnly=TRUE)
 infile = as.character(args[1]) # should be a file name not a path
-# infile = '/Users/linmeixi/google_drive/finwhale/analyses/fsc26/param_btsp/neutral/resultsSummaries/1D.3Epoch.ENP/1D.3Epoch.ENP_v4_r10_bootFSC_n20rd_Summary_20210716.csv'
+# infile = '<homedir>/finwhale/analyses/fsc26/param_btsp/neutral/resultsSummaries/1D.3Epoch.ENP/1D.3Epoch.ENP_v4_r10_bootFSC_n20rd_Summary_20210716.csv'
 today = format(Sys.Date(), "%Y%m%d")
 nsim = 100 # number of bootstrap SFS
 nrep = 20 # number of replications per SFS

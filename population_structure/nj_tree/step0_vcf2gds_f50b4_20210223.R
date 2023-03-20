@@ -1,7 +1,7 @@
 # Title: Convert vcf files to gds files
-# Author: Meixi Lin (meixilin@ucla.edu), modified by Paulina Nunez Valencia (pnunez@lcg.unam.mx)
+# Author: Meixi Lin , modified by Paulina Nunez Valencia (pnunez@lcg.unam.mx)
 # Date: Tue Feb 23 20:39:40 2021
-# Example: Rscript --vanilla step0_vcf2gds_f50b4_20210223.R '/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes/filteredvcf/f50b4/Minke' 'JointCalls_f50b4_08_B_VariantFiltration' '/u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke'
+# Example: Rscript --vanilla step0_vcf2gds_f50b4_20210223.R '<homedir>/baleen_genomes/filteredvcf/f50b4/Minke' 'JointCalls_f50b4_08_B_VariantFiltration' '<homedir>/PopStructure/f50b4/Minke'
 
 # preparation --------
 rm(list = ls())
@@ -19,9 +19,9 @@ vcfdir <- as.character(args[1]) # the directory of the vcffile
 vcfprefix <- as.character(args[2]) # pattern for files
 outdir <- as.character(args[3]) # where to output files
 
-# vcfdir='/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes/filteredvcf/f50b4/Minke'
+# vcfdir='<homedir>/baleen_genomes/filteredvcf/f50b4/Minke'
 # vcfprefix='JointCalls_f50b4_08_B_VariantFiltration'
-# outdir='/u/project/rwayne/meixilin/fin_whale/analyses/PopStructure/f50b4/Minke'
+# outdir='<homedir>/PopStructure/f50b4/Minke'
 
 dir.create(outdir, recursive = TRUE)
 setwd(outdir)
@@ -36,7 +36,7 @@ out.fn <- paste0(vcfprefix, "_bialleic_all.gds")
 print(vcffiles)
 
 # get the population names
-popmap = read.csv(file = '/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/baleen_popid.csv', stringsAsFactor = FALSE)
+popmap = read.csv(file = '<homedir>/scripts/config/baleen_popid.csv', stringsAsFactor = FALSE)
 
 # main --------
 # convert the file

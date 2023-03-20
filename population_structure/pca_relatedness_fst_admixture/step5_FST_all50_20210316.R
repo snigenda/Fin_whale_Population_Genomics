@@ -1,8 +1,8 @@
 # Title: Analyze Fst using the new LDPruned and output tables
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Fri Mar 19 00:42:32 2021
 # execute with:
-# source(file = '/Users/linmeixi/Lab/fin_whale/scripts_analyses/PopStructure/all50/step5_FST_all50_20210316.R', echo = TRUE, max.deparse.length = 1000)
+# source(file = '<homedir>/fin_whale/scripts_analyses/PopStructure/all50/step5_FST_all50_20210316.R', echo = TRUE, max.deparse.length = 1000)
 
 # preparation --------
 rm(list = ls())
@@ -13,12 +13,12 @@ library(SNPRelate)
 library(ggplot2)
 library(dplyr)
 
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
+source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
 
 # def variables --------
 today = format(Sys.Date(), "%Y%m%d")
 
-setwd('/Users/linmeixi/google_drive/finwhale/analyses/PopStructure/all50')
+setwd('<homedir>/finwhale/analyses/PopStructure/all50')
 outdir = './derive_data/'
 plotdir = './plots/'
 logdir = './logs/'
@@ -75,7 +75,7 @@ genofile = SNPRelate::snpgdsOpen(filename = paste0(ref, '/', gdsfile))
 sample.id <- read.gdsn(index.gdsn(genofile, "sample.id"))
 
 # sample designations
-popmap = read.csv(file = '/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv', stringsAsFactors = FALSE) %>%
+popmap = read.csv(file = '<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv', stringsAsFactors = FALSE) %>%
     dplyr::mutate(SubPopId2 = ifelse(SubPopId %in% c('WA', 'OR', 'BC'), 'MENP', SubPopId))
 pop_code <- popmap[,'PopId']
 subpop_code <- popmap[,'SubPopId']

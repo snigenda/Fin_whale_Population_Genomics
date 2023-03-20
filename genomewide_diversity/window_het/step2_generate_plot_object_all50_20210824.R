@@ -1,5 +1,5 @@
 # Title: Window-based Heterozygosity plot objects
-# Author: Jacqueline Robinson, Paulina Nunez Valencia (pnunez@lcg.unam.mx), Sergio Nigenda and Meixi Lin (meixilin@ucla.edu)
+# Author: Jacqueline Robinson, Paulina Nunez Valencia (pnunez@lcg.unam.mx), Sergio Nigenda and Meixi Lin
 # Date: Wed Mar 24 09:53:52 2021
 
 # Output: formatted `rds` object which is flexible for plotting
@@ -69,7 +69,7 @@ allhet <- plyr::ldply(hetfiles, read.table, stringsAsFactors = FALSE, header=TRU
 
 # the regions with too much missing sites are the same across individuals
 # remove the regions with too much missing or the region at the end of a scaffold that are way too short compared with 1mb window (should be 2284)
-cleanhet <- allhet[which(allhet[,'sites_total']>=(misscutoff*winsize)),] 
+cleanhet <- allhet[which(allhet[,'sites_total']>=(misscutoff*winsize)),]
 
 # main -------
 # first get data for plotting ========

@@ -1,5 +1,5 @@
 # Title: FINAL Plot the Rxy for all50_snpEff_matching_PASSm6 dataset
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Apr 22 17:33:31 2021
 # Modification: Use the new color schematics and remove the violin plot
 # Date: Sun Sep  5 19:06:11 2021
@@ -64,8 +64,8 @@ prefixlist = c('LOW','MODERATE','HIGH')
 xpop = 'GOC'
 ypop = 'ENP'
 
-# /Users/linmeixi/Google Drive/My Drive/finwhale/analyses/Rxy/all50_snpEff_matching/Minke
-workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
+# <homedir>/finwhale/analyses/Rxy/all50_snpEff_matching/Minke
+workdir = paste('<homedir>/finwhale/analyses/Rxy', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './plots/'

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 # Title: generated parametric bootstrap files
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sun Feb 21 23:34:31 2021
 # Example usage: python fsc26_generate_bootpar.py 1D.1Epoch_maxL.par 1D.1Epoch_boot.par
 # @modification: Sun Apr 25 18:32:34 2021

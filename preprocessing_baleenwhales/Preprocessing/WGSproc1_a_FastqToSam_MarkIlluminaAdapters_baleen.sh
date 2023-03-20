@@ -1,14 +1,14 @@
 #! /bin/bash
 #$ -l highp,h_rt=120:00:00,h_data=40G,h_vmem=45G
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc1_20210112.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc1_20210112.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/baleen_WGSproc1_20210112.out.txt
+#$ -e <homedir>/reports/baleen_genomes/baleen_WGSproc1_20210112.err.txt
 #$ -m abe
 
 # @modification: Tue Jan 12 22:02:00 2021
 # @modification: Update pipeline; stop backing up to sirius
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -31,9 +31,9 @@ RGPM=${8} # for picard input: PLATFORM_MODEL = "NovaSeq/HiSeq"
 FLAG=${9} # 0/1 whether or not to continue the processing (if 0, don't continue; if 1, continue)
 REF=${10} # reference name
 
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>/baleen_genomes
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes
 # SIRIUSDIR=/data3/finwhale/baleen_genomes
 
 WORKDIR="${HOMEDIR}/preprocessing/${NAME}/WGSproc0_1a"

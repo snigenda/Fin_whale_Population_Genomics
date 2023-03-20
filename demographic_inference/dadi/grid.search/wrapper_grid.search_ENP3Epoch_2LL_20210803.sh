@@ -3,7 +3,7 @@
 # @version 		v1
 # @script		bash wrapper_grid.search_ENP3Epoch_1LL_20210803.sh
 # @description	local wrapper to run ENP 3Epoch grid search. Zoom in on focal regions
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed Jul 21 00:47:05 2021
 # @modification: Wed Aug  4 11:36:58 2021
 # @modification: Update to include Nanc values and more grid points
@@ -23,7 +23,7 @@ set -eo pipefail
 TODAY=$(date "+%Y%m%d")
 POP='ENP'
 MODEL='1D.3Epoch'
-SFS='/Users/linmeixi/Lab/fin_whale/scripts_analyses/dadi/grid.search/SFS/ENP-44.sfs'
+SFS='<homedir>/fin_whale/scripts_analyses/dadi/grid.search/SFS/ENP-44.sfs'
 L='392707916'
 TBplusTF_Fix='0.134235802901809'
 nuB_Fix='1.45113705136459'
@@ -37,8 +37,8 @@ slope='1.040538'
 numGridPoints='400'
 
 # other
-HOMEDIR=/Users/linmeixi/Lab/fin_whale/scripts_analyses
-OUTDIR=/Users/linmeixi/google_drive/finwhale/analyses/dadi/grid.search/${POP}_${MODEL}_2LL_${TODAY}
+HOMEDIR=<homedir>/fin_whale/scripts_analyses
+OUTDIR=<homedir>/finwhale/analyses/dadi/grid.search/${POP}_${MODEL}_2LL_${TODAY}
 LOG=${OUTDIR}/${POP}_${MODEL}_2LL_${TODAY}.log
 COMMITID=$(git --git-dir="${HOMEDIR}/.git" --work-tree="${HOMEDIR}" rev-parse master)
 WORKSCRIPT=${HOMEDIR}/dadi/grid.search/grid.Search.Ridge.1D.3Epoch.dadi.dadiUnits.py

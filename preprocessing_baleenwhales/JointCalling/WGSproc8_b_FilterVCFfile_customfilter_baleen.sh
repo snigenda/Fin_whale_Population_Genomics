@@ -1,8 +1,8 @@
 #! /bin/bash
 #$ -l h_rt=23:59:00,h_data=20G,h_vmem=24G
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc8_20210122.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc8_20210122.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/baleen_WGSproc8_20210122.out.txt
+#$ -e <homedir>/reports/baleen_genomes/baleen_WGSproc8_20210122.err.txt
 #$ -m abe
 
 # Step 8: Variant filtration first on INFO level, then on FORMAT level
@@ -14,7 +14,7 @@
 # @modification 1. Modify to perform GATK variant filter and genotype filters using two scripts 2. Stop backing up to Sirius
 
 sleep $((RANDOM % 120))
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -26,9 +26,9 @@ DATASET="f50b4" # 50 fin whales + 4 baleen whales
 REF="Minke"
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/filteredvcf/${DATASET}/${REF}
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>/baleen_genomes
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes/filteredvcf/${DATASET}/${REF}
 WORKDIR=${HOMEDIR}/filteredvcf/${DATASET}/${REF}
 mkdir -p ${WORKDIR}
 mkdir -p ${SCRATCHDIR}

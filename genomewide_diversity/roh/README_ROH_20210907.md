@@ -2,7 +2,7 @@
 
 ```bash
 # Wed Jan  6 17:32:41 2021
-cd /u/project/rwayne/meixilin/fin_whale/analyses/scripts
+cd <homedir>/scripts
 
 qsub important_results/Runs_of_homozygosity/step0_combine_bcftools_20210104.sh
 
@@ -26,9 +26,9 @@ source('~/Lab/finwhale_manuscript/scripts/roh/step3_summarize_wilcoxtest_froh_20
 
 ```bash
 TODAY=$(date "+%Y%m%d")
-LOG=/Users/linmeixi/google_drive/finwhale/analyses/important_results/Runs_of_homozygosity/logs/step4_roh_bcfzoo_compare_${TODAY}.log
+LOG=<homedir>/finwhale/analyses/important_results/Runs_of_homozygosity/logs/step4_roh_bcfzoo_compare_${TODAY}.log
 
-Rscript --vanilla "/Users/linmeixi/Lab/fin_whale/scripts_analyses/important_results/Runs_of_homozygosity/step4_roh_bcfzoo_compare_20210325.R" &> ${LOG}
+Rscript --vanilla "<homedir>/fin_whale/scripts_analyses/important_results/Runs_of_homozygosity/step4_roh_bcfzoo_compare_20210325.R" &> ${LOG}
 exitVal=${?}
 if [ ${exitVal} -ne 0 ]; then
     echo -e "[$(date "+%Y-%m-%d %T")] FAIL" >> ${LOG}
@@ -47,7 +47,7 @@ source('~/Lab/fin_whale/scripts_analyses/important_results/Runs_of_homozygosity/
 
 ```
 
-# step6: Figure S8 plot ROH genomewide distribution 
+# step6: Figure S8 plot ROH genomewide distribution
 
 ```R
 # Sun Sep 12 15:39:46 2021

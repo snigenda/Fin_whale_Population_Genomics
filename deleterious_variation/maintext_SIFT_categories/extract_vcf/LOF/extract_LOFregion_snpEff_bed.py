@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 # Title:  extract snpEff LOF regions depending on the 'LOF=' section
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Dec  4 10:27:46 2020
 '''
 
@@ -15,7 +15,7 @@ import gzip
 
 ###########################################################
 ## def functions
-sys.path.append('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config')
+sys.path.append('<homedir>/scripts/config')
 from vcf_parser_finwhale import split_info
 
 def parse_args():

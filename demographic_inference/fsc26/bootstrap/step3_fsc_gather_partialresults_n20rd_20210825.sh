@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l highp,h_data=2G,h_rt=08:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step3_fsc_gather_partialresults_n20rd_20210825.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step3_fsc_gather_partialresults_n20rd_20210825.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/fsc26/param_btsp/step3_fsc_gather_partialresults_n20rd_20210825.out.txt
+#$ -e <homedir>/reports/fsc26/param_btsp/step3_fsc_gather_partialresults_n20rd_20210825.err.txt
 #$ -m abe
 
 # @version      v1
 # @script       qsub step3_fsc_gather_partialresults_n20rd_20210825.sh <refid>
 # @description  Gather results from replicated runs
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri May 14 00:03:49 2021
 # @modification: Fri Jul 16 00:35:29 2021
 # @modification: Update for the random start datasets (note also the edits in the R script)
@@ -20,7 +20,7 @@
 
 sleep $((RANDOM % 30))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -34,7 +34,7 @@ REFID=${1}
 SETTING='neutral'
 
 # get model settings from the csv file
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 SOURCE0=/u/project/rwayne/pnunez/Results/Demography/fsc2 # the best ll file folder
 FSCFILE=${HOMEDIR}/scripts/fsc26/param_btsp/fsc_output_list.csv
 

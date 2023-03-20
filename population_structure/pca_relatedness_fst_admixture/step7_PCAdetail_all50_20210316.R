@@ -1,5 +1,5 @@
 # Title: Plot PCA by locations
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Jan 11 16:41:50 2021
 # Modification: Update to the new LDpruning schemes
 # Date: Fri Mar 19 00:20:21 2021
@@ -40,7 +40,7 @@ dataset = 'all50'
 ref = 'Minke'
 mafcut = '10'
 
-workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure', dataset, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/PopStructure', dataset, sep = '/')
 outdir = './derive_data/'
 plotdir = './plots/'
 
@@ -50,13 +50,13 @@ sessionInfo()
 dir.create(outdir)
 dir.create(plotdir)
 sessionInfo()
-source("/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R")
+source("<homedir>/fin_whale/scripts_analyses/config/plotting_config.R")
 
 # load data --------
 # final gdf file used
-gdspath = "/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
+gdspath = "<homedir>/finwhale/analyses/PopStructure/all50/Minke/JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
 genofile <- snpgdsOpen(gdspath, readonly = TRUE)
-popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+popmap = read.csv(file = "<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
 
 sampleids = read.gdsn(index.gdsn(genofile, "sample.id"))
 # check if the sampleids is the same order as popmap

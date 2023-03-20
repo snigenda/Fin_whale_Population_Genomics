@@ -1,5 +1,5 @@
 # Title: FINAL FINAL manuscript plots for Fig 5 slim simulations
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Sep 10 23:30:05 2021
 # Modification: Use the most uptodate ENP models
 # Date: Sat May 14 19:13:23 2022
@@ -9,7 +9,7 @@ rm(list = ls())
 cat("\014")
 options(echo = TRUE)
 
-setwd('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/revisions_SLiM_final/')
+setwd('<homedir>/finwhale/analyses/revisions_SLiM_final/')
 
 library(dplyr)
 library(ggplot2)
@@ -52,17 +52,17 @@ plotenpdt = readRDS(file = './derived_data/plotdt/slim_plotdt_ENP_20220405.rds')
 # main --------
 # panel A: enp ========
 longenpdt = plotenpdt %>%
-    reshape2::melt(id.vars = c('rep','model', 'pop')) %>% 
+    reshape2::melt(id.vars = c('rep','model', 'pop')) %>%
     dplyr::filter(variable %in% plotting_vars) %>%
     dplyr::mutate(popmodel = model)
 longenpdt$variable = factor(longenpdt$variable, levels = plotting_vars)
 
 # plotting ========
 ppAlist <- vector('list',length = length(plotting_vars))
-ppAlist[[1]] <- plot_set(longdt = longenpdt, plotvar = plotting_vars[1], 
+ppAlist[[1]] <- plot_set(longdt = longenpdt, plotvar = plotting_vars[1],
                          ylabel = ylabs[1], ybreaks = seq(from = 0.0013, to = 0.0015, by = 0.0001))
 ppAlist[[2]] <- plot_set(longdt = longenpdt, plotvar = plotting_vars[2], ylabel = ylabs[2])
-ppAlist[[3]] <- plot_set(longdt = longenpdt, plotvar = plotting_vars[3], ylabel = ylabs[3]) 
+ppAlist[[3]] <- plot_set(longdt = longenpdt, plotvar = plotting_vars[3], ylabel = ylabs[3])
 
 ppAlist <- lapply(ppAlist, function(pp) {
     pp <- pp +
@@ -71,7 +71,7 @@ ppAlist <- lapply(ppAlist, function(pp) {
 
 # panel B: 2 pop ========
 long2popdt = plot2popdt %>%
-    reshape2::melt(id.vars = c('rep','model', 'pop', 'popmodel')) %>% 
+    reshape2::melt(id.vars = c('rep','model', 'pop', 'popmodel')) %>%
     dplyr::filter(variable %in% plotting_vars)
 long2popdt$variable = factor(long2popdt$variable, levels = plotting_vars)
 

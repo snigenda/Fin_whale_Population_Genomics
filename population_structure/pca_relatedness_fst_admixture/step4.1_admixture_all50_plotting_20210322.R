@@ -1,6 +1,6 @@
 # Title: Plot admixture output for all scenarios
 # USED IN: SUPPLEMENTAL FIGURE 2
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Mar 22 23:56:00 2021
 
 # preparation --------
@@ -12,7 +12,7 @@ library(ggplot2)
 library(ggpubr)
 library(dplyr)
 
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
+source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
 
 # def functions --------
 read_admixture <- function(k, prefix, nrep, popmap, subpoporder) {
@@ -22,7 +22,7 @@ read_admixture <- function(k, prefix, nrep, popmap, subpoporder) {
     admaster = data.frame()
     for (ii in 1:length(qfile)) {
         ad = read.table(file = qfile[ii], stringsAsFactors = FALSE, header = FALSE)
-        colnames(ad) = paste0("Cluster", 1:k) 
+        colnames(ad) = paste0("Cluster", 1:k)
         ad$run = ii
         ad = base::cbind(popmap, ad)
         admaster = base::rbind(admaster, ad)
@@ -54,14 +54,14 @@ dataset = 'all50'
 ref = 'Minke'
 mafcut = '10'
 Klist = 2:6
-subpoporder = c("AK", "BC", "WA", "OR", "CA", "GOC") # order for subpopulations 
+subpoporder = c("AK", "BC", "WA", "OR", "CA", "GOC") # order for subpopulations
 
 gdsfile = 'JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds'
 # confirm the sample names
 plinkfile = 'JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10_SA_mrF.nosex'
 
 # set derived data outside of the 'Minke' folder to make hoffman2 folder unique
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/PopStructure', dataset, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/PopStructure', dataset, sep = '/')
 indir = paste0('./', ref, '/Admixture_20210318/')
 outdir = './derive_data/'
 plotdir = './plots/'
@@ -73,7 +73,7 @@ dir.create(outdir)
 dir.create(plotdir)
 
 # load data --------
-popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+popmap = read.csv(file = "<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
 plinkname = read.table(file = paste0('./Minke/', plinkfile), header = FALSE, stringsAsFactors = FALSE)
 # check that plinkname is the same as popmap
 if (!all(plinkname$V1 == popmap$SampleId)) {
@@ -99,15 +99,15 @@ pp <- ggplot(forplot, aes(x = SampleId, y = value, fill = variable)) +
     scale_fill_brewer(palette = "Set3") +
     facet_grid(K ~ run) +
     scale_y_continuous(labels = scales::percent,expand = c(0,0)) +
-    labs(y = 'Ancestry Fraction') + 
-    theme_pubclean() + 
+    labs(y = 'Ancestry Fraction') +
+    theme_pubclean() +
     theme(axis.text.x = element_text(angle = 90, size = 6),
           strip.text.x = element_blank(),
           axis.title.x = element_blank(),
-          legend.title = element_blank()) 
+          legend.title = element_blank())
 
 # output files --------
-ggsave(filename = paste0('Admixture_maf', mafcut, '_5runs_K26_', dataset, '_', ref, '_', today, '.pdf'), path = plotdir, 
+ggsave(filename = paste0('Admixture_maf', mafcut, '_5runs_K26_', dataset, '_', ref, '_', today, '.pdf'), path = plotdir,
        plot = pp, height = 8, width = 14)
 
 saveRDS(forplot, file = paste0(outdir, 'Admixture_maf', mafcut, '_10runs_K26_', dataset, '_', ref, '_', today, '.rds'))

@@ -1,5 +1,5 @@
 # Title: Window-based Heterozygosity plot objects
-# Author: Jacqueline Robinson, Paulina Nunez Valencia (pnunez@lcg.unam.mx), Sergio Nigenda and Meixi Lin (meixilin@ucla.edu)
+# Author: Jacqueline Robinson, Paulina Nunez Valencia (pnunez@lcg.unam.mx), Sergio Nigenda and Meixi Lin
 # Date: Mon Jun 21 15:04:31 2021
 
 # Output: Figure S4. Genomewide distribution of heterozygosity in all individuals

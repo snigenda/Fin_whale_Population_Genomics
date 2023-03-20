@@ -7,7 +7,7 @@ rm(list = ls())
 cat("\014")
 options(echo = TRUE, stringsAsFactors = FALSE)
 
-setwd("/Users/linmeixi/Lab/fin_whale/FinWhale_PopGenomics_2021")
+setwd("<homedir>/fin_whale/FinWhale_PopGenomics_2021")
 
 library(readxl)
 library(dplyr)

@@ -1,5 +1,5 @@
 # Title: Generate summary of genotype tally
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Feb 18 14:52:02 2021
 
 # preparation --------
@@ -70,10 +70,10 @@ plot_summary <- function(mytally, mytitle) {
     forplot = mytally %>%
         select(ends_with('Id'), HomRefPer,HetPer,HomAltPer, MutType) %>%
         reshape2::melt(id.vars = c('SampleId', 'PopId', 'SubPopId', 'MutType'))
-    forplot$variable = factor(forplot$variable, 
+    forplot$variable = factor(forplot$variable,
                               levels = c('HomRefPer','HetPer','HomAltPer'),
                               labels = c('Homozygous Ancestral', 'Heterozygous', 'Homozygous Derived'))
-    pp <- ggplot(forplot, aes(x = SampleId, y = value, fill = variable)) + 
+    pp <- ggplot(forplot, aes(x = SampleId, y = value, fill = variable)) +
         geom_bar(position="stack", stat="identity") +
         scale_fill_brewer(palette = "Greys") +
         geom_vline(xintercept = 27.5, color = "#377EB8") +
@@ -87,29 +87,29 @@ plot_popsummary <- function(alltally) {
     forplot = alltally %>%
         select(ends_with('Id'), HomRefPer,HetPer,HomAltPer, MutType) %>%
         reshape2::melt(id.vars = c('SampleId', 'PopId', 'SubPopId', 'MutType'))
-    forplot$variable = factor(forplot$variable, 
+    forplot$variable = factor(forplot$variable,
                               levels = c('HomRefPer','HetPer','HomAltPer'),
                               labels = c('Homozygous Ancestral', 'Heterozygous', 'Homozygous Derived'))
     forplot2 = forplot %>%
         dplyr::mutate(Id = paste(MutType, PopId, sep = '|')) %>%
         group_by(Id, PopId, MutType, variable) %>%
         summarise(meanval = mean(value))
-    
-    pp1 <- ggplot(forplot2, aes(x = Id, y = meanval, fill = variable)) + 
+
+    pp1 <- ggplot(forplot2, aes(x = Id, y = meanval, fill = variable)) +
         geom_bar(position="stack", stat="identity") +
         scale_fill_brewer(palette = "Greys") +
         labs(y = "Proportion", fill = "Variant Types") +
         theme_bw() +
         theme(axis.text.x = element_text(angle = 90))
-    
-    pp2 <- ggplot(forplot2, aes(x = MutType, y = meanval, fill = variable)) + 
+
+    pp2 <- ggplot(forplot2, aes(x = MutType, y = meanval, fill = variable)) +
         geom_bar(position="dodge", stat="identity") +
-        facet_wrap(~ PopId) + 
+        facet_wrap(~ PopId) +
         scale_fill_brewer(palette = "Greys") +
         labs(y = "Proportion", fill = "Variant Types") +
         theme_bw() +
         theme(axis.text.x = element_text(angle = 90))
-    
+
     return(list(pp1, pp2))
 }
 
@@ -120,7 +120,7 @@ ref = 'Minke'
 cdstype = 'ALLregions'
 prefixlist = c("syn", "nonsyn", "nonsynDEL", "nonsynTOL", "LOF", "BenignRM", "Damaging")
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 setwd(workdir)
 
 indir = './derive_data/gttable/'
@@ -133,10 +133,10 @@ dir.create(outdir)
 gttallylist = lapply(prefixlist, function(xx) {
     gtseg = readRDS(file = paste0(indir, xx,'_all50_Minke_ALLregions_GTtable_Seg_PASSm6_20210218.rds'))
     mytally = generate_summary(gt = gtseg, muttype = xx)
-    # output tally file 
+    # output tally file
     write.csv(mytally, file = paste0(outdir, xx, '_all50_Minke_ALLregions_SUMtable_Seg_PASSm6_', today,'.csv'))
     pp = plot_summary(mytally, mytitle = paste0(xx, '_all50_Minke_ALLregions_Seg_PASSm6'))
-    ggsave(filename = paste0(xx, '_all50_Minke_ALLregions_Seg_PASSm6_', today, '.pdf'), 
+    ggsave(filename = paste0(xx, '_all50_Minke_ALLregions_Seg_PASSm6_', today, '.pdf'),
            plot = pp, path = plotdir, height = 6, width = 9)
     return(mytally)
 })
@@ -145,9 +145,9 @@ gttallylist = lapply(prefixlist, function(xx) {
 gttallydt = dplyr::bind_rows(gttallylist)
 write.csv(gttallydt, file = paste0(outdir, 'all50_Minke_ALLregions_SUMtable_Seg_PASSm6_', today,'.csv'))
 pplist = plot_popsummary(gttallydt)
-ggsave(filename = paste0('all50_Minke_ALLregions_Seg_PASSm6_Summary1_', today, '.pdf'), 
+ggsave(filename = paste0('all50_Minke_ALLregions_Seg_PASSm6_Summary1_', today, '.pdf'),
        plot = pplist[[1]], path = plotdir, height = 6, width = 8)
-ggsave(filename = paste0('all50_Minke_ALLregions_Seg_PASSm6_Summary2_', today, '.pdf'), 
+ggsave(filename = paste0('all50_Minke_ALLregions_Seg_PASSm6_Summary2_', today, '.pdf'),
        plot = pplist[[2]], path = plotdir, height = 6, width = 8)
 
 # output files --------

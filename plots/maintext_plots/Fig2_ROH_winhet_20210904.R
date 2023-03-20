@@ -1,5 +1,5 @@
 # Title: FINAL Fig 2. ROH and window het plots
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Sep  6 22:05:10 2021
 # Modification: Generate source data
 # Date: Mon Jan  9 21:37:17 2023
@@ -8,7 +8,7 @@
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
-setwd('/Users/linmeixi/Lab/fin_whale/finwhale_manuscript/')
+setwd('<homedir>/fin_whale/finwhale_manuscript/')
 
 library(dplyr)
 library(ggplot2)

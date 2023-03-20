@@ -3,7 +3,7 @@
 # @version 		v1
 # @script		WGSproc1_qsub_wrapper_baleen.sh
 # @description	Wrapper for the baleen comparison preprocessing
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Aug  3 01:00:33 2020
 # @modification: Tue Jan 12 22:09:23 2021
 # @modification: Update pipeline; remove predicted size
@@ -28,7 +28,7 @@
 # REF=${10} # reference name
 
 QSUB=/u/systems/UGE8.6.4/bin/lx-amd64/qsub
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 DICT=${HOMEDIR}/scripts/config/baleen_fqpath_fqname.csv # location of file
 WORKSCRIPT=${HOMEDIR}/scripts/baleen_genomes/Preprocessing/WGSproc1_a_FastqToSam_MarkIlluminaAdapters_baleen.sh
 

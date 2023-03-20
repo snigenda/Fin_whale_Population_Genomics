@@ -1,5 +1,5 @@
 # Title: Generate histogram data from the `all50` and `f50b4` dataset
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Tue Aug 24 20:31:15 2021
 
 # Output: table histogram tally of percent of windows contained low heterozygosity values
@@ -59,8 +59,8 @@ all50dt = readRDS(file = './data/window_het/derived_data/winHet_1Mbwin_1Mbstep_2
 # main --------
 # all50 dataset ========
 # partition by 0.1
-all50hist01 = get_histdt(plotdt = all50dt, 
-                         histbreaks = seq(0,10,by=0.1), 
+all50hist01 = get_histdt(plotdt = all50dt,
+                         histbreaks = seq(0,10,by=0.1),
                          nwin = nwin_all50)
 
 # get the percentage
@@ -77,7 +77,7 @@ mean(perlt1dt[stringr::str_detect(perlt1dt$sample,'GOC'),'Percent_lt_1hetpkb'])
 # [1] 0.4602671
 
 # percent of windows < 0.1 het/kb in GOC (removing the GOC010)
-gocper01 = all50per01 %>% 
+gocper01 = all50per01 %>%
     dplyr::select(starts_with('GOC')) %>%
     dplyr::select(-GOC010) %>%
     t()

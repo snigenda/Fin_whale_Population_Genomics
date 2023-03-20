@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l highp,h_data=8G,h_vmem=10G,h_rt=23:59:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step1_bootstrapSFS_20210603.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/fsc26/param_btsp/step1_bootstrapSFS_20210603.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/fsc26/param_btsp/step1_bootstrapSFS_20210603.out.txt
+#$ -e <homedir>/reports/fsc26/param_btsp/step1_bootstrapSFS_20210603.err.txt
 #$ -m abe
 
 # @version 		v2
 # @usage		qsub step1_param_bootstrap.sh <model> <submodel> <population> <prefix>
 # @description	Generate bootstrapped SFS from given parameter estimations
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sun Feb 21 23:59:39 2021
 # @modification: Tue Apr 27 10:13:48 2021
 # @modification: Using new settings of nchr and nloci
@@ -34,7 +34,7 @@ set -eo pipefail
 REFID=${1}
 SETTING='neutral'
 
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 FSCFILE=${HOMEDIR}/scripts/fsc26/param_btsp/fsc_output_list.csv
 
 if [[ ! -f ${FSCFILE} ]]; then

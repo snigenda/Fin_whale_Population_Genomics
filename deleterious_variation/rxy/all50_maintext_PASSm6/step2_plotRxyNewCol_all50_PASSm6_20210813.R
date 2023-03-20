@@ -1,5 +1,5 @@
 # Title: Plot the Rxy
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sun Mar  7 17:50:56 2021
 # Modification: Update the new equation for R2xy
 # Date: Fri Mar 19 18:15:31 2021
@@ -68,7 +68,7 @@ mutlab1 = c('SYN', 'TOL', 'DEL', 'LOF')
 xpop = 'GOC'
 ypop = 'ENP'
 
-workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/Rxy', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './plots/'

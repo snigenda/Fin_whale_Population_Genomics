@@ -1,5 +1,5 @@
 # Title: Read genotypes and calculate Rxy for all50 dataset with bad individuals removed use the snpEff impact categories
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Apr 16 18:55:21 2021
 # Modification: Change the definition for R2xy
 # Date: Fri Mar 19 10:54:20 2021
@@ -168,11 +168,11 @@ prefixlist = c('HIGH','MODERATE','LOW')
 xpop = 'GOC'
 ypop = 'ENP'
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/Rxy', dataset, ref, sep = '/')
 dir.create(workdir, recursive = TRUE)
 setwd(workdir)
 
-indir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR', dataset, ref, 'derive_data/gttable/', sep = '/')
+indir = paste('<homedir>/finwhale/analyses/DelVar_vcfR', dataset, ref, 'derive_data/gttable/', sep = '/')
 plotdir = './plots/'
 outdir1 = './derive_data/lxy_table/'
 outdir2 = './derive_data/rxy_jktable/'

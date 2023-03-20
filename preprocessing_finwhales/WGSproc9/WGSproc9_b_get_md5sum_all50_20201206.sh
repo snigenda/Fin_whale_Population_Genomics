@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l h_data=8G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/snigenda/finwhale
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc9_b_get_md5sum_all50_20201206.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc9_b_get_md5sum_all50_20201206.err.txt
+#$ -wd <homedir2>/finwhale
+#$ -o <homedir2>/finwhale/reports/WGSproc9_b_get_md5sum_all50_20201206.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc9_b_get_md5sum_all50_20201206.err.txt
 #$ -m abe
 
 # @version 		v2
 # @usage		get the md5sum summary of the file
 # @description	WGSproc9_all50
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Aug 14 10:58:02 2020
 # @modification Mon Aug 24 23:04:20 2020
 # @modification Final archive
@@ -26,7 +26,7 @@ set -o pipefail
 ## def variables
 REF="Minke"
 TODAY=$(date "+%Y%m%d")
-LOCAL=/u/project/rwayne/snigenda/finwhale/filteredvcf/all50/Minke/
+LOCAL=<homedir2>/finwhale/filteredvcf/all50/Minke/
 OUTPREFIX="filteredvcf_all50_Minke_${TODAY}"
 
 ###########################################################

@@ -1,5 +1,5 @@
 # Title: Plot ZooRoH output along scaffolds
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Mar 25 20:26:32 2021
 # Modification: Migrate to a new folder
 # Date: Sun Sep 12 15:14:42 2021
@@ -11,7 +11,7 @@ rm(list = ls())
 cat("\014")
 options(echo = TRUE, stringsAsFactors = FALSE)
 
-setwd('/Users/linmeixi/Lab/fin_whale/finwhale_manuscript/')
+setwd('<homedir>/fin_whale/finwhale_manuscript/')
 
 library(dplyr)
 library(ggplot2)

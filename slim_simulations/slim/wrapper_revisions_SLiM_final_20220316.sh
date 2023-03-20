@@ -1,8 +1,8 @@
 #!/bin/bash
 #$ -l highp,h_rt=140:00:00,h_data=20G,h_vmem=20G,arch=intel-gold*
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/revisions_SLiM_final/wrapper_revisions_SLiM_final_20220316.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/revisions_SLiM_final/wrapper_revisions_SLiM_final_20220316.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/revisions_SLiM_final/wrapper_revisions_SLiM_final_20220316.out.txt
+#$ -e <homedir>/reports/revisions_SLiM_final/wrapper_revisions_SLiM_final_20220316.err.txt
 #$ -m abe
 #$ -t 1-25
 
@@ -31,7 +31,7 @@ PREFIX=${1}
 JOBFILE=${2}
 
 SLIM=/u/project/klohmuel/ckyriazi/software/slim_build/slim # software to use
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 WORKDIR=${HOMEDIR}/revisions_SLiM_final/${PREFIX}/rep${SGE_TASK_ID}
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 

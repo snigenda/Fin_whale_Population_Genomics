@@ -1,5 +1,5 @@
 # Title: Plot admixture
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Jan 11 17:33:58 2021
 # Modification: Update to the new LDpruning schemes
 # Date: Fri Mar 19 00:20:21 2021
@@ -10,7 +10,7 @@
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
-setwd("/Users/linmeixi/google_drive/finwhale/analyses/important_results/Manuscript_plots")
+setwd("<homedir>/finwhale/analyses/important_results/Manuscript_plots")
 today = format(Sys.Date(), "%Y%m%d")
 
 # sink(file = paste0("logs/admixture_cv_", today,".log"))
@@ -27,11 +27,11 @@ mafcut='10'
 # mafcut='NA'
 
 sessionInfo()
-source("/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R")
+source("<homedir>/fin_whale/scripts_analyses/config/plotting_config.R")
 
 # load data --------
 # read cross validation files
-adcv = read.csv(file = paste0("/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/Admixture_20210318/maf", mafcut, "/Admixture_CV_LLsummary_maf", mafcut, ".csv"), stringsAsFactors = FALSE)
+adcv = read.csv(file = paste0("<homedir>/finwhale/analyses/PopStructure/all50/Minke/Admixture_20210318/maf", mafcut, "/Admixture_CV_LLsummary_maf", mafcut, ".csv"), stringsAsFactors = FALSE)
 
 forplot = adcv %>%
     dplyr::group_by(K) %>%

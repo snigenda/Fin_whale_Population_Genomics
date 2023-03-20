@@ -1,5 +1,5 @@
 # Title: Output summaries for bcftools and zooroh comparisons
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Mar 25 16:24:29 2021
 # Modification: Update to match the new categoriess
 # Date: Thu Aug 12 16:55:25 2021
@@ -11,7 +11,7 @@
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
-setwd("/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/important_results/Runs_of_homozygosity/")
+setwd("<homedir>/finwhale/analyses/important_results/Runs_of_homozygosity/")
 
 library(dplyr)
 library(ggplot2)
@@ -68,7 +68,7 @@ rohlens = c(0.1,1,5)*1e+6
 rohcats = get_rohnames(c(0.1,1,5))
 
 sessionInfo()
-source("/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R")
+source("<homedir>/fin_whale/scripts_analyses/config/plotting_config.R")
 
 # load data --------
 # load the newly calculated roh categories

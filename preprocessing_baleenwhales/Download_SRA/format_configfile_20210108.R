@@ -1,11 +1,11 @@
 # Title: Format final baleen whale downloads
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Jan  8 11:01:31 2021
 
 # preparation --------
 rm(list = ls())
 cat("\014")
-setwd("/Users/linmeixi/google_drive/finwhale/analyses/baleen_genomes/")
+setwd("<homedir>/finwhale/analyses/baleen_genomes/")
 
 library(dplyr)
 library(stringr)
@@ -36,11 +36,11 @@ srarun = read.csv(file = "SraRunTable.txt", stringsAsFactors = FALSE)
 
 # main --------
 srainfo = srarun %>%
-    dplyr::mutate(Run2 = as.integer(str_remove(Run, "SRR"))) %>% 
+    dplyr::mutate(Run2 = as.integer(str_remove(Run, "SRR"))) %>%
     dplyr::arrange(Organism, Run2, ReleaseDate) %>%
     dplyr::mutate(SRA_Accession = Run,
-                  R1 = paste0("/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/sra_seq/", Run, "_1.fastq.gz"),
-                  R2 = paste0("/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/sra_seq/", Run, "_2.out.fastq.gz"),
+                  R1 = paste0("<scratchdir>/finwhale/analyses/baleen_genomes/sra_seq/", Run, "_1.fastq.gz"),
+                  R2 = paste0("<scratchdir>/finwhale/analyses/baleen_genomes/sra_seq/", Run, "_2.out.fastq.gz"),
                   RGLB = Experiment,
                   RGPU = "NA",
                   RGCN = stringr::str_replace_all(Center.Name, " ", "_"),
@@ -58,6 +58,6 @@ srainfo = srainfo %>%
     dplyr::mutate(RGID = stringr::str_c(SampleName, "_A")) %>%
     dplyr::select(SRA_Accession, SampleName, R1, R2, RGID, RGLB, RGPU, RGCN, RGPM, Organism, NCBISampleName, AvgSpotLen, Bases, ftpR1, ftpR2)
 
-write.csv(x = srainfo, file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/baleen_fqpath_fqname.csv", quote = F, row.names = F)
+write.csv(x = srainfo, file = "<homedir>/fin_whale/scripts_analyses/config/baleen_fqpath_fqname.csv", quote = F, row.names = F)
 
 # cleanup --------

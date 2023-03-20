@@ -1,40 +1,40 @@
-# Title: Prepare read statistics for variant filtering using files from 
-# prep_filter_vcf_gtdp_fast.sh 
+# Title: Prepare read statistics for variant filtering using files from
+# prep_filter_vcf_gtdp_fast.sh
 # Using all contigs information
-# Author: Meixi Lin (meixilin@ucla.edu)
-# Date: 
+# Author: Meixi Lin
+# Date:
 
-# Usage: 
-# Rscript --vanilla prep_vcf_gtdp_all_contig. R <FILEDIR> 
+# Usage:
+# Rscript --vanilla prep_vcf_gtdp_all_contig. R <FILEDIR>
 # These files should exist: Minke_chr01_countgt.tsv; Minke_chr01_sumDP.tsv
-	
+
 # preparation --------
 rm(list = ls())
 cat("\014")
 options(echo = TRUE)
 library(plyr)
 library(dplyr)
-	
+
 # def functions --------
-# read files 
+# read files
 namednum2df <- function(namednum, mycolnames) {
 	data = as.data.frame(namednum) %>%
 		tibble::rownames_to_column()
 	colnames(data) = mycolnames
 	return(data)
 }
-	
+
 # def variables --------
-# get input 
+# get input
 args = commandArgs(trailingOnly=TRUE)
 mywd = as.character(args[1])
 
 setwd(mywd)
 
-# preset variables 
+# preset variables
 ref = "Minke"
 lower = 1/3
-upper = 2.5 # upper limit of files 
+upper = 2.5 # upper limit of files
 nfiles = 96
 samples = c("ENPAK19","ENPAK20","ENPAK21","ENPAK22","ENPAK23","ENPAK24","ENPAK25","ENPAK26","ENPAK27","ENPAK28","ENPAK29","ENPAK30","ENPBC16","ENPBC17","ENPBC18","ENPCA01","ENPCA02","ENPCA03","ENPCA04","ENPCA05","ENPCA06","ENPCA07","ENPCA08","ENPCA09","ENPOR10","ENPOR11","ENPOR12","ENPOR13","ENPWA14","ENPWA15","GOC002","GOC006","GOC010","GOC025","GOC038","GOC050","GOC053","GOC063","GOC068","GOC071","GOC077","GOC080","GOC082","GOC086","GOC091","GOC100","GOC111","GOC112","GOC116","GOC125")
 
@@ -54,7 +54,7 @@ sumdp_dtlist = lapply(1:nfiles, function(ii) {
 })
 sumdp_dt = dplyr::bind_rows(sumdp_dtlist)
 
-# load genotype count files 
+# load genotype count files
 countgt_dtlist = lapply(1:nfiles, function(ii) {
 	idx = stringr::str_pad(ii, width = 2, side = "left", pad = "0")
 	myfile = paste0("all50_", ref, "_chr", idx, "_countgt.tsv")
@@ -73,7 +73,7 @@ meandp = sumdp / countgt
 upmeandp2 = round(2 * meandp)
 upmeandp2.5 = round(2.5 * meandp)
 
-# write the mean dp 
+# write the mean dp
 meandp = namednum2df(meandp, c("sample", "mean_gtDP"))
 write.table(meandp, file = paste0(sumdir, "all_summary_mean_gtDP.csv"),sep = ",", row.names = F, col.names = T)
 # write the upmean dp

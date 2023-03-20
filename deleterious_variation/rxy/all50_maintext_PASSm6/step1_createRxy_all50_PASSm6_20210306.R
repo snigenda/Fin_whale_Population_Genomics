@@ -1,5 +1,5 @@
 # Title: Read genotypes and calculate Rxy for all50 dataset with bad individuals removed
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Mar  5 09:40:40 2021
 # Modification: Change the definition for R2xy
 # Date: Fri Mar 19 10:54:20 2021
@@ -42,7 +42,7 @@ calc_li2xy <- function(dnx, dny) {
     ratiox = unname(ratiox)
     ratioy = (2*dny['dd']*(dny['nn']-dny['dd']))/(dny['nn']*(dny['nn']-1))
     ratioy = unname(ratioy)
-    # NOTE: modification 
+    # NOTE: modification
     li2xy = (1-ratiox)*ratioy
     return(li2xy)
 }
@@ -98,7 +98,7 @@ calc_RRxy <- function(lxydt) {
     return(output)
 }
 
-# FIX: I AM NOT SURE jackknife estimate
+# jackknife reference
 # https://reich.hms.harvard.edu/sites/reich.hms.harvard.edu/files/inline-files/lecture2.pdf
 # https://si.biostat.washington.edu/sites/default/files/modules/2017_sisg_1_9_v3_0.pdf
 
@@ -172,11 +172,11 @@ prefixlist = c("syn", "nonsyn", "nonsynDEL", "nonsynTOL", "LOF", "BenignRM", "Da
 xpop = 'GOC'
 ypop = 'ENP'
 
-workdir = paste('/Users/linmeixi/google_drive/finwhale/analyses/Rxy', dataset, ref, sep = '/')
+workdir = paste('<homedir>/finwhale/analyses/Rxy', dataset, ref, sep = '/')
 dir.create(workdir, recursive = TRUE)
 setwd(workdir)
 
-indir = paste('/Users/linmeixi/google_drive/finwhale/analyses/DelVar_vcfR', dataset, ref, 'derive_data/gttable/', sep = '/')
+indir = paste('<homedir>/finwhale/analyses/DelVar_vcfR', dataset, ref, 'derive_data/gttable/', sep = '/')
 plotdir = './plots/'
 outdir1 = './derive_data/lxy_table/'
 outdir2 = './derive_data/rxy_jktable/'

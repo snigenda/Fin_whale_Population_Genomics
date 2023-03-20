@@ -1,11 +1,11 @@
 #! /bin/bash
-#$ -wd /u/project/rwayne/snigenda/finwhale
+#$ -wd <homedir2>/finwhale
 #$ -l h_rt=20:00:00,h_data=2G
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc4.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc4.err.txt
+#$ -o <homedir2>/finwhale/reports/WGSproc4.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc4.err.txt
 #$ -m abe
 
-set -o pipefail 
+set -o pipefail
 ###########################################################
 
 ### Set variables
@@ -14,8 +14,8 @@ USER=${2}
 REF=${3}
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
-SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale 
+HOMEDIR=<homedir2>/finwhale
+SCRATCHDIR=/u/scratch/${USER:0:1}/${USER}/finwhale
 SIRIUSDIR=/data3/finwhale
 
 if [ $REF == 'Minke' ]; then
@@ -23,7 +23,7 @@ if [ $REF == 'Minke' ]; then
 fi
 if [ $REF == 'Bryde' ]; then
     NJOBS=23
-fi 
+fi
 
 cd ${SCRATCHDIR}/preprocessing/${NAME}/${REF}
 
@@ -54,7 +54,7 @@ echo -e "[$(date "+%Y-%m-%d %T")] Checking if all vcf have been moved to HOMEDIR
 for ((ii=1 ; ii<=${NJOBS} ; ii++)) ; do
    # Format the number with padding for the file name part
    printf -v id '%02d' "$ii"
-   # If a file with this name does not exist, print error and exit 
+   # If a file with this name does not exist, print error and exit
    if [ ! -f "${HOMEDIR}/preprocessing/${NAME}/${REF}/${NAME}_${BAMHEAD}_${id}.g.vcf.gz" ] ; then
        # Print it to standard output
        echo -e "${HOMEDIR}/preprocessing/${NAME}/${REF}/${NAME}_${BAMHEAD}_${id}.g.vcf.gz is missing" >> ${PROGRESSLOG}
@@ -64,10 +64,10 @@ for ((ii=1 ; ii<=${NJOBS} ; ii++)) ; do
 done
 echo -e "[$(date "+%Y-%m-%d %T")] Done" >> ${PROGRESSLOG}
 
-### Copy all intermediate logs to sirius 
+### Copy all intermediate logs to sirius
 echo -e "[$(date "+%Y-%m-%d %T")] Copying logs to Sirius... " >> ${PROGRESSLOG}
 ssh ${USER}@sirius.eeb.ucla.edu "mkdir -p ${SIRIUSDIR}/preprocessing/${NAME}/${REF}/scratchlogs"
-scp *.log ${USER}@sirius.eeb.ucla.edu:${SIRIUSDIR}/preprocessing/${NAME}/${REF}/scratchlogs 
+scp *.log ${USER}@sirius.eeb.ucla.edu:${SIRIUSDIR}/preprocessing/${NAME}/${REF}/scratchlogs
 
 exitVal=${?}
 if [ ${exitVal} -ne 0 ]; then
@@ -76,19 +76,19 @@ if [ ${exitVal} -ne 0 ]; then
 fi
 echo -e "[$(date "+%Y-%m-%d %T")] Done" >> ${PROGRESSLOG}
 
-mkdir ${HOMEDIR}/preprocessing/${NAME}/${REF}/scratchlogs 
-mv *log ${HOMEDIR}/preprocessing/${NAME}/${REF}/scratchlogs 
+mkdir ${HOMEDIR}/preprocessing/${NAME}/${REF}/scratchlogs
+mv *log ${HOMEDIR}/preprocessing/${NAME}/${REF}/scratchlogs
 exitVal=${?}
 if [ ${exitVal} -ne 0 ]; then
     echo -e "[$(date "+%Y-%m-%d %T")] FAIL" >> ${PROGRESSLOG}
     exit 1
-fi 
+fi
 
 echo "${NAME},${REF},$(date "+%Y-%m-%d")" >> ${HOMEDIR}/preprocessing/preprocessing_donelist.txt
 
 ###########################################################
 
-### Generate md5sum for the final folder 
+### Generate md5sum for the final folder
 cd ${HOMEDIR}/preprocessing/${NAME}/${REF}
 
 PROGRESSLOG=${HOMEDIR}/preprocessing/${NAME}/${REF}/scratchlogs/WGSproc4_${NAME}_progress.log
@@ -99,15 +99,15 @@ exitVal=${?}
 if [ ${exitVal} -ne 0 ]; then
     echo -e "[$(date "+%Y-%m-%d %T")] FAIL" >> ${PROGRESSLOG}
     exit 1
-fi 
+fi
 
-# remove the line that calculate the md5sum of md5sum 
+# remove the line that calculate the md5sum of md5sum
 sed -i '/.md5sum$/d' preprocessing_${NAME}_${REF}.md5sum
 exitVal=${?}
 if [ ${exitVal} -ne 0 ]; then
     echo -e "[$(date "+%Y-%m-%d %T")] FAIL" >> ${PROGRESSLOG}
     exit 1
-fi 
+fi
 
 echo -e "[$(date "+%Y-%m-%d %T")] Done" >> ${PROGRESSLOG}
 

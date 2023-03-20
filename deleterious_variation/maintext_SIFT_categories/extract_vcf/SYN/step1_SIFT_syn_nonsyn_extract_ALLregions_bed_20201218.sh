@@ -1,21 +1,21 @@
 #!/bin/bash
 #$ -l h_data=8G,h_vmem=10G,h_rt=20:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step1_extract_ALLregions_bed_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step1_extract_ALLregions_bed_20201218.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step1_extract_ALLregions_bed_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step1_extract_ALLregions_bed_20201218.err.txt
 #$ -m abe
 
 # @version      v1
 # @usage        qsub -t 1-96 step1_SIFT_syn_nonsyn_extract_ALLregions_bed_20201218.sh
 # @description  Wrapper of extracting for syn/nonsyn mutation regions from ALL the regions called as bedfiles in Hoffman2 (to match up the vaquita analyses) using the SIFT annotations
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Dec 18 01:01:15 2020
 
 ###########################################################
 ## import packages
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -62,20 +62,20 @@ TODAY=$(date "+%Y%m%d")
 IDX=$(printf %02d ${SGE_TASK_ID})
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 WORKSCRIPT_SIFT=${HOMEDIR}/scripts/get_ALLregions_CDS/SIFT_syn_nonsyn/extract_annregion_SIFT_bed.py
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
-VCFDIR="/u/project/rwayne/snigenda/finwhale/filteredvcf/${DATASET}/${REF}"
+VCFDIR="<homedir2>/finwhale/filteredvcf/${DATASET}/${REF}"
 OUTDIR=${HOMEDIR}/get_ALLregions_CDS//${DATASET}/${REF}/bedfiles
 LOGDIR=${HOMEDIR}/get_ALLregions_CDS//${DATASET}/${REF}/logs
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
+SCRATCHDIR=<scratchdir>/finwhale/analyses/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 
 # input vcf
 MYVCF=${VCFDIR}/JointCalls_${DATASET}_08_B_VariantFiltration_${IDX}.vcf.gz
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 ###########################################################
 ## logging

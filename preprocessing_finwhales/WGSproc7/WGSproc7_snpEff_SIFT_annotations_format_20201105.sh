@@ -1,8 +1,8 @@
 #! /bin/bash
-#$ -wd /u/project/rwayne/snigenda/finwhale
+#$ -wd <homedir2>/finwhale
 #$ -l h_data=15G,h_vmem=16G,h_rt=23:00:00
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc7_all50.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc7_all50.err.txt
+#$ -o <homedir2>/finwhale/reports/WGSproc7_all50.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc7_all50.err.txt
 #$ -m abe
 
 # Step 7: Add annotations for the mutations using snpEff
@@ -18,7 +18,7 @@
 
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -33,7 +33,7 @@ REF=${2}
 BAMHEAD="MarkDuplicates"
 SNPEFFDIR=/u/project/rwayne/software/finwhale/miniconda2/envs/gentools/share/snpeff-4.3.1t-2
 SIFT=/u/project/rwayne/software/finwhale/sift/SIFT4G_Annotator.jar
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
+HOMEDIR=<homedir2>/finwhale
 # SIRIUSDIR=/data3/finwhale
 COMMITID=`git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master`
 

@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l h_data=15G,h_vmem=16G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step3_extract_ALLregions_vcf_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step3_extract_ALLregions_vcf_20201218.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step3_extract_ALLregions_vcf_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/SIFT_syn_nonsyn_step3_extract_ALLregions_vcf_20201218.err.txt
 #$ -m abe
 
 # @version      v2
 # @usage        qsub step3_SIFT_syn_nonsyn_extract_ALLregions_vcf_20201218.sh
 # @description  Wrapper of extracting for SYN/NONSYN mutations in ALLregions (identified by SIFT) from bedfiles as vcf.gz in Hoffman2
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Dec 18 20:43:57 2020
 # should be executed after: step2_SIFT_syn_nonsyn_merge_ALLregions_bed_20201218.sh
 # @modification: Fri Dec 18 20:57:52 2020
@@ -18,7 +18,7 @@
 ## import packages
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail # for safer scripting
@@ -57,7 +57,7 @@ CDSTYPE="ALLregions"
 TODAY=$(date "+%Y%m%d")
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
@@ -67,12 +67,12 @@ BEDDIR=${HOMEDIR}/get_ALLregions_CDS/${DATASET}/${REF}/bedfiles
 mkdir -p ${OUTDIR}
 
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 # input vcf
 MYVCF=${OUTDIR}/JointCalls_all50_08_B_VariantFiltration_ALLregions_all.vcf.gz
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 ###########################################################
 ## subset vcfs

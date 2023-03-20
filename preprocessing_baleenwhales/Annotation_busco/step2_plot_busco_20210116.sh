@@ -3,13 +3,13 @@
 # @version 		v0
 # @script		step2_plot_archive_busco_20210116.sh
 # @description	For plotting and archiving the busco output
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sat Jan 16 13:33:41 2021
 # Ran interactively
 
 ###########################################################
 ## import packages
-eval "$(/u/project/rwayne/meixilin/miniconda3/bin/conda shell.bash hook)"
+eval "$(<software>/miniconda3/bin/conda shell.bash hook)"
 conda activate busco
 
 set -eo pipefail
@@ -24,13 +24,13 @@ REFLIST=("Minke" "Bryde" "Fin" "Blue" "Humpback" "Minke2" "Blue2")
 BUSCODBLIST=("cetartiodactyla_odb10" "mammalia_odb10")
 
 TODAY=$(date "+%Y%m%d")
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/busco
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes/busco
 WORKDIR=${HOMEDIR}/baleen_genomes/busco/BUSCO_summaries_${TODAY}
 mkdir -p ${WORKDIR}
 
-PLOTSCRIPT=/u/project/rwayne/meixilin/miniconda3/envs/busco//bin/generate_plot.py
+PLOTSCRIPT=<software>/miniconda3/envs/busco//bin/generate_plot.py
 
 ###########################################################
 ## main

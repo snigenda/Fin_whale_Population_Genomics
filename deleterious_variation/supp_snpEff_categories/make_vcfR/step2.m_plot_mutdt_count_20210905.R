@@ -1,6 +1,6 @@
 # Title: Plot the master dataset with the invariant sites and bad individuals filtered out
 # Note: SnpEff impact HIGH/MODERATE/LOW matching version
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Apr 22 16:37:56 2021
 # Modification: FINAL use average counts
 # Date: Sun Sep  5 18:26:48 2021
@@ -22,7 +22,7 @@ source("~/Lab/fin_whale/scripts_analyses/config/plotting_config.R")
 
 # def functions --------
 # from: step3.2_plot_mutdt_20210521.R
-source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/facet_functions.R')
+source('<homedir>/fin_whale/scripts_analyses/config/facet_functions.R')
 # from: step4_generate_summarystats_20210218.R in all50
 # get mean normalized variations (by mean value)
 get_mean_rawdt <- function(rawdt) {
@@ -50,8 +50,8 @@ gttype = 'PASSm6'
 # gttype = 'PASSm6CL' # IMPORTANT: DON'T USE THIS VERSION!!!
 prefixlist = c('HIGH','MODERATE','LOW')
 
-# /Users/linmeixi/Google Drive/My Drive/finwhale/analyses/DelVar_vcfR/all50_snpEff_matching/Minke
-workdir = paste('/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
+# <homedir>/finwhale/analyses/DelVar_vcfR/all50_snpEff_matching/Minke
+workdir = paste('<homedir>/finwhale/analyses/DelVar_vcfR/', dataset, ref, sep = '/')
 setwd(workdir)
 
 plotdir = './pub_plots/'

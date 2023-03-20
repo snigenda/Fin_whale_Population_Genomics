@@ -32,9 +32,9 @@ format_pca <- function(pca, popmap, poplevel) {
   return(list(tab, lbls))
 }
 
-genofile <- snpgdsOpen(gds, readonly = TRUE) 
+genofile <- snpgdsOpen(gds, readonly = TRUE)
 # popmap = read.table("../popmap.txt", header = T)
-popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+popmap = read.csv(file = "<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
 colnames(popmap) = c('sample','group','location')
 
 pcaout = snpgdsPCA(genofile, num.thread=8, autosome.only=FALSE, verbose = FALSE)
@@ -47,26 +47,26 @@ tab$Fac <- "PCA, all locations"
 
 
 ggplot(tab, aes(x=PC1, y =PC2, color= loc)) +
-  geom_point(size = 5) + 
-  labs(x = lbls[1], y = lbls[2]) + 
+  geom_point(size = 5) +
+  labs(x = lbls[1], y = lbls[2]) +
   scale_color_manual(values = loccolors) +
   theme_bw(base_size = 12) + theme(panel.grid.major = element_blank(),
-                     panel.grid.minor = element_blank()) 
-  
+                     panel.grid.minor = element_blank())
+
 
 tab2 <- tab[c(24,33),]
 
 
 ggplot(tab, aes(x=PC1, y =PC2, color= loc)) +
-  geom_point(size = 5) + 
-  labs(x = lbls[1], y = lbls[2]) + 
+  geom_point(size = 5) +
+  labs(x = lbls[1], y = lbls[2]) +
   scale_color_manual(values = loccolors) +
-  theme_bw(base_size = 12) + 
+  theme_bw(base_size = 12) +
   theme(panel.grid.major = element_blank(),
                                    panel.grid.minor = element_blank(),
                                    legend.position = "none") +
   geom_label_repel(data=tab2, aes(label = sample.id),
-                   box.padding   = 0.35, 
+                   box.padding   = 0.35,
                    point.padding = 0.5,
                    segment.color = 'grey50')
 
@@ -76,10 +76,10 @@ ggplot(tab, aes(x=PC1, y =PC2, color= loc)) +
 loccolors2 = c("#7570B3","#E7298A","#66A61E","#E6AB02","#A6761D","#D95F02")
 
 p2 <- ggplot(tab, aes(x=PC1, y =PC2, color= loc)) +
-  geom_point(size = 5) + 
-  labs(x = lbls[1], y = lbls[2]) + 
+  geom_point(size = 5) +
+  labs(x = lbls[1], y = lbls[2]) +
   scale_color_manual(values = loccolors2, breaks = c("AK","BC","CA","OR","WA","GOC")) +
-  theme_bw(base_size = 12) + 
+  theme_bw(base_size = 12) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
   labs(color="")

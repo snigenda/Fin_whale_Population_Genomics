@@ -1,5 +1,5 @@
 # Title: Plot the site counts for baleen whales as well
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Thu Jan 28 14:56:29 2021
 
 # Output: Tally of the total genotyped sites and basic statistics after variant filtration for f50b4 dataset

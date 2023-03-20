@@ -1,8 +1,8 @@
 #! /bin/bash
 #$ -l h_data=15G,h_vmem=16G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/snigenda/finwhale
-#$ -o /u/project/rwayne/snigenda/finwhale/reports/WGSproc8_all50.out.txt
-#$ -e /u/project/rwayne/snigenda/finwhale/reports/WGSproc8_all50.err.txt
+#$ -wd <homedir2>/finwhale
+#$ -o <homedir2>/finwhale/reports/WGSproc8_all50.out.txt
+#$ -e <homedir2>/finwhale/reports/WGSproc8_all50.err.txt
 #$ -m abe
 
 # Step 8: Variant filtration first on INFO level, then on FORMAT level
@@ -14,7 +14,7 @@
 # @modification 1. Modify to perform GATK variant filter and genotype filters using two scripts 2. Stop backing up to Sirius
 
 sleep $((RANDOM % 120))
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -o pipefail
@@ -28,7 +28,7 @@ USER=${1}
 REF=${2}
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-HOMEDIR=/u/project/rwayne/snigenda/finwhale
+HOMEDIR=<homedir2>/finwhale
 # SIRIUSDIR=/data3/finwhale
 
 # Use the folder in WGSproc5 that store combined and filtered genotype

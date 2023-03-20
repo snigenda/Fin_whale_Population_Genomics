@@ -1,5 +1,5 @@
 # Title: Read in the summaried results, generate values to copy into word document
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Sun Aug 29 11:22:31 2021
 
 # preparation --------
@@ -33,7 +33,7 @@ filter_parameters <- function(mydt) {
 
 convert_diploid <- function(mydt) {
     model = str_split(mydt$Model[1], '\\.')[[1]][2]
-    vars = varlist_list[[model]] 
+    vars = varlist_list[[model]]
     vars = vars[str_detect(vars, '^N')]
     outdt = mydt
     for (ii in vars) {

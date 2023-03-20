@@ -1,5 +1,5 @@
 # Title: Tally up the NONSYN types
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Dec 14 17:07:52 2020
 
 # preparation --------
@@ -11,7 +11,7 @@ options(echo = TRUE)
 # def functions --------
 
 # def variables --------
-mywd = "/u/project/rwayne/meixilin/fin_whale/analyses/get_ALLregions_CDS/all50/Minke/bedfiles"
+mywd = "<homedir>/get_ALLregions_CDS/all50/Minke/bedfiles"
 setwd(mywd)
 
 # main -------
@@ -20,10 +20,10 @@ dt = read.delim(file = 'JointCalls_all50_filterpassmiss_nonsyn_ALLregions_all_SI
 
 colnames(dt) = c('CHROM', 'BEDSTART', 'END', 'NONSYNTYPE')
 table(dt[,'NONSYNTYPE'], useNA = 'always')
-# DELETERIOUS DELETERIOUS_(*WARNING!_Low_confidence) 
-#       24922                                   8750 
-#   TOLERATED                                   <NA> 
-#       98750                                    103 
+# DELETERIOUS DELETERIOUS_(*WARNING!_Low_confidence)
+#       24922                                   8750
+#   TOLERATED                                   <NA>
+#       98750                                    103
 
 # output --------
 dt = dt[!is.na(dt$NONSYNTYPE),]

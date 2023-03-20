@@ -1,14 +1,14 @@
 #! /bin/bash
 #$ -l h_rt=23:59:00,h_data=12G,h_vmem=16G
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc9_20210127.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc9_20210127.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/baleen_WGSproc9_20210127.out.txt
+#$ -e <homedir>/reports/baleen_genomes/baleen_WGSproc9_20210127.err.txt
 #$ -m abe
 
 # @version 		v1
 # @usage		generate filter statistics
 # @description	WGSproc9_f50b4
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Fri Aug 14 10:58:02 2020
 # @modification Tue Jan 26 22:05:54 2021
 # @modification Update for the baleen_genomes
@@ -17,7 +17,7 @@
 ## import packages
 sleep $((RANDOM % 120))
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -32,9 +32,9 @@ REF="Minke"
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 TODAY=$(date "+%Y%m%d")
 
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes/filteredvcf/${DATASET}/${REF}
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>/baleen_genomes
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes/filteredvcf/${DATASET}/${REF}
 WORKDIR=${HOMEDIR}/filteredvcf/${DATASET}/${REF}
 STATDIR=${WORKDIR}/filter_stats_${TODAY}
 mkdir -p ${WORKDIR}

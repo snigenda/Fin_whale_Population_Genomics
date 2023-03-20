@@ -1,7 +1,7 @@
 # Title: Use the ape neighbor joining tree to construct phylogeny (For use in hoffman2 cluster for bootstrapping, no ggplotting part)
-# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin (meixilin@ucla.edu)
+# Author: Paulina Nunez Valencia (pnunez@lcg.unam.mx); Meixi Lin
 # Date: Mon Mar  1 02:15:28 2021
-# Example: Rscript --vanilla /Users/linmeixi/Lab/fin_whale/scripts_analyses/PopStructure/f50b4/step3_ApePhylogeny_f50b4_20210301.R '/Users/linmeixi/google_drive/finwhale/analyses/PopStructure/f50b4/Minke' 'JointCalls_f50b4_filterpass_bialleic_all_LDPruned_maf05.gds' 'f50b4_pass_bialleic_all_LDPruned_maf05'
+# Example: Rscript --vanilla <homedir>/fin_whale/scripts_analyses/PopStructure/f50b4/step3_ApePhylogeny_f50b4_20210301.R '<homedir>/finwhale/analyses/PopStructure/f50b4/Minke' 'JointCalls_f50b4_filterpass_bialleic_all_LDPruned_maf05.gds' 'f50b4_pass_bialleic_all_LDPruned_maf05'
 
 # IMPORTANT NOTE: The input rows (sample names) for ape::nj need to be named with values other than 1,2,3... The dist.gene function will confuse the dimmension of genotype
 # IMPORTANT NOTE: Here the input matrix should be on the dosage of alternative alleles (when you use the dosage of reference allele, tree looks differently.)
@@ -18,8 +18,8 @@ library(SNPRelate)
 library(ape)
 library(dplyr)
 
-# source('/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/plotting_config.R')
-source('/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/plotting_config.R')
+# source('<homedir>/fin_whale/scripts_analyses/config/plotting_config.R')
+source('<homedir>/scripts/config/plotting_config.R')
 
 # def functions --------
 # convert gtdt to the input for ape::dist.gene
@@ -84,8 +84,8 @@ genofile <- SNPRelate::snpgdsOpen(gdsfile, readonly = TRUE)
 njdt <- get_njdt(genofile)
 
 # get the population names
-# popmap = read.csv(file = '/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/baleen_popid.csv', stringsAsFactor = FALSE)
-popmap = read.csv(file = '/u/project/rwayne/meixilin/fin_whale/analyses/scripts/config/baleen_popid.csv', stringsAsFactor = FALSE)
+# popmap = read.csv(file = '<homedir>/fin_whale/scripts_analyses/config/baleen_popid.csv', stringsAsFactor = FALSE)
+popmap = read.csv(file = '<homedir>/scripts/config/baleen_popid.csv', stringsAsFactor = FALSE)
 
 # main --------
 # get the ape trees ========

@@ -1,14 +1,14 @@
 #!/bin/bash
 #$ -l h_data=15G,h_vmem=16G,h_rt=23:00:00
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_nonsyn_type_step2_extract_ALLregions_vcf_20201218.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/get_ALLregions_CDS/SIFT_nonsyn_type_step2_extract_ALLregions_vcf_20201218.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/get_ALLregions_CDS/SIFT_nonsyn_type_step2_extract_ALLregions_vcf_20201218.out.txt
+#$ -e <homedir>/reports/get_ALLregions_CDS/SIFT_nonsyn_type_step2_extract_ALLregions_vcf_20201218.err.txt
 #$ -m abe
 
 # @version      v1
 # @usage        qsub step2_extract_NONSYNtype_ALLregions_vcf_20201218.sh
 # @description  extract NONSYNtype from JointCalls_all50_filterpassmiss_nonsyn_ALLregions_all_SIFT.vcf.gz
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Dec 14 23:08:34 2020
 # Should be run after: step1_extract_NONSYNtype_ALLregions_bed_20201218.sh
 # @modification: Mon Dec 28 14:43:40 2020
@@ -17,7 +17,7 @@
 ###########################################################
 ## import packages
 
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -57,7 +57,7 @@ TODAY=$(date "+%Y%m%d")
 PASSINGVAR="PASS,WARN_missing"
 
 # working scripts
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses
+HOMEDIR=<homedir>
 COMMITID=$(git --git-dir="${HOMEDIR}/scripts/.git" --work-tree="${HOMEDIR}/scripts" rev-parse master)
 
 # directories
@@ -67,7 +67,7 @@ BEDDIR=${WORKDIR}/bedfiles
 # input vcf
 MYVCF=${WORKDIR}/JointCalls_all50_filterpassmiss_nonsyn_ALLregions_all_SIFT.vcf.gz
 # reference genome
-REFERENCE=/u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
+REFERENCE=<homedir2>/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic.fasta
 
 ###########################################################
 ## main

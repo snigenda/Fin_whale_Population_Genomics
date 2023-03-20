@@ -1,5 +1,5 @@
 # Title: Plot the site counts
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed May 20 15:08:49 2020
 
 # Output: Tally of the total genotyped sites and basic statistics after variant filtration
@@ -55,7 +55,7 @@ TotalCount = sum(unique(sumdt$TotalCount))
 # 2324429748(all50_20201115)
 TotalRefLen = sum(minke_contiglist$LN)
 # 2324429847
-# Note the differences in TotalCount and TotalRefLen is mostly due to the errors during JointGenotyping such as too many alleles issues 
+# Note the differences in TotalCount and TotalRefLen is mostly due to the errors during JointGenotyping such as too many alleles issues
 
 # get the average heterozygosity
 totaldt = sumdt %>%

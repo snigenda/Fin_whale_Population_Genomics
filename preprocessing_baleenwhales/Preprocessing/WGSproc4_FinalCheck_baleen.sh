@@ -1,14 +1,14 @@
 #! /bin/bash
 #$ -l h_rt=20:00:00,h_data=4G
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc4_20210119.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc4_20210119.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/baleen_WGSproc4_20210119.out.txt
+#$ -e <homedir>/reports/baleen_genomes/baleen_WGSproc4_20210119.err.txt
 #$ -m abe
 
 # @version      v0
 # @script       qsub WGSproc4_FinalCheck_baleen.sh <name> <ref>
 # @description  Clean up the files and logs
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Mon Jan 18 13:26:50 2021
 
 ###########################################################
@@ -24,9 +24,9 @@ NAME=${1}
 REF=${2}
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>/baleen_genomes
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes
 LOGDIR=${HOMEDIR}/preprocessing/${NAME}/${REF}/scratchlogs
 
 if [ $REF == 'Minke' ]; then

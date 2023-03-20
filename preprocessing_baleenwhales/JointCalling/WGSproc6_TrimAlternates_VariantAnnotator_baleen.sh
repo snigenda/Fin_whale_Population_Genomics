@@ -1,8 +1,8 @@
 #! /bin/bash
 #$ -l h_rt=23:59:00,h_data=20G,h_vmem=24G
-#$ -wd /u/project/rwayne/meixilin/fin_whale/analyses
-#$ -o /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc6_20210119.out.txt
-#$ -e /u/project/rwayne/meixilin/fin_whale/analyses/reports/baleen_genomes/baleen_WGSproc6_20210119.err.txt
+#$ -wd <homedir>
+#$ -o <homedir>/reports/baleen_genomes/baleen_WGSproc6_20210119.out.txt
+#$ -e <homedir>/reports/baleen_genomes/baleen_WGSproc6_20210119.err.txt
 #$ -m abe
 
 # Step 6: Trim unused alternate alleles and add VariantType and AlleleBalance annotations to INFO column
@@ -12,7 +12,7 @@
 # Usage: qsub -t 1-<idx> WGSproc6_TrimAlternates_VariantAnnotator_baleen.sh
 
 sleep $((RANDOM % 120))
-source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
 conda activate gentools
 
 set -eo pipefail
@@ -26,9 +26,9 @@ DATASET="f50b4" # 50 fin whales + 4 baleen whales
 REF="Minke"
 BAMHEAD="MarkDuplicates" # MarkDuplicates/RemoveBadReads
 
-REFDIR=/u/project/rwayne/snigenda/finwhale
-HOMEDIR=/u/project/rwayne/meixilin/fin_whale/analyses/baleen_genomes
-SCRATCHDIR=/u/scratch/m/meixilin/finwhale/analyses/baleen_genomes
+REFDIR=<homedir2>/finwhale
+HOMEDIR=<homedir>/baleen_genomes
+SCRATCHDIR=<scratchdir>/finwhale/analyses/baleen_genomes
 WORKDIR=${HOMEDIR}/filteredvcf/${DATASET}/${REF}
 mkdir -p ${WORKDIR}
 

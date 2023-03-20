@@ -3,7 +3,7 @@
 # @version      v0
 # @script       bash step0_generate_btsp_files_20210428.sh <REMOTE/LOCAL> <SETTING> <DIR> <PREFIX> <VERSION> <RUN>
 # @description  generate bootstrap files for fsc26 bootstraps
-# Author: Meixi Lin (meixilin@ucla.edu)
+# Author: Meixi Lin
 # Date: Wed Apr 28 13:02:09 2021
 # Testing:
 # LOCAL='local'
@@ -24,19 +24,19 @@ SETTING=${2} # neutral/whole
 REFID=${3} # which line from fsc_output_list.csv to read in
 
 if [ "${LOCAL}" == 'local' ]; then
-    SOURCE0=/Users/linmeixi/google_drive/finwhale/analyses/fsc26/output
-    SINK0=/Users/linmeixi/Lab/fin_whale/scripts_analyses/fsc26/param_btsp/${SETTING}
-    FSCFILE=/Users/linmeixi/Lab/fin_whale/scripts_analyses/fsc26/param_btsp/fsc_output_list.csv
-    WORKSCRIPT=/Users/linmeixi/Lab/fin_whale/scripts_analyses/fsc26/param_btsp/fsc26_generate_bootpar_${SETTING}.py
+    SOURCE0=<homedir>/finwhale/analyses/fsc26/output
+    SINK0=<homedir>/fin_whale/scripts_analyses/fsc26/param_btsp/${SETTING}
+    FSCFILE=<homedir>/fin_whale/scripts_analyses/fsc26/param_btsp/fsc_output_list.csv
+    WORKSCRIPT=<homedir>/fin_whale/scripts_analyses/fsc26/param_btsp/fsc26_generate_bootpar_${SETTING}.py
 elif [ "${LOCAL}" == 'remote' ]; then
     set +xu
-    source /u/project/rwayne/software/finwhale/miniconda2/etc/profile.d/conda.sh
+
     conda activate gentools
     set -x
     SOURCE0=/u/project/rwayne/pnunez/Results/Demography/fsc2
-    SINK0=/u/project/rwayne/meixilin/fin_whale/analyses/scripts/fsc26/param_btsp/${SETTING}
-    FSCFILE=/u/project/rwayne/meixilin/fin_whale/analyses/scripts/fsc26/param_btsp/fsc_output_list.csv
-    WORKSCRIPT=/u/project/rwayne/meixilin/fin_whale/analyses/scripts/fsc26/param_btsp/fsc26_generate_bootpar_${SETTING}.py
+    SINK0=<homedir>/scripts/fsc26/param_btsp/${SETTING}
+    FSCFILE=<homedir>/scripts/fsc26/param_btsp/fsc_output_list.csv
+    WORKSCRIPT=<homedir>/scripts/fsc26/param_btsp/fsc26_generate_bootpar_${SETTING}.py
 else
     echo -e "[$(date "+%Y-%m-%d %T")] ERROR: Wrong LOCAL option ${SETTING}"
     exit 1

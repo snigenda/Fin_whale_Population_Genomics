@@ -18,9 +18,9 @@ popmap = read.table("../../../popmap.txt", header = T)
 
 # Modification: Save the source data
 # Date: Sun Jan  8 16:43:42 2023
-dir <- "/Users/linmeixi/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/Admixture_20210318/maf10/"
+dir <- "<homedir>/finwhale/analyses/PopStructure/all50/Minke/Admixture_20210318/maf10/"
 gdsfile <- "~/Google Drive/My Drive/finwhale/analyses/PopStructure/all50/Minke/JointCalls_all50_filterpass_bialleic_all_LDPruned_maf10.gds"
-popmap = read.csv(file = "/Users/linmeixi/Lab/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
+popmap = read.csv(file = "<homedir>/fin_whale/scripts_analyses/config/popmap_all50.csv", stringsAsFactors = F)
 colnames(popmap) = c('sample','group','location')
 setwd(dir)
 ###########
