@@ -1,0 +1,10 @@
+# Process for concatenating, sorting an merging repetitive regions and CPG islands for fin whales.
+
+## 1. concatenated, using cat, the bed files with CpG islands, repetitive regions and high density of SNPs.
+cat /u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_rm.out.bed /u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/GCF_000493695.1_BalAcu1.0_genomic_repeats.bed /u/project/rwayne/snigenda/finwhale/cetacean_genomes/minke_whale_genome/GCF_000493695.1_BalAcu1.0/ucsc/CpG_ExtUnmasked.bed > CpG_repeats_all_unsorted.bed
+
+## 2. sorted the resulting bed
+sort -k1,1 -k2,2n CpG_repeats_all_unsorted.bed > CpG_repeats_all_sorted.bed
+
+## 3. did a merge using bedtools
+bedtools merge -i CpG_repeats_all_sorted.bed > CpG_repeats_all.bed
