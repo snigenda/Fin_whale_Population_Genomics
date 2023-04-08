@@ -2,8 +2,11 @@
 
 ## 1. Neutral_PreviewProjection_EasySFS_1D.sh (calls other scripts and files)
   easySFS_a.py
+  
   easySFS_function_determineOptimalProjection.R
+  
   pop_map.txt
+  
 ## 2. SFS_preview_v1.R
 ## 3. SFS_projection_chr.sh (calls other scripts and files)
   easySFS_a.py
