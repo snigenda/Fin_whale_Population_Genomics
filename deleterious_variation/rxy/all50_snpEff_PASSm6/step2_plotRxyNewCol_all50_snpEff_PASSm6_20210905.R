@@ -5,6 +5,8 @@
 # Date: Sun Sep  5 19:06:11 2021
 # Modification: Add source data
 # Date: Mon Jan 23 11:30:07 2023
+# Modification: Update p-values to match
+# Date: Mon May  8 19:02:43 2023
 
 
 
@@ -32,7 +34,8 @@ plot_rxy <- function(jk_forplot, rxy_summary, r2xy_summary, muttypes, mutlabs) {
     colnames(summary2.2) = colnames(summary2.1)
 
     summary = dplyr::bind_rows(summary2.1, summary2.2) %>%
-        dplyr::mutate(z_plab = case_when(z_pvalue < 0.001 ~ '***',
+        dplyr::mutate(z_plab = case_when(z_pvalue < 0.0001 ~ '****',
+                                         z_pvalue < 0.001 ~ '***',
                                          z_pvalue < 0.01 & z_pvalue >= 0.001 ~ '**',
                                          z_pvalue < 0.05 & z_pvalue >= 0.01 ~ '*',
                                          TRUE ~ 'ns'))
