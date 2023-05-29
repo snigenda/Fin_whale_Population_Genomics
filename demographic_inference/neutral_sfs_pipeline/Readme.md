@@ -13,6 +13,8 @@ Runs the SFS projection per chromosomes. Calls and uses other scripts and files:
 This script concentrate files names of SFS projection per chromosomes
 
 ## 5. SFS_projection_visualization.R
+Join SFS projections for all the chromosomes and plot them
+
 ## 6. SFS_count_monomorphic_sites.sh (calls other scripts and files)
   getMonomorphicProjectionCounts.1D.2DSFS.py
   
