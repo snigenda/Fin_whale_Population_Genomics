@@ -5,10 +5,9 @@ Identifies variants and invariants sites for each chromosome/scaffold vcf file. 
   
 ## 2. SFS_preview_v1.R
 Puts together the preview of SFS projections for each chromosomes/scaffold
+
 ## 3. SFS_projection_chr.sh (calls other scripts and files)
-  easySFS_a.py
-  
-  pop_map.txt
+Runs the SFS projection per chromosomes. Calls and uses other scripts and files: easySFS_a.py, pop_map.txt
   
 ## 4. Projection_file_list.sh
 ## 5. SFS_projection_visualization.R
