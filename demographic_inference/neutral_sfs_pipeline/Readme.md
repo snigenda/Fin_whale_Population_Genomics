@@ -1,9 +1,10 @@
 # Pipeline to build the neutral SFS
 
 ## 1. Neutral_PreviewProjection_EasySFS_1D.sh (calls other scripts and files)
-This scripts identifies variants and invariants sites for specified vcf files. Additionally, generates and plots the folded SFS preview using the sites identified. This scripts calls and uses other scripts and files: easySFS_a.py, easySFS_function_determineOptimalProjection.R and pop_map.txt
+Identifies variants and invariants sites for each chromosome/scaffold vcf file. Additionally, it generates the projection of the folded SFS using the easySFS program and plots the projection for each chromosome/scaffold. Calls and uses other scripts and files: easySFS_a.py, easySFS_function_determineOptimalProjection.R and pop_map.txt
   
 ## 2. SFS_preview_v1.R
+Puts together the preview of SFS projections for each chromosomes/scaffold
 ## 3. SFS_projection_chr.sh (calls other scripts and files)
   easySFS_a.py
   
